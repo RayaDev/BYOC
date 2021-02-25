@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BYOC</string>
+    <string name="tab_text_1">Converter</string>
+    <string name="tab_text_2">My Set</string>
+    <string name="tab_text_3">Set List</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="converter_fragment_test">This is the converter fragment speaking...</string>
+    <string name="myset_fragment_test">MySet Fragment</string>
+    <string name="set_list_fragment_test">Set List Fragment</string>
+</resources>
