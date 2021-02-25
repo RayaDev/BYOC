@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BYOC</string>
+    <string name="app_name">Build Your Own Converter</string>
     <string name="tab_text_1">Converter</string>
     <string name="tab_text_2">My Set</string>
     <string name="tab_text_3">Set List</string>
