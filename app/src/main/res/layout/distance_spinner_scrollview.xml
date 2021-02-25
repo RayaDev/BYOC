@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/masterDistanceLinearLayout_Preset_ScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:background="@color/purple_500"
+
+        android:theme="@style/Theme.BYOC"
+        android:baselineAligned="false">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:theme="@style/Theme.BYOC">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/DA1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text= "@string/distance_kilometer"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/DA2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_meter"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DA3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_centimeter"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DA4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_millimeter"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DA5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/distance_miles"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DA6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_yard"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DA7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_foot"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DA8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_inch"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:theme="@style/Theme.BYOC">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/DB1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text= "@string/distance_kilometer"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/DB2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_meter"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DB3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_centimeter"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DB4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_millimeter"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DB5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/distance_miles"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DB6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_yard"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DB7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_foot"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:id="@+id/DB8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance_inch"
+                    android:textSize="23sp"
+                    android:textColor="@color/myTextColor"
+                    android:layout_marginBottom="16dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
