@@ -26,10 +26,13 @@
     <style name="custom_scrollview_style">
         <item name="android:background">@color/primaryColor</item>
         <item name="android:textColor">@color/myTextColor</item>
+
+    </style>
+
+    <style name="srollview_textview_style">
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:layout_marginBottom">@dimen/scrollView_margin_bottom</item>
         <item name="android:layout_marginTop">@dimen/scrollView_margin_top</item>
-
     </style>
 
 

@@ -17,7 +17,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,57 +29,65 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text= "@string/distance_kilometer"
+                    style="@style/srollview_textview_style"
                     />
 
                 <TextView
                     android:id="@+id/DA2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance_meter" />
+                    android:text="@string/distance_meter"
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DA3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance_centimeter" />
+                    android:text="@string/distance_centimeter"
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DA4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance_millimeter" />
+                    android:text="@string/distance_millimeter"
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DA5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:text="@string/distance_miles" />
+                    android:text="@string/distance_miles"
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DA6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance_yard" />
+                    android:text="@string/distance_yard"
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DA7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance_foot" />
+                    android:text="@string/distance_foot"
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DA8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/distance_inch" />
+                    android:text="@string/distance_inch"
+                    style="@style/srollview_textview_style"/>
             </LinearLayout>
 
         </ScrollView>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1">
 
             <LinearLayout
@@ -92,33 +100,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text= "@string/distance_kilometer"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="10dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/distance_meter"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/distance_centimeter"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/distance_millimeter"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB5"
@@ -126,32 +129,28 @@
                     android:layout_height="wrap_content"
 
                     android:text="@string/distance_miles"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/distance_yard"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/distance_foot"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
                 <TextView
                     android:id="@+id/DB8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/distance_inch"
-                    android:textSize="23sp"
-                    android:layout_marginBottom="16dp"/>
+                    style="@style/srollview_textview_style"/>
 
             </LinearLayout>
 
