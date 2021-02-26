@@ -17,6 +17,7 @@ To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
 
 Also make sure the basic converter layout is a card view.
+Fragments must handle menu stuff with tab navigation.
 
 
 
