@@ -69,13 +69,21 @@
                android:layout_width="match_parent"
                android:layout_height="75dp"
                android:background="@color/primaryColor"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+
+               android:inputType="numberDecimal"
+               android:imeOptions="actionDone"
+               android:singleLine="true"/>
            <EditText
                android:id="@+id/cardView_UnitBInput_EditText"
                android:layout_width="match_parent"
                android:layout_height="75dp"
                android:background="@color/primaryLightColor"
-               android:layout_weight="1"/>
+               android:layout_weight="1"
+
+               android:inputType="numberDecimal"
+               android:imeOptions="actionDone"
+               android:singleLine="true"/>
 
        </LinearLayout>
        <RelativeLayout
