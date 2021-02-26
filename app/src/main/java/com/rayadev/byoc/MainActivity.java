@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
@@ -68,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                Toast.makeText(getBaseContext(),"Tab Clicked",Toast.LENGTH_SHORT).show();
+                Log.i("TAG", String.valueOf(tab.getPosition()));
+//                Toast.makeText(getBaseContext(),"Tab Clicked",Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -17,14 +17,17 @@ Working: Copy TabExperiment and redo fragments + adapter.
 
 
 Specifics:
+
+SpinnerBug
 To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
 
 Also make sure the basic converter layout is a card view.
 Fragments must handle menu stuff with tab navigation.
 
-Stupid options menu issue must be becuase its not a tool bar...
 
+Done:
+Fixed options menu by reduing PageAdapter
 
 
 

@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,10 +34,12 @@ public class SpinnerScrollViewFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Log.i("TAG", "Spinner onCreateView");
         // Inflate the layout for this fragment
         if(layoutID == 0) {
-            Toast.makeText(getContext(), "Spinner Layout bug", Toast.LENGTH_SHORT).show();
-            layoutID = R.layout.spinner_scrollview_area;
+            Log.i("TAG", "Spinner LayoutBug");
+            layoutID = R.layout.spinner_scrollview_distance;
         }
 
         return inflater.inflate(layoutID, container, false);

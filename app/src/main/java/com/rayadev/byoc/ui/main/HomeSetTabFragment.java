@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.rayadev.byoc.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomeSetTabFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomeSetTabFragment extends Fragment {
 
 
@@ -22,16 +18,6 @@ public class HomeSetTabFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static HomeSetTabFragment newInstance() {
-        HomeSetTabFragment fragment = new HomeSetTabFragment();
-
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
