@@ -17,8 +17,10 @@ import com.rayadev.byoc.R;
 public class ConverterTabFragment extends Fragment {
 
 
+    private int spinnerID;
 
     public ConverterTabFragment() {
+        this.spinnerID = R.layout.spinner_scrollview_distance;
 
     }
 
@@ -31,7 +33,13 @@ public class ConverterTabFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        savedInstanceState = null;
+        //Ensures that we are creating an entirely fresh fragment.
+        //savedInstanceState was causing bugs with the Spinner.
+        //In the future can modify this for a better UX.
+
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -49,7 +57,7 @@ public class ConverterTabFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
 
-        setSpinnerScrollViewFragment(R.layout.spinner_scrollview_area);
+        setSpinnerScrollViewFragment(spinnerID);
 
     }
 

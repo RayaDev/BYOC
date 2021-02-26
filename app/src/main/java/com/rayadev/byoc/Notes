@@ -17,18 +17,18 @@ Working: Copy TabExperiment and redo fragments + adapter.
 
 
 Specifics:
+Also make sure the basic converter layout is a card view.
+Fragments must handle menu stuff with tab navigation.
+
+
+Bugs:
 
 SpinnerBug
 To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
 It's not really a bug.. It's intilziing the fragment before you scroll to it for performance.
 
-Also make sure the basic converter layout is a card view.
-Fragments must handle menu stuff with tab navigation.
-
-
-Done:
-Fixed options menu by reduing PageAdapter
+ConverterTabFrag constructor trying to intialize the spinnerfragment from onCreate savedInstanceState!
 
 
 
