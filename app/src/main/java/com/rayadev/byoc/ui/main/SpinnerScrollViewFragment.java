@@ -10,15 +10,15 @@ import android.view.ViewGroup;
 
 import com.rayadev.byoc.R;
 
-public class UnitScrollViewFragment extends Fragment {
+public class SpinnerScrollViewFragment extends Fragment {
 
     private int layoutID;
 
-    public UnitScrollViewFragment() {
+    public SpinnerScrollViewFragment() {
         // Required empty public constructor
     }
 
-    public UnitScrollViewFragment(int layoutID) {
+    public SpinnerScrollViewFragment(int layoutID) {
         this.layoutID = layoutID;
 
     }
