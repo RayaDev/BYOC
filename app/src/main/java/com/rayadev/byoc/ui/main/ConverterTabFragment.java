@@ -48,7 +48,6 @@ public class ConverterTabFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
 
     }
 
@@ -67,6 +66,7 @@ public class ConverterTabFragment extends Fragment {
 
         setSpinnerScrollViewFragment(R.layout.spinner_scrollview_distance);
 
+
     }
 
 
@@ -76,18 +76,11 @@ public class ConverterTabFragment extends Fragment {
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
         // Replace the contents of the container with the new fragment
-        ft.replace(R.id.test1, mFragment);
+        ft.replace(R.id.spinner_frame_layout, mFragment);
 
         // Complete the changes added above
         ft.commit();
 
-    }
-
-
-    //Trying to inflate a menu..
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.options_menu, menu);
     }
 
 
