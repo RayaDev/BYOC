@@ -39,5 +39,6 @@
     <string name="distance_yard">Yard</string>
     <string name="distance_foot">Foot</string>
     <string name="distance_inch">Inch</string>
+    <string name="action_1">Convert</string>
 
 </resources>
