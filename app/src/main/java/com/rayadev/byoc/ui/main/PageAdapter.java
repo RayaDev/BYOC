@@ -21,9 +21,9 @@ public class PageAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         switch (position) {
-            case 0: return new ConverterTabFragment();
-            case 1: return new HomeSetTabFragment();
-            case 2: return new SetListTabFragment();
+            case 0: return ConverterTabFragment.newInstance();
+            case 1: return HomeSetTabFragment.newInstance();
+            case 2: return SetListTabFragment.newInstance();
             default: return null;
         }
 

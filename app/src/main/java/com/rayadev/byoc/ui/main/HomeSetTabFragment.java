@@ -18,6 +18,17 @@ public class HomeSetTabFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static HomeSetTabFragment newInstance() {
+        HomeSetTabFragment fragment = new HomeSetTabFragment();
+
+        return fragment;
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
