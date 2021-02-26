@@ -12,18 +12,18 @@ import com.rayadev.byoc.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link SetListFragment#newInstance} factory method to
+ * Use the {@link SetListTabFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SetListFragment extends Fragment {
+public class SetListTabFragment extends Fragment {
 
 
-    public SetListFragment() {
+    public SetListTabFragment() {
         // Required empty public constructor
     }
 
-    public static SetListFragment newInstance() {
-        SetListFragment fragment = new SetListFragment();
+    public static SetListTabFragment newInstance() {
+        SetListTabFragment fragment = new SetListTabFragment();
         return fragment;
     }
 

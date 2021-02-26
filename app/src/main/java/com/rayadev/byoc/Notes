@@ -1,0 +1,12 @@
+****General Notes for BYOC****
+
+
+
+> MySet is the home set of converters
+> In SetList, the selection of a list loads that converter set directly on to the SetList fragment.
+
+
+Specifics:
+To fix Spinner performance, need to use nested fragments.
+    > getChildFramgent manager.
+

@@ -10,25 +10,25 @@
     <string name="set_list_fragment_test">Set List Fragment</string>
 
 
-    <string name ="converterSet_1_DefaultTitle">Converter Set One</string>
-    <string name ="converterSet_2_DefaultTitle">Converter Set Two</string>
-    <string name ="converterSet_3_DefaultTitle">Converter Set Three</string>
-    <string name ="converterSet_4_DefaultTitle">Converter Set Four</string>
-    <string name ="converterSet_5_DefaultTitle">Converter Set Five</string>
-    <string name ="converterSet_6_DefaultTitle">Converter Set Six</string>
-    <string name ="converterSet_7_DefaultTitle">Converter Set Seven</string>
-    <string name ="converterSet_8_DefaultTitle">Converter Set Eight</string>
-    <string name ="converterSet_9_DefaultTitle">Converter Set Nine</string>
-    <string name ="converterSet_10_DefaultTitle">Converter Set Ten</string>
+    <string name="converterSet_1_DefaultTitle">Converter Set One</string>
+    <string name="converterSet_2_DefaultTitle">Converter Set Two</string>
+    <string name="converterSet_3_DefaultTitle">Converter Set Three</string>
+    <string name="converterSet_4_DefaultTitle">Converter Set Four</string>
+    <string name="converterSet_5_DefaultTitle">Converter Set Five</string>
+    <string name="converterSet_6_DefaultTitle">Converter Set Six</string>
+    <string name="converterSet_7_DefaultTitle">Converter Set Seven</string>
+    <string name="converterSet_8_DefaultTitle">Converter Set Eight</string>
+    <string name="converterSet_9_DefaultTitle">Converter Set Nine</string>
+    <string name="converterSet_10_DefaultTitle">Converter Set Ten</string>
 
     <!-- Unit Categories -->
-    <string name ="unit_category_distance">Distance</string>
-    <string name ="unit_category_volume">Volume</string>
-    <string name ="unit_category_weight">Weight</string>
-    <string name ="unit_category_temperature">Temperature</string>
-    <string name ="unit_category_time">Time</string>
-    <string name ="unit_category_speed">Speed</string>
-    <string name ="unit_category_area">Area</string>
+    <string name="unit_category_distance">Distance</string>
+    <string name="unit_category_volume">Volume</string>
+    <string name="unit_category_weight">Weight</string>
+    <string name="unit_category_temperature">Temperature</string>
+    <string name="unit_category_time">Time</string>
+    <string name="unit_category_speed">Speed</string>
+    <string name="unit_category_area">Area</string>
 
     <!-- Distance Preset Units -->
     <string name="distance_kilometer">Kilometer</string>

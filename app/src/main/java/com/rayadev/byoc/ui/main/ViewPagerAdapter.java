@@ -29,9 +29,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
 
         switch (position) {
-            case 0: return ConverterFragment.newInstance();
-            case 1: return MySetFragment.newInstance();
-            case 2: return SetListFragment.newInstance();
+            case 0: return ConverterTabFragment.newInstance();
+            case 1: return MySetTabFragment.newInstance();
+            case 2: return SetListTabFragment.newInstance();
         }
 
         return null;

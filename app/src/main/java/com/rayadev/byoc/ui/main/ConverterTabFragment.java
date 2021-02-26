@@ -3,6 +3,7 @@ package com.rayadev.byoc.ui.main;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +13,10 @@ import com.rayadev.byoc.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ConverterFragment#newInstance} factory method to
+ * Use the {@link ConverterTabFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConverterFragment extends Fragment {
+public class ConverterTabFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +27,7 @@ public class ConverterFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ConverterFragment() {
+    public ConverterTabFragment() {
         // Required empty public constructor
     }
 
@@ -36,8 +37,8 @@ public class ConverterFragment extends Fragment {
      */
 
     //Fragment that is returned to the SectionsPagerAdapter
-    public static ConverterFragment newInstance() {
-        ConverterFragment fragment = new ConverterFragment();
+    public static ConverterTabFragment newInstance() {
+        ConverterTabFragment fragment = new ConverterTabFragment();
         return fragment;
     }
 
@@ -53,7 +54,33 @@ public class ConverterFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_converter, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_converter, container, false);
+
+        return view;
     }
+
+    // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        buildSpinnerScrollViewFragment(R.layout.spinner_scrollview_area);
+
+    }
+
+
+    //Replaces the ScrollViews for unit selection based on the spinner menu choice.
+    private void buildSpinnerScrollViewFragment(int layoutID) {
+        Fragment mFragment = new UnitScrollViewFragment(layoutID);
+
+        FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+        // Replace the contents of the container with the new fragment
+        ft.replace(R.id.test1, mFragment);
+
+        // Complete the changes added above
+        ft.commit();
+
+    }
+
+
 }
