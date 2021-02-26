@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        layout="@layout/cardview_test"
+        layout="@layout/cardview_converter_main_layout"
         android:layout_marginTop="24dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
