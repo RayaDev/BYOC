@@ -23,7 +23,7 @@
         android:layout_below="@id/toolbar"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:tabSelectedTextColor="@color/white"
+        app:tabSelectedTextColor="@color/secondaryColor"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <androidx.viewpager.widget.ViewPager

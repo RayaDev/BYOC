@@ -9,8 +9,6 @@
     <gradient
         android:angle="45"
         android:centerX="35%"
-        android:centerColor="@color/purple_700"
-        android:startColor="@color/purple_500"
         android:endColor="@color/material_on_primary_disabled"
         android:type="linear"
         />

@@ -20,6 +20,8 @@ Specifics:
 Also make sure the basic converter layout is a card view.
 Fragments must handle menu stuff with tab navigation.
 
+Themes are applied at the activity level in the manifest.
+
 
 Bugs:
 

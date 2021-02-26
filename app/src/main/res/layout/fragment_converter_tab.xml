@@ -24,7 +24,7 @@
         android:id="@+id/spinner_frame_layout"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:background="@color/purple_700"
+        android:background="@color/secondaryColor"
 
         app:layout_constraintTop_toBottomOf="@id/spinner1"
         app:layout_constraintStart_toStartOf="parent"
