@@ -1,9 +1,13 @@
 package com.rayadev.byoc.ui.main;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.rayadev.byoc.R;
 
 public class PageAdapter extends FragmentStatePagerAdapter {
 
@@ -20,7 +24,9 @@ public class PageAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
+        Log.i("TAG","pager position" + position);
         switch (position) {
+
             case 0: return ConverterTabFragment.newInstance();
             case 1: return HomeSetTabFragment.newInstance();
             case 2: return SetListTabFragment.newInstance();

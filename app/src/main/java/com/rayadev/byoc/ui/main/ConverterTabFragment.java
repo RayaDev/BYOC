@@ -17,8 +17,9 @@ import com.rayadev.byoc.R;
 public class ConverterTabFragment extends Fragment {
 
 
+
     public ConverterTabFragment() {
-        // Required empty public constructor
+
     }
 
     public static ConverterTabFragment newInstance() {
@@ -47,6 +48,7 @@ public class ConverterTabFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
+
         setSpinnerScrollViewFragment(R.layout.spinner_scrollview_area);
 
     }
@@ -64,7 +66,5 @@ public class ConverterTabFragment extends Fragment {
         ft.commit();
 
     }
-
-
 
 }

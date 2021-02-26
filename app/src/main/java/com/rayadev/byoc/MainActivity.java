@@ -65,10 +65,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Setting a listener for clicks
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
+//                viewPager.setCurrentItem(tab.getPosition());
                 Log.i("TAG", String.valueOf(tab.getPosition()));
 //                Toast.makeText(getBaseContext(),"Tab Clicked",Toast.LENGTH_SHORT).show();
             }
