@@ -4,6 +4,12 @@
 
 > MySet is the home set of converters
 > In SetList, the selection of a list loads that converter set directly on to the SetList fragment.
+> Design app as best as possible with MVVM in mind
+
+> Fragments and Activities just control the UI
+    > The ViewModel (Each Fragment has one) and handles the data
+        > Passes that down to a Repository
+            > Which Stores it into room
 
 
 Specifics:
@@ -11,4 +17,6 @@ To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
 
 Also make sure the basic converter layout is a card view.
+
+
 

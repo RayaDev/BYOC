@@ -64,13 +64,13 @@ public class ConverterTabFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        buildSpinnerScrollViewFragment(R.layout.spinner_scrollview_distance);
+        setSpinnerScrollViewFragment(R.layout.spinner_scrollview_distance);
 
     }
 
 
     //Replaces the ScrollViews for unit selection based on the spinner menu choice.
-    private void buildSpinnerScrollViewFragment(int layoutID) {
+    private void setSpinnerScrollViewFragment(int layoutID) {
         Fragment mFragment = new SpinnerScrollViewFragment(layoutID);
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
