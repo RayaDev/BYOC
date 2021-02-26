@@ -2,6 +2,10 @@
 
 
 
+Working: Copy TabExperiment and redo fragments + adapter.
+
+
+
 > MySet is the home set of converters
 > In SetList, the selection of a list loads that converter set directly on to the SetList fragment.
 > Design app as best as possible with MVVM in mind
@@ -18,6 +22,9 @@ To fix Spinner performance, need to use nested fragments.
 
 Also make sure the basic converter layout is a card view.
 Fragments must handle menu stuff with tab navigation.
+
+Stupid options menu issue must be becuase its not a tool bar...
+
 
 
 

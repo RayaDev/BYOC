@@ -7,6 +7,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
 
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
 
 
 }
