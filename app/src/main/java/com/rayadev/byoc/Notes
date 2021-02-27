@@ -1,8 +1,31 @@
 ****General Notes for BYOC****
 
 ToDo:
-Copy ConverterBee EditText convert as changing text. Clear button on keyboard.
-Update Converter card view. Use current cardView for recycleView on HomeSet.
+
+Finish first draft of UI/UX:
+Update Converter card view.
+Create Converter/Set cards from Home Screen
+
+************UI/UX Notes*****************************************************************************
+In the Home Set, Just copy Converter Bee by using little cards to save and load data into the converter.
+
+In the Set List, create useful sets of Converters, that you can save as a link/ card that shows up
+on the Home Set! That makes it a little different than Converter Bee.
+    > Automotive
+    > Finance
+    > USA to Europe
+    > Chemistry
+When you long click a saved converter card, you can move it over to add it to a set.
+    > When you expand a set, it blows up to take over the home screen with all the units that
+    are stored inside of it.
+    > On Set List screen, each set has a little Add next to it. When clicked it adds a card to the home
+    screen, which can be expanded on click to show all the units in that set.
+
+App should always load onto the Home screen after cards have been added to it.
+
+Two little blue lines on the scroll view that snap the units into place, and load them to the converter.
+    > I think recycle view might be better for this?
+
 
 ************BackEnd Notes***************************************************************************
 > MySet is the home set of converters
