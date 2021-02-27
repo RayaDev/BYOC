@@ -14,7 +14,7 @@
 
 
     <style name="custom_scrollview_style">
-        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:background">@drawable/roundcorner</item>
         <item name="android:textColor">@color/whiteTextColor</item>
     </style>
 

@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
 
     android:elevation="1dp"
-    android:background="@drawable/roundcorner"
     style="@style/custom_scrollview_style">
 
     <LinearLayout
