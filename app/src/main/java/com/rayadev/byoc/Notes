@@ -2,10 +2,6 @@
 
 
 
-Working: Copy TabExperiment and redo fragments + adapter.
-
-
-
 > MySet is the home set of converters
 > In SetList, the selection of a list loads that converter set directly on to the SetList fragment.
 > Design app as best as possible with MVVM in mind
@@ -16,15 +12,16 @@ Working: Copy TabExperiment and redo fragments + adapter.
             > Which Stores it into room
 
 
+ToDo:
+Copy ConverterBee EditText convert as changing text. Clear button on keyboard.
+
 Specifics:
-Also make sure the basic converter layout is a card view.
 Fragments must handle menu stuff with tab navigation.
 
 Themes are applied at the activity level in the manifest.
 
 
 Bugs:
-
 SpinnerBug
 To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
