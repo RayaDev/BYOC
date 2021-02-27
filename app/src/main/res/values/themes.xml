@@ -1,11 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorOnPrimary">@color/blueAccentColor</item>
 
         <!-- Other style attributes -->
         <item name="windowActionBar">false</item>
@@ -14,9 +14,8 @@
 
 
     <style name="custom_scrollview_style">
-        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/whiteTextColor</item>
-
     </style>
 
     <style name="srollview_textview_style">
@@ -25,8 +24,11 @@
         <item name="android:layout_marginTop">@dimen/scrollView_margin_top</item>
     </style>
 
-    <style name="MyThemeTest" parent="Theme.AppCompat.NoActionBar">
-
+    <style name="custom_tab_style">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
+        <item name="tabSelectedTextColor">@color/blueAccentColor</item>
+        <item name="tabIndicatorColor">@color/blueAccentColor</item>
     </style>
 
 

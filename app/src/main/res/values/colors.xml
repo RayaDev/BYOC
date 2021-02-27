@@ -7,6 +7,7 @@
     <color name="blackTextColor">#000000</color>
     <color name="appWhiteColor">#ffffff</color>
     <color name="whiteTextColor">#ffffff</color>
+    <color name="cardViewBackGroundColor">#201c1c</color>
 
 
     <!--   color for the app bar and other primary UI elements -->

@@ -26,10 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:tabSelectedTextColor="@color/blueAccentColor"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        style="@style/custom_tab_style"
 
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toTopOf="@id/pager"

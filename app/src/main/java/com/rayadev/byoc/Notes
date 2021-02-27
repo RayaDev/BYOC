@@ -1,7 +1,10 @@
 ****General Notes for BYOC****
 
+ToDo:
+Copy ConverterBee EditText convert as changing text. Clear button on keyboard.
 Just try a material theme with only black and white colors.
 
+************BackEnd Notes***************************************************************************
 > MySet is the home set of converters
 > In SetList, the selection of a list loads that converter set directly on to the SetList fragment.
 > Design app as best as possible with MVVM in mind
@@ -12,16 +15,16 @@ Just try a material theme with only black and white colors.
             > Which Stores it into room
 
 
-ToDo:
-Copy ConverterBee EditText convert as changing text. Clear button on keyboard.
 
-Specifics:
+************Specifics*******************************************************************************
 Fragments must handle menu stuff with tab navigation.
 
 Themes are applied at the activity level in the manifest.
 
+Can select from Android material colors list. There's alot.
 
-Bugs:
+
+************Bugs************************************************************************************
 SpinnerBug
 To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
