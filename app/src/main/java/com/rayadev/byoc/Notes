@@ -26,6 +26,7 @@ App should always load onto the Home screen after cards have been added to it.
 Two little blue lines on the scroll view that snap the units into place, and load them to the converter.
     > I think recycle view might be better for this?
 
+Don't forget to add a build custom units Activity from Converter Tab
 
 ************BackEnd Notes***************************************************************************
 > MySet is the home set of converters
