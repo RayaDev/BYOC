@@ -2,7 +2,7 @@
 
 ToDo:
 Copy ConverterBee EditText convert as changing text. Clear button on keyboard.
-Just try a material theme with only black and white colors.
+Update Converter card view. Use current cardView for recycleView on HomeSet.
 
 ************BackEnd Notes***************************************************************************
 > MySet is the home set of converters
