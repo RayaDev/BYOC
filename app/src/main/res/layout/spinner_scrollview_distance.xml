@@ -82,6 +82,7 @@
                     android:id="@+id/DA8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:text="@string/distance_inch"
                     style="@style/srollview_textview_style"/>
             </LinearLayout>
