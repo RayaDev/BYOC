@@ -48,7 +48,8 @@ Can select from Android material colors list. There's alot.
 
 
 ************Bugs************************************************************************************
-SpinnerBug
+SpinnerBug: Fixed
+    > Clears SavedInstance and Always initializes the Spinner through the ConverterTab constructor.
 To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
 It's not really a bug.. It's intilziing the fragment before you scroll to it for performance.
