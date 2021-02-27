@@ -1,31 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BYOC" parent="Theme.AppCompat.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primaryDarkColor</item>
-        <item name="colorPrimaryVariant">@color/primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/primaryLightColor</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/secondaryColor</item>
-
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="android:textColor">@color/myTextColor</item>
-    </style>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
 
-    <style name="Theme.BYOC.NoActionBar">
+        <!-- Other style attributes -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.BYOC.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.BYOC.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="custom_scrollview_style">
-        <item name="android:background">@color/primaryColor</item>
-        <item name="android:textColor">@color/myTextColor</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/whiteTextColor</item>
 
     </style>
 
@@ -33,6 +23,10 @@
         <item name="android:textSize">@dimen/textSize</item>
         <item name="android:layout_marginBottom">@dimen/scrollView_margin_bottom</item>
         <item name="android:layout_marginTop">@dimen/scrollView_margin_top</item>
+    </style>
+
+    <style name="MyThemeTest" parent="Theme.AppCompat.NoActionBar">
+
     </style>
 
 
