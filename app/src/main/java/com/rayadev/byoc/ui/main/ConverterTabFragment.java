@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 
 import com.rayadev.byoc.R;
 
+
+//The main fragment that allows the user to run conversions, and set up a converter to be saved to the HomeSetTab
 public class ConverterTabFragment extends Fragment {
 
 

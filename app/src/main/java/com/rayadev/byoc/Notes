@@ -1,12 +1,17 @@
 ****General Notes for BYOC****
 
 ToDo:
+Keep up with this project enough during work so that you don't loose Android skills.
 
 Finish first draft of UI/UX:
 Update Converter card view.
-Create Converter/Set cards from Home Screen
+
+
 
 ************UI/UX Notes*****************************************************************************
+Converter Card View will be used from both HomeSetTab and ConverterTab. It simple loads data and sets
+the conversion ratio. Doesn't matter if the ScrollView sets the data, or the converter boxes.
+
 In the Home Set, Just copy Converter Bee by using little cards to save and load data into the converter.
 
 In the Set List, create useful sets of Converters, that you can save as a link/ card that shows up
@@ -29,11 +34,15 @@ Two little blue lines on the scroll view that snap the units into place, and loa
 Don't forget to add a build custom units Activity from Converter Tab
 
 ************BackEnd Notes***************************************************************************
+
+Use MVVM and Room Database Extensively!
+
 > MySet is the home set of converters
 > In SetList, the selection of a list loads that converter set directly on to the SetList fragment.
 > Design app as best as possible with MVVM in mind
 
 > Fragments and Activities just control the UI
+        > Relay the user inputs to the ViewModel
     > The ViewModel (Each Fragment has one) and handles the data
         > Passes that down to a Repository
             > Which Stores it into room

@@ -9,6 +9,9 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.rayadev.byoc.R;
 
+
+
+//Returns the Fragment that determines the content and function of that specific tab.
 public class PageAdapter extends FragmentStatePagerAdapter {
 
     int numOfTabs;
