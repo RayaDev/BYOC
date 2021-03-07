@@ -10,7 +10,6 @@ Update Converter XML to be simple and usable across all Fragments and Activities
     *Working*
     > Add a custom keyboard with a clear button, like a calculator
     > Make Main activity wrench and add button visibility gone when edit text is clicked
-        > Offload UI tasks of MainActivity to a new UIHomeActivity class? Probably Yes..
 
     *Completed*
     > Bottom justify cursor, and add typing line: Complete
