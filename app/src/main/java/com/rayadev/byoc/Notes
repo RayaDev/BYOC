@@ -3,10 +3,18 @@
 ToDo:
 Keep up with this project enough during work so that you don't loose Android skills.
 
+***Main Tasks
 Finish first draft of UI/UX:
+
 Update Converter XML to be simple and usable across all Fragments and Activities
+    *Working*
     > Add a custom keyboard with a clear button, like a calculator
-    > Bottom justify cursor, and add typing line
+    > Make Main activity wrench and add button visibility gone when edit text is clicked
+        > Offload UI tasks of MainActivity to a new UIHomeActivity class? Probably Yes..
+
+    *Completed*
+    > Bottom justify cursor, and add typing line: Complete
+
 Create Converter Box XML
 
 
