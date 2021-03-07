@@ -25,7 +25,7 @@ on the Home Set! That makes it a little different than Converter Bee.
     > Finance
     > USA to Europe
     > Chemistry
-When you long click a saved converter card, you can move it over to add it to a set.
+When you long click a Converter Box (CB), you can move it over to add it to a set.
     > When you expand a set, it blows up to take over the home screen with all the units that
     are stored inside of it.
     > On Set List screen, each set has a little Add next to it. When clicked it adds a card to the home
@@ -53,7 +53,6 @@ Use MVVM and Room Database Extensively!
             > Which Stores it into room
 
 
-
 ************Specifics*******************************************************************************
 Fragments must handle menu stuff with tab navigation.
 
@@ -67,9 +66,9 @@ SpinnerBug: Fixed
     > Clears SavedInstance and Always initializes the Spinner through the ConverterTab constructor.
 To fix Spinner performance, need to use nested fragments.
     > getChildFramgent manager.
-It's not really a bug.. It's intilziing the fragment before you scroll to it for performance.
+It's not really a bug.. It's initializing the fragment before you scroll to it for performance.
 
-ConverterTabFrag constructor trying to intialize the spinnerfragment from onCreate savedInstanceState!
+ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment from onCreate savedInstanceState!
 
 
 
