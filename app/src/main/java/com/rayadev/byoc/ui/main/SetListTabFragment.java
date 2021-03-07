@@ -12,9 +12,8 @@ import com.rayadev.byoc.R;
 
 /*
 Has a list of pre made converter sets that you can choose from
-When you click the set, it opens up a new activity, which has the same converter box selection screen
+When you click the set, it opens up the SetListActivity, which has the same converter box selection screen
 as the HomeSet Tab.
-    > This is the same Activity that is triggered by selecting a sub set from the HomeSetTab.
  */
 public class SetListTabFragment extends Fragment {
 

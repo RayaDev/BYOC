@@ -4,13 +4,18 @@ ToDo:
 Keep up with this project enough during work so that you don't loose Android skills.
 
 Finish first draft of UI/UX:
-Update Converter card view.
+Update Converter XML to be simple and usable across all Fragments and Activities
+Create Converter Box XML
 
 
 
 ************UI/UX Notes*****************************************************************************
-Converter Card View will be used from both HomeSetTab and ConverterTab. It simple loads data and sets
-the conversion ratio. Doesn't matter if the ScrollView sets the data, or the converter boxes.
+Converter Card View (Converter XML from now on out) will be used from both HomeSetTab and ConverterTab.
+Allows the user to run conversions within the CXML UI
+Doesn't matter if the ScrollView sets the data, or the converter boxes (CB's).
+
+CB's load data into the Converter XML when clicked.
+CXML UI allow the user to run conversions.
 
 In the Home Set, Just copy Converter Bee by using little cards to save and load data into the converter.
 
