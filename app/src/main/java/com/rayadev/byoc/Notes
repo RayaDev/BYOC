@@ -5,6 +5,8 @@ Keep up with this project enough during work so that you don't loose Android ski
 
 Finish first draft of UI/UX:
 Update Converter XML to be simple and usable across all Fragments and Activities
+    > Add a custom keyboard with a clear button, like a calculator
+    > Bottom justify cursor, and add typing line
 Create Converter Box XML
 
 

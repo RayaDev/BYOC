@@ -61,8 +61,8 @@
 
         <ImageView
             android:id="@+id/build_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
 
             android:layout_margin="6dp"
             android:layout_weight="1"
@@ -70,8 +70,8 @@
 
         <ImageView
             android:id="@+id/add_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="6dp"
 
             android:layout_weight="1"
