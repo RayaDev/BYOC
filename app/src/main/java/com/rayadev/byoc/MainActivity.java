@@ -19,9 +19,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        initializeUI();
+
+    }
+
+    private void initializeUI() {
+
         setUpToolbar();
         TabLayout tabLayout = setUpTabLayout();
         setUpPageAdapter(tabLayout);
+
     }
 
 
