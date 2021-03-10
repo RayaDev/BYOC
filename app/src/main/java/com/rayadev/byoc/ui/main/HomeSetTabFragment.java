@@ -41,6 +41,6 @@ public class HomeSetTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_set_tab, container, false);
+        return inflater.inflate(R.layout.fragment_home_set_tab, container, false);
     }
 }

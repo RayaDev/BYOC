@@ -3,13 +3,12 @@
 ToDo:
 Keep up with this project enough during work so that you don't loose Android skills.
 
-***Main Tasks
+***Working Tasks
 Finish first draft of UI/UX:
 
 Update Converter XML to be simple and usable across all Fragments and Activities
     *Working*
-    > Add a custom keyboard with a clear button, like a calculator
-    > Make Main activity wrench and add button visibility gone when edit text is clicked
+     > Add Converter XML to HomeSet
 
     *Completed*
     > Bottom justify cursor, and add typing line: Complete
@@ -47,6 +46,10 @@ Two little blue lines on the scroll view that snap the units into place, and loa
 
 Don't forget to add a build custom units Activity from Converter Tab
 
+ToDo:
+> Add a custom keyboard with a clear button, like a calculator
+> Make Main activity wrench and add button visibility gone when edit text is clicked
+
 ************BackEnd Notes***************************************************************************
 
 Use MVVM and Room Database Extensively!
@@ -60,6 +63,7 @@ Use MVVM and Room Database Extensively!
     > The ViewModel (Each Fragment has one) and handles the data
         > Passes that down to a Repository
             > Which Stores it into room
+
 
 > Use JSON to initialize the Room database
 
