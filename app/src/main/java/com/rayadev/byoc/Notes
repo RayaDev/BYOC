@@ -14,6 +14,7 @@ Update Converter XML to be simple and usable across all Fragments and Activities
     > Bottom justify cursor, and add typing line: Complete
 
 Create Converter Box XML
+> Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
 
 
 
