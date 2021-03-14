@@ -6,6 +6,9 @@ Keep up with this project enough during work so that you don't loose Android ski
 ***Working Tasks
 Finish first draft of UI/UX:
 
+Perhaps MainActivity should have the master converter screen including by default in its layout.
+The fragments would just be that middle section.
+
 Update Converter XML to be simple and usable across all Fragments and Activities
     *Working*
      > Add Converter XML to HomeSet
@@ -15,7 +18,7 @@ Update Converter XML to be simple and usable across all Fragments and Activities
 
 Create Converter Box XML
 > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
-> Use one CB XML for all diffrent conversion types. Not just distance.
+> Use one CB XML for all different conversion types. Not just distance.
 
 
 
