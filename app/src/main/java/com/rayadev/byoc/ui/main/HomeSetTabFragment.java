@@ -70,6 +70,26 @@ public class HomeSetTabFragment extends Fragment {
         mConverterArrayList.add(mConverter);
         mConverterArrayList.add(mConverter);
         mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
+        mConverterArrayList.add(mConverter);
 
         // Get a handle to the RecyclerView.
         mRecyclerView = view.findViewById(R.id.home_set_tab_recycler_view);

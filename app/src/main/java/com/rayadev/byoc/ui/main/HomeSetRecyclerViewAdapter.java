@@ -52,7 +52,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mConverterArrayList.size();
     }
 
     //Constructs the actually View from the Converter object in the ArrayList<Converter>
