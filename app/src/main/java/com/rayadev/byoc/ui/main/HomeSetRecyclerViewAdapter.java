@@ -7,10 +7,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.rayadev.byoc.MainActivity;
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 
@@ -38,9 +40,14 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
         return new ConverterBoxViewHolder(mItemView, this);
     }
 
+
+    //This is where the magic happens. Pushes all the Converter data on the View.
     @Override
     public void onBindViewHolder(@NonNull ConverterBoxViewHolder holder, int position) {
-
+        Converter mConverter = mConverterArrayList.get(position);
+        holder.mConverterUnitA_Name.setText(mConverter.getConverterUnitA_Name());
+        holder.mConverterUnitB_Name.setText(mConverter.getConverterUnitB_Name());
+        holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
     }
 
     @Override
@@ -68,13 +75,14 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterUnitB_Name = itemView.findViewById(R.id.converter_box_distance_unit_placeholder_2);
             mConverterImageView = itemView.findViewById(R.id.converter_box_image_view);
             this.mHomeSetRecyclerViewAdapter = adapter;
+            mConverterImageView.setOnClickListener(this);
 
         }
-
 
         //Method to needed to trigger the start of passing the converter data into the main activity.
         @Override
         public void onClick(View v) {
+            Toast.makeText(v.getContext(), "CB IV Clicked", Toast.LENGTH_SHORT).show();
 
         }
 
