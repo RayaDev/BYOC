@@ -84,6 +84,4 @@ public class HomeSetTabFragment extends Fragment {
         mRecyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 4));
     }
 
-
     }
-}
