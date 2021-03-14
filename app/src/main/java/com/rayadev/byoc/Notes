@@ -15,6 +15,7 @@ Update Converter XML to be simple and usable across all Fragments and Activities
 
 Create Converter Box XML
 > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
+> Use one CB XML for all diffrent conversion types. Not just distance.
 
 
 

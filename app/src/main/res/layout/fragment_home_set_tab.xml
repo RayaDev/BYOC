@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.HomeSetTabFragment">
 
-    <LinearLayout
-        android:id="@+id/content_home_set_test"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_set_tab_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
 
@@ -17,11 +17,7 @@
         app:layout_constraintBottom_toTopOf="@id/home_set_converter_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
-        <include
-            android:layout_height="50dp"
-            android:layout_width="50dp"
-            layout="@layout/converter_box_distance"/>
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
     <include
