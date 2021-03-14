@@ -101,7 +101,7 @@ public class HomeSetTabFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
 
         // Give the RecyclerView a default layout manager.
-        mRecyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 4));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 3));
     }
 
     }
