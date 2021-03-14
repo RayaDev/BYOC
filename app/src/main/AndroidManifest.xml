@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.main.CustomConverterActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".ui.main.SetListActivity" />
         <activity
             android:name=".MainActivity"

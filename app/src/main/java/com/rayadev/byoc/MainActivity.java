@@ -1,12 +1,16 @@
 package com.rayadev.byoc;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +43,18 @@ public class MainActivity extends AppCompatActivity {
 
         linkViews();
         setOnClicks();
+        keyBoardManager();
         setUpToolbar();
         TabLayout tabLayout = setUpTabLayout();
         setUpPageAdapter(tabLayout);
+
+    }
+
+    private void keyBoardManager() {
+
+        //Keeps the keyboard from auto-popping up after onCreate()
+        getWindow().setSoftInputMode(WindowManager.
+                LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
     }
 
@@ -64,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     private void linkViews() {
         mCustomConverterButton = findViewById(R.id.build_button);
         mAddHomeSetConverterButton = findViewById(R.id.add_button);
+
     }
 
 
