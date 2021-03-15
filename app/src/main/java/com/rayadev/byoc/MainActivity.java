@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
+    private LinearLayout mBottomUI;
 
 
     @Override
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
     private void linkViews() {
         mCustomConverterButton = findViewById(R.id.build_button);
         mAddHomeSetConverterButton = findViewById(R.id.add_button);
+        mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
 
     }
 
@@ -125,6 +128,18 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition()); //Important for clicking over to new tabs.
                 Log.i("TAG", String.valueOf(tab.getPosition()));
+
+
+
+                //Controls the visibility of the bottom UI
+                if(tab.getPosition() == 1 || tab.getPosition() == 2) {
+                   mBottomUI.setVisibility(View.GONE);
+
+                }
+                else {
+                  mBottomUI.setVisibility(View.VISIBLE);
+
+                }
 
             }
 
