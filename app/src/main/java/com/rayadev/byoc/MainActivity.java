@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //Controls the visibility of the bottom UI
                 if(tab.getPosition() == 1 || tab.getPosition() == 2) {
-                   mBottomUI.setVisibility(View.GONE);
+                   mBottomUI.setVisibility(View.INVISIBLE);
 
                 }
                 else {
