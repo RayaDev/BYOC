@@ -11,6 +11,7 @@ The fragments would just be that middle section.
 
 The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
 Converter selection
+    > Throw an ad banner down there on HomeSet and SetList!
 
 Update Converter XML to be simple and usable across all Fragments and Activities
     *Working*
