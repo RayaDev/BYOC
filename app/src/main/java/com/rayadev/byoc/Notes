@@ -7,30 +7,26 @@ Update Connection With Being to get consent for viewing an Ad
 ***Working Tasks
 Finish first draft of UI/UX:
 
-Perhaps MainActivity should have the master converter screen including by default in its layout.
-The fragments would just be that middle section.
-
-The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
-Converter selection
-    > Throw an ad banner down there on HomeSet and SetList!
-
 Update Converter XML to be simple and usable across all Fragments and Activities
-    *Working*
-     > Add Converter XML to HomeSet
+
+Fix keyboard so that it centers on the Converter XML box
+    > So that you can see all the buttoms on the box.
+
+*Working*
 
     *Completed*
-    > Bottom justify cursor, and add typing line: Complete
+     > Bottom justify cursor, and add typing line: Complete
+     > Add Converter XML to HomeSet
+     >The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
+     Converter selection
 
-Create Converter Box XML
-> Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
-> Use one CB XML for all different conversion types. Not just distance.
-
-
+     Create Converter Box XML
+     > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
+     > Use one CB XML for all different conversion types. Not just distance.
 
 ************UI/UX Notes*****************************************************************************
-Converter Card View (Converter XML from now on out) will be used from both HomeSetTab and ConverterTab.
-Allows the user to run conversions within the CXML UI
-Doesn't matter if the ScrollView sets the data, or the converter boxes (CB's).
+
+Throw an ad banner down there on HomeSet and SetList!
 
 CB's load data into the Converter XML when clicked.
 CXML UI allow the user to run conversions.
@@ -42,8 +38,10 @@ on the Home Set! That makes it a little different than Converter Bee.
     > Automotive
     > Finance
     > USA to Europe
+
     > Chemistry
 The a list from the Set List can be saved to the Home Set as it's own CB
+
 Selecting a set from the Set List will load it's own activity
     > Basically just a pre-populated version of the Home Set
 
@@ -58,9 +56,6 @@ App should always load onto the Home screen after cards have been added to it.
 Two little blue lines on the scroll view that snap the units into place, and load them to the converter.
     > I think recycle view might be better for this?
 
-Don't forget to add a build custom units Activity from Converter Tab
-
-ToDo:
 > Add a custom keyboard with a clear button, like a calculator
 > Make Main activity wrench and add button visibility gone when edit text is clicked
 
@@ -99,4 +94,14 @@ It's not really a bug.. It's initializing the fragment before you scroll to it f
 ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment from onCreate savedInstanceState!
 
 
+***********Done*************************************************************************************
 
+    *Completed*
+     > Bottom justify cursor, and add typing line: Complete
+     > Add Converter XML to HomeSet
+     >The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
+     Converter selection
+
+     Create Converter Box XML
+     > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
+     > Use one CB XML for all different conversion types. Not just distance.
