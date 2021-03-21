@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
     private LinearLayout mBottomUI;
+    private CardView mConverterCardView;
 
 
     @Override
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         mCustomConverterButton = findViewById(R.id.build_button);
         mAddHomeSetConverterButton = findViewById(R.id.add_button);
         mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
+        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
 
     }
 
@@ -139,7 +142,11 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else {
-                  mBottomUI.setVisibility(View.VISIBLE);
+                  mBottomUI.setVisibility(View.GONE);
+
+                }
+
+                if(tab.getPosition() == 2) {
 
                 }
 
