@@ -8,7 +8,9 @@ Finish first draft of UI/UX:
 
 ***Working Tasks
 Fix keyboard so that it centers on the Converter XML box
-    > So that you can see all the buttoms on the box.
+    > So that you can see all the bottoms on the box.
+    > Requires migrating CMCV (converter_master_card_view) into the the Main Activity layout.
+        > Makes the most sense anyway. Should make handling data easier.
 
 *Completed*
     > Bottom justify cursor, and add typing line: Complete
