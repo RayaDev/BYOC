@@ -4,25 +4,23 @@ ToDo:
 Keep up with this project enough during work so that you don't loose Android skills.
 Update Connection With Being to get consent for viewing an Ad
 
-***Working Tasks
 Finish first draft of UI/UX:
 
-Update Converter XML to be simple and usable across all Fragments and Activities
-
+***Working Tasks
 Fix keyboard so that it centers on the Converter XML box
     > So that you can see all the buttoms on the box.
 
-*Working*
-
-    *Completed*
-     > Bottom justify cursor, and add typing line: Complete
-     > Add Converter XML to HomeSet
-     >The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
+*Completed*
+    > Bottom justify cursor, and add typing line: Complete
+    > Add Converter XML to HomeSet
+    >The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
      Converter selection
+    > Update Converter XML to be simple and usable across all Fragments and Activities
 
-     Create Converter Box XML
-     > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
-     > Use one CB XML for all different conversion types. Not just distance.
+
+    Create Converter Box XML
+    > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
+    > Use one CB XML for all different conversion types. Not just distance.
 
 ************UI/UX Notes*****************************************************************************
 
@@ -96,6 +94,13 @@ ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment 
 
 ***********Done*************************************************************************************
 
+
+
+
+
+
+
+3/19
     *Completed*
      > Bottom justify cursor, and add typing line: Complete
      > Add Converter XML to HomeSet
