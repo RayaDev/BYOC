@@ -136,17 +136,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
                 //Controls the visibility of the bottom UI
                 if(tab.getPosition() == 1 || tab.getPosition() == 2) {
-                   mBottomUI.setVisibility(View.INVISIBLE);
-
-                }
-                else {
-                  mBottomUI.setVisibility(View.GONE);
+                    mBottomUI.setVisibility(View.INVISIBLE);
 
                 }
 
                 if(tab.getPosition() == 2) {
+                    mConverterCardView.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    mBottomUI.setVisibility(View.VISIBLE);
+                    mConverterCardView.setVisibility(View.VISIBLE);
 
                 }
 
