@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         mCustomConverterButton = findViewById(R.id.build_button);
         mAddHomeSetConverterButton = findViewById(R.id.add_button);
         mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
-        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
+//        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
 
     }
 
@@ -138,17 +138,14 @@ public class MainActivity extends AppCompatActivity {
 
 
                 //Controls the visibility of the bottom UI
-                if(tab.getPosition() == 1 || tab.getPosition() == 2) {
+                if( tab.getPosition() == 2) {
                     mBottomUI.setVisibility(View.INVISIBLE);
 
                 }
 
-                if(tab.getPosition() == 2) {
-                    mConverterCardView.setVisibility(View.GONE);
-                }
                 else {
                     mBottomUI.setVisibility(View.VISIBLE);
-                    mConverterCardView.setVisibility(View.VISIBLE);
+//                    mConverterCardView.setVisibility(View.VISIBLE);
 
                 }
 
