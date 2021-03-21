@@ -1,6 +1,5 @@
 package com.rayadev.byoc;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,9 +7,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -21,11 +17,8 @@ import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
-import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.ui.main.CustomConverterActivity;
 import com.rayadev.byoc.ui.main.PageAdapter;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
