@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(tab.getPosition() == 2) {
-                    mConverterCardView.setVisibility(View.INVISIBLE);
+                    mConverterCardView.setVisibility(View.GONE);
                 }
                 else {
                     mBottomUI.setVisibility(View.VISIBLE);
