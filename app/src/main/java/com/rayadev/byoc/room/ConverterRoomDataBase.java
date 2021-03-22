@@ -9,6 +9,10 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.rayadev.byoc.R;
+
+import java.util.ArrayList;
+
 
 @Database(entities = {Converter.class}, version = 1, exportSchema = false)
 public abstract class ConverterRoomDataBase extends RoomDatabase {
@@ -64,7 +68,10 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
 
         private final ConverterDAO mDao;
-        String[] words = {"dolphin", "crocodile", "cobra"};
+
+        //String[] words = {"dolphin", "crocodile", "cobra"};
+
+        ArrayList<Converter> mConverterArrayList = new ArrayList<>();
 
         PopulateDbAsync(ConverterRoomDataBase db) {
             mDao = db.mConverterDAO();
@@ -77,8 +84,14 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
             // when it is first created
             //mDao.deleteAll();
 
-
             //****Populate the DataBase here****
+            //Repeat for each converter wanted... Maybe load from a JSON file to make life easier...
+            //Or load all this from a seperate ConverterDataClass like in the old one.
+
+            Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
+            mConverterArrayList.add(mConverter);
+
+
 //            if (mDao.getAnyWord().length < 1) {   //If we have no words, then create the initial list of words
 //                for (int i = 0; i <= words.length - 1; i++) {
 //                    Word word = new Word(words[i]);

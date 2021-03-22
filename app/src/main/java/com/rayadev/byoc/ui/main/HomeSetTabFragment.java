@@ -58,7 +58,7 @@ public class HomeSetTabFragment extends Fragment {
 
 
     private void setUpHomeSetRecyclerView(View view) {
-        //Test data for the view
+        //Test data for the view..Toss all this into the DataBase
         ArrayList<Converter> mConverterArrayList = new ArrayList<>();
         Converter mConverter = new Converter("KM","Miles",R.drawable.ic_baseline_distance_icon, 1,1);
         mConverterArrayList.add(mConverter);
