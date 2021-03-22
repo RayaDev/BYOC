@@ -9,6 +9,7 @@ How you interact and make changes to the SQL database and Entities.
 
 //All of these tasks are performed on a separate thread, but Room handles that automatically.. Thanks Room..
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,6 +17,7 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 interface ConverterDAO {
@@ -33,4 +35,6 @@ interface ConverterDAO {
     ArrayList<Converter> getTargetConverter(String converterName); //Should be get a distinct entity, but ArrayList just in case.
 
 
+    @Query("SELECT * from converter_table ORDER BY converter_name ASC") //Ordering word/entities makes testing easier.
+    LiveData<List<Converter>> getAllConverters();
 }
