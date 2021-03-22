@@ -89,15 +89,19 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
             //Or load all this from a seperate ConverterDataClass like in the old one.
 
             Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
+            Converter mConverter1 = new Converter("CM","M", R.drawable.ic_baseline_distance_icon, 1,1);
+            Converter mConverter2 = new Converter("M","FT", R.drawable.ic_baseline_distance_icon, 1,1);
             mConverterArrayList.add(mConverter);
+            mConverterArrayList.add(mConverter1);
+            mConverterArrayList.add(mConverter2);
 
 
-//            if (mDao.getAnyWord().length < 1) {   //If we have no words, then create the initial list of words
-//                for (int i = 0; i <= words.length - 1; i++) {
-//                    Word word = new Word(words[i]);
-//                    mDao.insert(word);
-//                }
-//            }
+            if (mDao.getAnyConverter().length < 1) {   //If we have no words, then create the initial list of words
+                for (int i = 0; i <= mConverterArrayList.size() - 1; i++) {
+                    Converter converter = mConverterArrayList.get(i);
+                    mDao.insertConverter(converter);
+                }
+            }
 
             return null;
         }

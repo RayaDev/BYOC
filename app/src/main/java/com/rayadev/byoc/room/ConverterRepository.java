@@ -23,7 +23,7 @@ public class ConverterRepository {
 
 
 
-    //This are the methods that get called by the ViewModel.
+    //These are the methods that get called by the ViewModel.
     /*
     Add a wrapper method called getAllConverter() that returns the cached Converters as LiveData.
     Room executes all queries on a separate thread.

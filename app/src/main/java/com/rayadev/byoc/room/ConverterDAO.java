@@ -37,4 +37,7 @@ interface ConverterDAO {
 
     @Query("SELECT * from converter_table ORDER BY converter_name ASC") //Ordering word/entities makes testing easier.
     LiveData<List<Converter>> getAllConverters();
+
+    @Query("SELECT * from converter_table LIMIT 1")
+    Converter[] getAnyConverter(); //Checks to see if that database has be initialized or not by getting a random word.
 }
