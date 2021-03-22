@@ -1,6 +1,7 @@
 package com.rayadev.byoc.ui.main;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.rayadev.byoc.room.Converter;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecyclerViewAdapter.ConverterBoxViewHolder> {
 
@@ -27,8 +29,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     private ItemClickListener mClickListener;
 
     //Passes the data into the constructor the Adapter to use.
-    public HomeSetRecyclerViewAdapter(Context context, ArrayList<Converter> arrayList) {
-        this.mConverterArrayList = arrayList;
+    public HomeSetRecyclerViewAdapter(Context context) {
         mLayoutInflater = LayoutInflater.from(context);
     }
 
@@ -44,15 +45,29 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     //This is where the magic happens. Pushes all the Converter data on the View.
     @Override
     public void onBindViewHolder(@NonNull ConverterBoxViewHolder holder, int position) {
-        Converter mConverter = mConverterArrayList.get(position);
-        holder.mConverterUnitA_Name.setText(mConverter.getConverterUnitA_Name());
-        holder.mConverterUnitB_Name.setText(mConverter.getConverterUnitB_Name());
-        holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
+
+        if(mConverterArrayList != null) {
+            Converter mConverter = mConverterArrayList.get(position);
+            holder.mConverterUnitA_Name.setText(mConverter.getConverterUnitA_Name());
+            holder.mConverterUnitB_Name.setText(mConverter.getConverterUnitB_Name());
+            holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
+        }
+        else {
+            Log.i("TAG", "ConverterArrayList error");
+        }
+    }
+
+    void setConverterArrayList(ArrayList<Converter> converterList){
+        mConverterArrayList = converterList;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return mConverterArrayList.size();
+        //null check, size can't be null.
+        if (mConverterArrayList != null)
+            return mConverterArrayList.size();
+        else return 0;
     }
 
     //Constructs the actually View from the Converter object in the ArrayList<Converter>

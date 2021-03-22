@@ -3,18 +3,21 @@ package com.rayadev.byoc.ui.main;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
+import com.rayadev.byoc.room.ConverterViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /*
 A list of converters (stored in CB's) the user has saved. Each one is a little square like converter bee.
@@ -28,6 +31,7 @@ public class HomeSetTabFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private HomeSetRecyclerViewAdapter mAdapter;
+    private ConverterViewModel mConverterViewModel;
 
 
     public HomeSetTabFragment() {
@@ -58,45 +62,12 @@ public class HomeSetTabFragment extends Fragment {
 
 
     private void setUpHomeSetRecyclerView(View view) {
-        //Test data for the view..Toss all this into the DataBase
-        ArrayList<Converter> mConverterArrayList = new ArrayList<>();
-        Converter mConverter = new Converter("KM","Miles",R.drawable.ic_baseline_distance_icon, 1,1);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
-        mConverterArrayList.add(mConverter);
 
         // Get a handle to the RecyclerView.
         mRecyclerView = view.findViewById(R.id.home_set_tab_recycler_view);
 
         // Create an adapter and supply the data to be displayed.
-        mAdapter = new HomeSetRecyclerViewAdapter(view.getContext(), mConverterArrayList);
+        mAdapter = new HomeSetRecyclerViewAdapter(view.getContext());
 
         // Connect the adapter with the RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
@@ -105,4 +76,21 @@ public class HomeSetTabFragment extends Fragment {
         mRecyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 3));
     }
 
+    private void setUpConverterViewModel(final HomeSetRecyclerViewAdapter adapter) {
+
+        //all the activity's interactions are with the WordViewModel only.
+        // When the activity is destroyed, the ViewModel still exists. It is not subject to LifeCycle methods.
+        mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class); //Call ViewModel constructor directly
+
+        //To display the current contents of the database, you add an observer that observes the LiveData in the ViewModel.
+        //getAllWords passes the data to the MainActivity for display.
+        mConverterViewModel.getAllConverters().observe(this, new Observer<List<Converter>>() {
+            @Override
+            public void onChanged(List<Converter> converters) {
+              adapter.setConverterArrayList((ArrayList<Converter>)converters);
+            }
+        });
+
     }
+
+}
