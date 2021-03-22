@@ -10,17 +10,7 @@ Finish first draft of UI/UX:
 Step 5 on the RoomWordsSample
 
 *Completed*
-    > Fix keyboard so that it centers on the Converter XML box
-    > Bottom justify cursor, and add typing line: Complete
-    > Add Converter XML to HomeSet
-    >The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
-     Converter selection
-    > Update Converter XML to be simple and usable across all Fragments and Activities
 
-
-    Create Converter Box XML
-    > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
-    > Use one CB XML for all different conversion types. Not just distance.
 
 ************UI/UX Notes*****************************************************************************
 
@@ -97,7 +87,19 @@ ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment 
 
 
 
+3/21
+*Completed*
+    > Fix keyboard so that it centers on the Converter XML box
+    > Bottom justify cursor, and add typing line: Complete
+    > Add Converter XML to HomeSet
+    >The add button on the HomeSet and Set list is confusing. Remove most likely so that it's only on the
+     Converter selection
+    > Update Converter XML to be simple and usable across all Fragments and Activities
 
+
+    Create Converter Box XML
+    > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
+    > Use one CB XML for all different conversion types. Not just distance.
 
 
 3/19
