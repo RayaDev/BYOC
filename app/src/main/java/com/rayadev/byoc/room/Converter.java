@@ -1,8 +1,20 @@
 package com.rayadev.byoc.room;
 
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "converter_table")
+//Room should serialize everything inside a class marked with Entity.
+//Add column names if needed, but otherwise all Converter data should still be stored.
 public class Converter {
+
+    //Room annotations
+    @PrimaryKey
+    @ColumnInfo(name = "converter_name")
+    private final String primaryKey;
 
     private String mConverterUnitA_Name;
     private String mConverterUnitB_Name;
@@ -10,12 +22,16 @@ public class Converter {
 //    private int mConverterRatioAB;
 //    private int mConverterRatioBA;
 
+
+
+
     public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, int mConverterRatioAB,
                      int mConverterRatioBA) {
 
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;
         this.mConverterBoxImageID = mConverterBoxImageID;
+        this.primaryKey = mConverterUnitA_Name + mConverterUnitB_Name;
 //        this.mConverterRatioAB = mConverterRatioAB;
 //        this.mConverterRatioBA = mConverterRatioBA;
 
