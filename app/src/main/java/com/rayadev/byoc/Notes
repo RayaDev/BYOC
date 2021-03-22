@@ -85,9 +85,6 @@ ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment 
 
 ***********Done*************************************************************************************
 
-
-
-
 3/21
 *Completed*
     > Fix keyboard so that it centers on the Converter XML box
@@ -101,7 +98,6 @@ ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment 
     Create Converter Box XML
     > Use RecycleView + GridLayout manager to display a set of boxes on the HomeSetTab
     > Use one CB XML for all different conversion types. Not just distance.
-
 
 3/19
     *Completed*
