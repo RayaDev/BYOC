@@ -52,9 +52,6 @@ public class MainActivity extends AppCompatActivity {
         //Keeps the keyboard from auto-popping up after onCreate()
         getWindow().setSoftInputMode(WindowManager.
                 LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-        
-
     }
 
     private void setOnClicks() {

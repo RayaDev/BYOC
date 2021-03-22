@@ -21,28 +21,35 @@ public class ConverterRepository {
         mAllConverters = mConverterDao.getAllConverters();
     }
 
-    //This are the methods that get called by the ViewModel.
 
+
+    //This are the methods that get called by the ViewModel.
     /*
-    Add a wrapper method called getAllWords() that returns the cached words as LiveData.
+    Add a wrapper method called getAllConverter() that returns the cached Converters as LiveData.
     Room executes all queries on a separate thread.
     Observed LiveData notifies the observer when the data changes.
-     */
-    LiveData<List<Converter>> getAllConverters() {
+
+    Add a wrapper for all methods in the ConverterDAO
+    */
+
+    //getter doesn't need AsyncWrapper just returning a List
+    public LiveData<List<Converter>> getAllConverters() {
         return mAllConverters;
     }
 
-    /*
-   Add a wrapper for the insert() method. Use an AsyncTask to call insert() on a non-UI thread, or your app will crash.
-   Room ensures that you don't do any long-running operations on the main thread, which would block the UI.
-    */
-    public void insert (Converter converter) {
+    public void insertConverter (Converter converter) {
         new insertAsyncTask(mConverterDao).execute(converter);
     }
 
     public void deleteConverter(Converter converter)  {
         new deleteConverterAsyncTask(mConverterDao).execute(converter);
     }
+
+    public void getTargetConverter(String converterName) {
+        new getTargetConverterAsyncTask(mConverterDao).execute(converterName);
+
+    }
+
 
     //Every method from the ConverterDAO needs an Async innerclass to execute.
 
@@ -76,5 +83,20 @@ public class ConverterRepository {
         }
     }
 
+    //Calls for a String because we query room for a converter with a matching String name.
+    public static class getTargetConverterAsyncTask extends AsyncTask<String, Void, Void> {
+        private ConverterDAO mAsyncTaskDao;
+
+        public getTargetConverterAsyncTask(ConverterDAO dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+
+            mAsyncTaskDao.getTargetConverter(params[0]);
+            return null;
+        }
+    }
 
 }
