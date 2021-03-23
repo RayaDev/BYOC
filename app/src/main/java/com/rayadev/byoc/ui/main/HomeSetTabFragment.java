@@ -57,6 +57,7 @@ public class HomeSetTabFragment extends Fragment {
 
         View view  = inflater.inflate(R.layout.fragment_home_set_tab, container, false);
         setUpHomeSetRecyclerView(view);
+
         return view;
     }
 
@@ -68,6 +69,8 @@ public class HomeSetTabFragment extends Fragment {
 
         // Create an adapter and supply the data to be displayed.
         mAdapter = new HomeSetRecyclerViewAdapter(view.getContext());
+
+        setUpConverterViewModel(mAdapter);
 
         // Connect the adapter with the RecyclerView.
         mRecyclerView.setAdapter(mAdapter);
@@ -84,7 +87,7 @@ public class HomeSetTabFragment extends Fragment {
 
         //To display the current contents of the database, you add an observer that observes the LiveData in the ViewModel.
         //getAllWords passes the data to the MainActivity for display.
-        mConverterViewModel.getAllConverters().observe(this, new Observer<List<Converter>>() {
+        mConverterViewModel.getAllConverters().observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
               adapter.setConverterArrayList((ArrayList<Converter>)converters);

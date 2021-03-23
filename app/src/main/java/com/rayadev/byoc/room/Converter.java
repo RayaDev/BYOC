@@ -13,6 +13,7 @@ public class Converter {
 
     //Room annotations
     @PrimaryKey(autoGenerate = true)
+    private int converterID;
 
     private String mConverterUnitA_Name;
     private String mConverterUnitB_Name;
@@ -70,6 +71,14 @@ public class Converter {
 
     public void setConverterName(String converterName) {
         mConverterName = converterName;
+    }
+
+    public int getConverterID() {
+        return converterID;
+    }
+
+    public void setConverterID(int converterID) {
+        this.converterID = converterID;
     }
 
 

@@ -32,7 +32,7 @@ interface ConverterDAO {
     void deleteConverter(Converter converter);
 
     @Query("SELECT * from converter_table WHERE converter_name =:converterName")
-    ArrayList<Converter> getTargetConverter(String converterName); //Should be get a distinct entity, but ArrayList just in case.
+    List<Converter> getTargetConverter(String converterName); //Should be get a distinct entity, but ArrayList just in case.
 
 
     @Query("SELECT * from converter_table ORDER BY converter_name ASC") //Ordering word/entities makes testing easier.
