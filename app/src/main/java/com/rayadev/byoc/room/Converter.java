@@ -12,18 +12,21 @@ import androidx.room.PrimaryKey;
 public class Converter {
 
     //Room annotations
-    @PrimaryKey
-    @ColumnInfo(name = "converter_name")
-    private final String primaryKey;
+    @PrimaryKey(autoGenerate = true)
 
     private String mConverterUnitA_Name;
     private String mConverterUnitB_Name;
     private int mConverterBoxImageID;
+
+    @ColumnInfo(name = "converter_name")
+    private String mConverterName;
 //    private int mConverterRatioAB;
 //    private int mConverterRatioBA;
 
 
+    public Converter() {
 
+    }
 
     public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, int mConverterRatioAB,
                      int mConverterRatioBA) {
@@ -31,7 +34,7 @@ public class Converter {
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;
         this.mConverterBoxImageID = mConverterBoxImageID;
-        this.primaryKey = mConverterUnitA_Name + mConverterUnitB_Name;
+        this.mConverterName = mConverterUnitA_Name + mConverterUnitB_Name;
 //        this.mConverterRatioAB = mConverterRatioAB;
 //        this.mConverterRatioBA = mConverterRatioBA;
 
@@ -41,13 +44,34 @@ public class Converter {
         return mConverterUnitA_Name;
     }
 
+    public void setConverterUnitA_Name(String converterUnitA_Name) {
+        mConverterUnitA_Name = converterUnitA_Name;
+    }
+
     public String getConverterUnitB_Name() {
         return mConverterUnitB_Name;
+    }
+
+    public void setConverterUnitB_Name(String converterUnitB_Name) {
+        mConverterUnitB_Name = converterUnitB_Name;
     }
 
     public int getConverterBoxImageID() {
         return mConverterBoxImageID;
     }
+
+    public void setConverterBoxImageID(int converterBoxImageID) {
+        mConverterBoxImageID = converterBoxImageID;
+    }
+
+    public String getConverterName() {
+        return mConverterName;
+    }
+
+    public void setConverterName(String converterName) {
+        mConverterName = converterName;
+    }
+
 
 //    public int getConverterRatioAB() {
 //        return mConverterRatioAB;
