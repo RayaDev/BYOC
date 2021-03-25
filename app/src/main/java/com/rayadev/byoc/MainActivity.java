@@ -14,9 +14,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
+import com.rayadev.byoc.room.Converter;
+import com.rayadev.byoc.room.ConverterViewModel;
 import com.rayadev.byoc.ui.main.CustomConverterActivity;
 import com.rayadev.byoc.ui.main.PageAdapter;
 
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
     private LinearLayout mBottomUI;
     private CardView mConverterCardView;
+    private ConverterViewModel mConverterViewModel;
 
 
     @Override
@@ -66,7 +70,10 @@ public class MainActivity extends AppCompatActivity {
         mAddHomeSetConverterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Add Button Clicked", Toast.LENGTH_SHORT).show();
+                Converter converter = new Converter("M","FT", R.drawable.ic_baseline_distance_icon, 1,1);
+                mConverterViewModel.insertConverter(converter);
+
+                Toast.makeText(MainActivity.this, "Add clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -76,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         mAddHomeSetConverterButton = findViewById(R.id.add_button);
         mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
 //        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
+        mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
 
     }
 

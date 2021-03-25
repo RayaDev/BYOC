@@ -27,7 +27,12 @@ public class ConverterViewModel extends AndroidViewModel {
 
     // The ViewModel implements all methods that will be available to the Main Activity.
     // This completely hides the implementation from the UI.
-    // Pass these up the the Main Activity or whatever needs access.
+    // Pass these up to the the Main Activity or whatever needs access.
+    /*
+    In this case, this ViewModel would mostly be accessed by:
+        >The Add button, any delete buttons
+            > Which is informed by the selections on the Spinner.
+     */
 
     //Wrapper for the "getter" method that gets all the words.
     public LiveData<List<Converter>> getAllConverters() { return mAllConverters; }
