@@ -15,7 +15,7 @@ public class ConverterViewModel extends AndroidViewModel {
     //Add a private member variable to hold a reference to the Repository.
     private ConverterRepository mRepository;
 
-    //Add a private LiveData member variable to cache the list of words.
+    //Add a private LiveData member variable to cache the list of converters.
     private LiveData<List<Converter>> mAllConverters;
 
 
@@ -42,6 +42,7 @@ public class ConverterViewModel extends AndroidViewModel {
 
     public void insertConverter(Converter converter) {mRepository.insertConverter(converter);}
 
+    //This will be implemented by the Spinner. All Converters will already exist in the database.
     public void getTargetConverter(String converterName) {mRepository.getTargetConverter(converterName);}
 
 }
