@@ -77,8 +77,11 @@ public class ConverterTabFragment extends Fragment {
     private void buildSpinner(View view) {
         String [] values =
                 {"Time at Residence","Under 6 months","6-12 months","1-2 years","2-4 years","4-8 years","8-15 years","Over 15 years",};
+
+        String[] units = {"Distance", "Area", "Time", "Volume", "Weight"};
+
         Spinner spinner = (Spinner) view.findViewById(R.id.spinner1);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, units);
         adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         spinner.setAdapter(adapter);
 
