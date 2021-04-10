@@ -59,7 +59,7 @@ public class ConverterTabFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
 
-        setSpinnerScrollViewFragment(spinnerID);
+//        setSpinnerScrollViewFragment(spinnerID);
 
     }
 
