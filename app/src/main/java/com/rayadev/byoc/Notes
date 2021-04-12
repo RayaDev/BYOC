@@ -16,6 +16,8 @@ Step 8 Connect the data with the UI...
 
 
 ************UI/UX Notes*****************************************************************************
+Add currency conversion
+    > Utilize online remote data transfer and the Repository.
 
 Throw an ad banner down there on HomeSet and SetList!
 
@@ -29,7 +31,6 @@ on the Home Set! That makes it a little different than Converter Bee.
     > Automotive
     > Finance
     > USA to Europe
-
     > Chemistry
 The a list from the Set List can be saved to the Home Set as it's own CB
 
