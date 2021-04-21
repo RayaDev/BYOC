@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -75,8 +76,6 @@ public class ConverterTabFragment extends Fragment {
 
 
     private void buildSpinner(View view) {
-        String [] values =
-                {"Time at Residence","Under 6 months","6-12 months","1-2 years","2-4 years","4-8 years","8-15 years","Over 15 years",};
 
         String[] units = {"Distance", "Area", "Time", "Volume", "Weight"};
 
@@ -93,8 +92,16 @@ public class ConverterTabFragment extends Fragment {
                 CharSequence text = selected;
                 int duration = Toast.LENGTH_SHORT;
 
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                if(text.equals("Distance")){
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+
+                }
+
+                if(text.equals("Area")){
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
 
             }
 
