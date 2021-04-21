@@ -40,5 +40,10 @@
     <string name="distance_foot">Foot</string>
     <string name="distance_inch">Inch</string>
     <string name="action_1">Convert</string>
+    <string name="spinner_distance_title">Distance</string>
+    <string name="spinner_area_title">Area</string>
+    <string name="spinner_time_title">Time</string>
+    <string name="spinner_volume_title">Volume</string>
+    <string name="spinner_weight_title">Weight</string>
 
 </resources>
