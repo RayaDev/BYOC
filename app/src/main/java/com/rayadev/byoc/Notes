@@ -9,8 +9,9 @@ Finish first draft of UI/UX:
 ***Working Tasks
 Step 8 Connect the data with the UI...
 > Create converter logic for the Spinner.
+    > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
     > The Spinner is currently its own Fragment.. That does'nt seem to be needed.
-    > Apprently that might be the best way to do this.. Kind of makes sense. But
+    > Apparently that might be the best way to do this.. Kind of makes sense. But
     Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
 
 
