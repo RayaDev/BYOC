@@ -117,9 +117,10 @@ public class SpinnerScrollViewFragment extends Fragment {
 
                 @Override
                 public void onClick(View v) {
-//                    for(TextView textView : mTextViewAList) {
-//                        textView.setBackgroundColor(view.getResources().getColor(R.color.colorPrimaryDark));
-//                    }
+//                    This is for removing the color of the other selected units.
+                    for(TextView textView : mTextViewAList) {
+                        textView.setBackgroundColor(view.getResources().getColor(R.color.colorPrimaryDark));
+                    }
 
                     textView.setBackgroundColor(view.getResources().getColor(R.color.colorAccent));
 //                    setConverterUnitA_ID(textView.getId());
@@ -136,9 +137,9 @@ public class SpinnerScrollViewFragment extends Fragment {
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-//                    for(TextView tv2 : mTextViewBList) {
-//                        tv2.setBackgroundColor(view.getResources().getColor(R.color.colorPrimary));
-//                    }
+                    for(TextView tv2 : mTextViewBList) {
+                        tv2.setBackgroundColor(view.getResources().getColor(R.color.colorPrimary));
+                    }
 
                     textView.setBackgroundColor(view.getResources().getColor(R.color.colorAccent));
 //                    setConverterUnitB_ID(textView.getId());
