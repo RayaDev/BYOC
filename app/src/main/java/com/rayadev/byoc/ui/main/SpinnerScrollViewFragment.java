@@ -91,20 +91,30 @@ public class SpinnerScrollViewFragment extends Fragment {
         final ArrayList<TextView> mTextViewAList = new ArrayList<>();
         final ArrayList<TextView> mTextViewBList = new ArrayList<>();
 
+        int[] distanceScrollViewA_ViewIDs = new int[]{R.id.DA1, R.id.DA2, R.id.DA3, R.id.DA4,
+                R.id.DA5, R.id.DA6, R.id.DA7, R.id.DA8};
+
+        int[] distanceScrollViewB_ViewIDs = new int[]{R.id.DB1, R.id.DB2, R.id.DB3, R.id.DB4,
+                R.id.DB5, R.id.DB6, R.id.DB7, R.id.DB8};
+
         int i = 0;
-        while(i < unitAIDs.size()) {
-           TextView unitATextView = view.findViewById(unitAIDs.get(i));
-           TextView unitBTextView = view.findViewById(unitBIDs.get(i));
+        while(i < distanceScrollViewA_ViewIDs.length) {
+//           TextView unitATextView = view.findViewById(unitAIDs.get(i));
+//           TextView unitBTextView = view.findViewById(unitBIDs.get(i));
+            TextView unitATextView = view.findViewById(distanceScrollViewA_ViewIDs[i]);
+            TextView unitBTextView = view.findViewById(distanceScrollViewB_ViewIDs[i]);
            mTextViewAList.add(unitATextView);
            mTextViewBList.add(unitBTextView);
            i++;
-
         }
 
+        Log.i("TAG", mTextViewAList.size()+"");
         for(final TextView textView : mTextViewAList) {
+            Log.i("TAG", textView.toString());
 
             final int[] a = new int[1];
             textView.setOnClickListener(new View.OnClickListener() {
+
                 @Override
                 public void onClick(View v) {
 //                    for(TextView textView : mTextViewAList) {

@@ -50,7 +50,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             Converter mConverter = mConverterArrayList.get(position);
             holder.mConverterUnitA_Name.setText(mConverter.getConverterUnitA_Name());
             holder.mConverterUnitB_Name.setText(mConverter.getConverterUnitB_Name());
-            holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
+//            holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
         }
         else {
             Log.i("TAG", "ConverterArrayList error");
