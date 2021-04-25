@@ -2,6 +2,8 @@ package com.rayadev.byoc.ui.main;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -26,23 +28,42 @@ public class SpinnerScrollViewFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-//        Log.i("TAG", "Spinner onCreateView");
-//        // Inflate the layout for this fragment
-//        if(layoutID == 0) {
-//            Log.i("TAG", "Spinner LayoutBug");
-//            layoutID = R.layout.spinner_scrollview_distance;
-//        }
 
 
         return inflater.inflate(layoutID, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        //Handle all view interactions here.
+
+        //Handle user selection of units, based on layout ID
+        createScrollViewLogic();
+
+    }
+
+    private void createScrollViewLogic() {
+
+
+        //Get the set of unit View IDs based on the layout being used.
+        //Declare all of this in an arrays resource file.
+        int[] unitAIDs;
+        int[] unitBIDs;
+
+        switch (layoutID) {
+            case R.layout.spinner_scrollview_distance:
+                unitAIDs = getResources().getIntArray(R.array.distance_scrollview_unitA_ID);
+                unitBIDs = getResources().getIntArray(R.array.distance_scrollview_unitB_ID);
+                break;
+
+            case R.layout.spinner_scrollview_area:
+
+
+        }
+
+    }
+
 }

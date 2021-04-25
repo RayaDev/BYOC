@@ -71,7 +71,6 @@ public class ConverterTabFragment extends Fragment {
 //        setSpinnerScrollViewFragment(spinnerID);
 
 
-
     }
 
 

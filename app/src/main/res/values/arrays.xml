@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="distance_scrollview_unitA_ID">
+        <item>@id/DA1</item>
+        <item>@id/DA2</item>
+        <item>@id/DA3</item>
+        <item>@id/DA4</item>
+        <item>@id/DA5</item>
+        <item>@id/DA6</item>
+        <item>@id/DA7</item>
+        <item>@id/DA8</item>
+    </integer-array>
+
+    <integer-array name="distance_scrollview_unitB_ID">
+        <item>@id/DB1</item>
+        <item>@id/DB2</item>
+        <item>@id/DB3</item>
+        <item>@id/DB4</item>
+        <item>@id/DB5</item>
+        <item>@id/DB6</item>
+        <item>@id/DB7</item>
+        <item>@id/DB8</item>
+    </integer-array>
+</resources>
