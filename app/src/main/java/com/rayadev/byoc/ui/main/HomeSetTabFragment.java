@@ -81,7 +81,11 @@ public class HomeSetTabFragment extends Fragment {
 
     private void setUpConverterViewModel(final HomeSetRecyclerViewAdapter adapter) {
 
-        //all the activity's interactions are with the WordViewModel only.
+        //The recyleView utilizes the database to populate itself.
+        //But does the view model really need to be set up with an adapter? Seems silly doesnt look it
+        //Can still be set up inside the homesetfragment, doesn't really matter, problably makes more sense to set up in MainActivity.
+
+        //all the activity's interactions are with the ViewModel only.
         // When the activity is destroyed, the ViewModel still exists. It is not subject to LifeCycle methods.
         mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class); //Call ViewModel constructor directly
 
