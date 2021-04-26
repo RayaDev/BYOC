@@ -38,7 +38,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     public ConverterBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View mItemView = mLayoutInflater.inflate(R.layout.converter_box, parent, false);
-        return new ConverterBoxViewHolder(mItemView, this);
+        return new ConverterBoxViewHolder(mItemView);
     }
 
 
@@ -82,14 +82,13 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 //        private int mConverterRatioAB;
 //        private int mConverterRatioBA;
 
-        private final HomeSetRecyclerViewAdapter mHomeSetRecyclerViewAdapter; //Not sure if i need this or not.
 
-        public ConverterBoxViewHolder(View itemView, HomeSetRecyclerViewAdapter adapter) {
+        public ConverterBoxViewHolder(View itemView) {
             super(itemView);
             mConverterUnitA_Name = itemView.findViewById(R.id.converter_box_distance_unit_placeholder_1);
             mConverterUnitB_Name = itemView.findViewById(R.id.converter_box_distance_unit_placeholder_2);
             mConverterImageView = itemView.findViewById(R.id.converter_box_image_view);
-            this.mHomeSetRecyclerViewAdapter = adapter;
+
             mConverterImageView.setOnClickListener(this);
 
         }

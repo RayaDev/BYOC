@@ -88,25 +88,10 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
             //Repeat for each converter wanted... Maybe load from a JSON file to make life easier...
             //Or load all this from a seperate ConverterDataClass like in the old one.
 
-            Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter1 = new Converter("CM","M", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter2 = new Converter("M","FT", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter3 = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter4 = new Converter("CM","M", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter5 = new Converter("M","FT", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter6 = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter7 = new Converter("CM","M", R.drawable.ic_baseline_distance_icon, 1,1);
-            Converter mConverter8 = new Converter("M","FT", R.drawable.ic_baseline_distance_icon, 1,1);
-            mConverterArrayList.add(mConverter);
-            mConverterArrayList.add(mConverter1);
-            mConverterArrayList.add(mConverter2);
-            mConverterArrayList.add(mConverter3);
-            mConverterArrayList.add(mConverter4);
-            mConverterArrayList.add(mConverter5);
-            mConverterArrayList.add(mConverter6);
-            mConverterArrayList.add(mConverter7);
-            mConverterArrayList.add(mConverter8);
 
+            //Test database
+            Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
+            mConverterArrayList.add(mConverter);
 
 
             if (mDao.getAnyConverter().length < 1) {   //If we have no words, then create the initial list of words
