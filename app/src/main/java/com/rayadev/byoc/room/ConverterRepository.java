@@ -45,8 +45,8 @@ public class ConverterRepository {
         new deleteConverterAsyncTask(mConverterDao).execute(converter);
     }
 
-    public void getTargetConverter(String converterName) {
-        new getTargetConverterAsyncTask(mConverterDao).execute(converterName);
+    public List<Converter> getTargetConverter(String converterName) {
+        return mConverterDao.getTargetConverter(converterName);
 
     }
 
@@ -97,6 +97,8 @@ public class ConverterRepository {
             mAsyncTaskDao.getTargetConverter(params[0]);
             return null;
         }
+
+
     }
 
 }

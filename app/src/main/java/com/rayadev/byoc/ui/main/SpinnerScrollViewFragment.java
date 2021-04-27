@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,7 +15,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rayadev.byoc.MainActivity;
 import com.rayadev.byoc.R;
+import com.rayadev.byoc.room.ConverterRepository;
+import com.rayadev.byoc.room.ConverterViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -108,6 +112,13 @@ public class SpinnerScrollViewFragment extends Fragment {
            i++;
         }
 
+        buildSpinnerUI(view, mTextViewAList, mTextViewBList);
+
+    }
+
+    private void buildSpinnerUI(View view, ArrayList<TextView> mTextViewAList, ArrayList<TextView> mTextViewBList){
+
+
         Log.i("TAG", mTextViewAList.size()+"");
         for(final TextView textView : mTextViewAList) {
             Log.i("TAG", textView.toString());
@@ -127,8 +138,12 @@ public class SpinnerScrollViewFragment extends Fragment {
 //                    checkID(textView.getId());
 //                    sendOverConverter();
 
+                    sendConverterName();
+
+
 
                 }
+
 
             });
         }
@@ -152,6 +167,10 @@ public class SpinnerScrollViewFragment extends Fragment {
             });
         }
 
+    }
+
+    private void sendConverterName() {
+        //Sends the converter name back over to the ConverterTabFragment
     }
 
 }

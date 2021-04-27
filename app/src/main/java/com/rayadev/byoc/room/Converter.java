@@ -35,7 +35,7 @@ public class Converter {
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;
         this.mConverterBoxImageID = mConverterBoxImageID;
-        this.mConverterName = mConverterUnitA_Name + mConverterUnitB_Name;
+        this.mConverterName = mConverterUnitA_Name + mConverterUnitB_Name; //This will be the unique key that we search converters with.
 //        this.mConverterRatioAB = mConverterRatioAB;
 //        this.mConverterRatioBA = mConverterRatioBA;
 

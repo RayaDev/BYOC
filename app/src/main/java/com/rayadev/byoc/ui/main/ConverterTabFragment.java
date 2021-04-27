@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.rayadev.byoc.R;
+import com.rayadev.byoc.room.ConverterViewModel;
 
 
 //The main fragment that allows the user to run conversions, and set up a converter to be saved to the HomeSetTab
@@ -127,5 +129,20 @@ public class ConverterTabFragment extends Fragment {
         ft.commit();
 
     }
+
+    //Will come from the SpinnerInterface
+    private String getConverterName(){
+        return "TestName";
+    }
+
+    private void setUpTargetConverter() {
+
+        //Creating multiple instances of this view model just to access the database seems not good..
+        ConverterViewModel model = new ViewModelProvider(this).get(ConverterViewModel.class);
+        model.getTargetConverter(getConverterName());
+
+    }
+
+    //Need methods to set the data inside the converter_master_cardview
 
 }

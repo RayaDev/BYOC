@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
     private LinearLayout mBottomUI;
     private CardView mConverterCardView;
-    private ConverterViewModel mConverterViewModel;
+    public ConverterViewModel mConverterViewModel;
 
 
     @Override
