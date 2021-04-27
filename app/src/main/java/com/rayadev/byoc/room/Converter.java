@@ -29,8 +29,8 @@ public class Converter {
 
     }
 
-    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, int mConverterRatioAB,
-                     int mConverterRatioBA) {
+    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterRatioAB,
+                     double mConverterRatioBA) {
 
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;

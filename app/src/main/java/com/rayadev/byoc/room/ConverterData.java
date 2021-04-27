@@ -10,13 +10,11 @@ public class ConverterData extends AppCompatActivity{
 
     String s = getResources().getString(R.string.distance_meter);
 
-static {
     //Meters as base unit********************************
 
-    Converter mMtoKM = new Converter(getResources().getString(R.string.distance_meter), R.string.distance_kilometer,1, 0.001);
+    Converter mMtoKM = new Converter(getResources().getString(R.string.distance_meter), getResources().getString(R.string.distance_kilometer),R.drawable.ic_baseline_distance_icon, 1.0, 0.001);
 
-
-    Converter mMtoM = new Converter(R.string.distance_meter,R.string.distance_meter,1, 1);
+    Converter mMtoM = new Converter(getResources().getString(R.string.distance_meter),getResources().getString(R.string.distance_meter),R.drawable.ic_baseline_distance_icon,1, 1);
 
     Converter mMtoCM = new Converter(R.string.distance_meter,R.string.distance_centimeter,1, 100);
 
@@ -35,4 +33,4 @@ static {
     Converter mMtoIN = new Converter(R.string.distance_meter, R.string.distance_inch,1,39.3701);
 }
 
-}
+
