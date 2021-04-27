@@ -46,8 +46,9 @@ public class ConverterRepository {
     }
 
     public List<Converter> getTargetConverter(String converterName) {
+        //Hopefully this works and doesn't slow down too much stuff. Doesn't need Async for quarry?
+        //Does mess it up...
         return mConverterDao.getTargetConverter(converterName);
-
     }
 
 
@@ -86,17 +87,19 @@ public class ConverterRepository {
     //Calls for a String because we query room for a converter with a matching String name.
     public static class getTargetConverterAsyncTask extends AsyncTask<String, Void, Void> {
         private ConverterDAO mAsyncTaskDao;
+        private List<Converter> mTargetConverter;
 
         public getTargetConverterAsyncTask(ConverterDAO dao) {
             mAsyncTaskDao = dao;
         }
 
         @Override
-        protected Void doInBackground(String... params) {
+        public Void doInBackground(String... params) {
 
-            mAsyncTaskDao.getTargetConverter(params[0]);
+            mTargetConverter = mAsyncTaskDao.getTargetConverter(params[0]);
             return null;
         }
+
 
 
     }

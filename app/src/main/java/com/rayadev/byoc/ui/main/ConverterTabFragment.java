@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,7 +21,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.rayadev.byoc.R;
+import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.room.ConverterViewModel;
+
+import java.util.List;
 
 
 //The main fragment that allows the user to run conversions, and set up a converter to be saved to the HomeSetTab
@@ -97,6 +101,7 @@ public class ConverterTabFragment extends Fragment {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                     setSpinnerScrollViewFragment(R.layout.spinner_scrollview_distance);
+                    setUpTargetConverter();
 
                 }
 
@@ -132,14 +137,16 @@ public class ConverterTabFragment extends Fragment {
 
     //Will come from the SpinnerInterface
     private String getConverterName(){
-        return "TestName";
+        return "KMMiles";
     }
 
     private void setUpTargetConverter() {
 
         //Creating multiple instances of this view model just to access the database seems not good..
         ConverterViewModel model = new ViewModelProvider(this).get(ConverterViewModel.class);
-        model.getTargetConverter(getConverterName());
+        List<Converter> mTargetConverter = model.getTargetConverter(getConverterName());
+        Converter converter = mTargetConverter.get(0);
+        Log.i("TAG", converter.toString());
 
     }
 
