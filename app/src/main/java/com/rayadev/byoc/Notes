@@ -15,6 +15,7 @@ Step 8 Connect the data with the UI...
     Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
 
     > Create it so the spinner menu highlights the unit selection.
+    > Implemnt an Asynch task or Handler inside the fragment to fix the UI thread issue with the respository?
 
 
 *Completed*

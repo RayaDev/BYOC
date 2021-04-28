@@ -16,21 +16,21 @@ public class ConverterData extends AppCompatActivity{
 
     Converter mMtoM = new Converter(getResources().getString(R.string.distance_meter),getResources().getString(R.string.distance_meter),R.drawable.ic_baseline_distance_icon,1, 1);
 
-    Converter mMtoCM = new Converter(R.string.distance_meter,R.string.distance_centimeter,1, 100);
-
-
-    Converter mMtoMM = new Converter(R.string.distance_meter,R.string.distance_millimeter,1, 1000);
-
-
-    Converter mMtoMI = new Converter(R.string.distance_meter, R.string.distance_miles,1,0.00062);
-
-
-    Converter mMtoYD = new Converter(R.string.distance_meter, R.string.distance_yard,1,1.09361);
-
-
-    Converter mMtoFT = new Converter(R.string.distance_meter, R.string.distance_foot,1,3.280);
-
-    Converter mMtoIN = new Converter(R.string.distance_meter, R.string.distance_inch,1,39.3701);
+//    Converter mMtoCM = new Converter(R.string.distance_meter,R.string.distance_centimeter,1, 100);
+//
+//
+//    Converter mMtoMM = new Converter(R.string.distance_meter,R.string.distance_millimeter,1, 1000);
+//
+//
+//    Converter mMtoMI = new Converter(R.string.distance_meter, R.string.distance_miles,1,0.00062);
+//
+//
+//    Converter mMtoYD = new Converter(R.string.distance_meter, R.string.distance_yard,1,1.09361);
+//
+//
+//    Converter mMtoFT = new Converter(R.string.distance_meter, R.string.distance_foot,1,3.280);
+//
+//    Converter mMtoIN = new Converter(R.string.distance_meter, R.string.distance_inch,1,39.3701);
 }
 
 
