@@ -141,14 +141,9 @@ public class ConverterTabFragment extends Fragment {
     private void setUpTargetConverter() {
 
         //Creating multiple instances of this view model just to access the database seems not good..
-////        ConverterViewModel model = new ViewModelProvider(this).get(ConverterViewModel.class);
-//        List<Converter> mTargetConverter = model.getTargetConverter(getConverterName());
-
+        //But that's not really whats happening!.. Right?
         ConverterViewModel mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
-
         new getTargetConverterAsyncTask(mConverterViewModel).execute(getConverterName());
-//        Converter converter = mTargetConverter.get(0);
-
 
     }
 
