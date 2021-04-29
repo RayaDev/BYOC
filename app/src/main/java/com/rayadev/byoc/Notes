@@ -14,7 +14,6 @@ Step 8 Connect the data with the UI...
 > Async Task and getConverterIssue
     > Implement an Async task or Handler inside the fragment to fix the UI thread issue with the repository?
         > Seems to work and fixed intial UI thread bug.
-    > Looks like yes! Make the ViewModel a Singleton.
     > Make List<Converter> into LiveData.. Will automatically update when the search is done.
         > Try to get that List part out of it too.. But it helps for the methods and stuff so just leave it lol
             > Need to make it so that the list clears itself at the start of every quarry.
@@ -79,6 +78,13 @@ Two little blue lines on the scroll view that snap the units into place, and loa
 Big question.. is initializing multiple instances of ViewModel to access the Repository and hence the
 database really the best way to do it? Would prefer to just have like one static all accessible View
 Model that the whole app can use.. But is that the right way for real too??
+
+ViewModel Singleton?
+Actually better to have a repository and database singleton.. Which we do in this case for the db.
+
+> Actually not as big of a deal as I thought.. Each ViewModel is unique to the Activity
+Which is this case is only the main activity, so calling it a handfu of times
+Does'nt really create a memory leak?
 
 Use MVVM and Room Database Extensively!
 
