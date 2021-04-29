@@ -10,16 +10,25 @@ Finish first draft of UI/UX:
 Step 8 Connect the data with the UI...
 > Create converter logic for the Spinner.
     > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
-    > The Spinner is currently its own Fragment.. That does'nt seem to be needed.
-        > Apparently that might be the best way to do this.. Kind of makes sense. But
-    Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
 
-    > Create it so the spinner menu highlights the unit selection.
-    > Implemnt an Asynch task or Handler inside the fragment to fix the UI thread issue with the respository?
+> Async Task and getConverterIssue
+    > Implement an Async task or Handler inside the fragment to fix the UI thread issue with the repository?
+        > Seems to work and fixed intial UI thread bug.
+    > Looks like yes! Make the ViewModel a Singleton.
+    > Make List<Converter> into LiveData.. Will automatically update when the search is done.
+        > Try to get that List part out of it too.. But it helps for the methods and stuff so just leave it lol
+            > Need to make it so that the list clears itself at the start of every quarry.
+        > LiveData needs an observer
+            > provides an onChanged method that can update the Converter UI.
+
 
 
 *Completed*
 > Add button working preliminarily
+> Create it so the spinner menu highlights the unit selection.
+> Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
+> The Spinner is currently its own Fragment.. That does'nt seem to be needed.
+> Apparently that might be the best way to do this.. Kind of makes sense. But
 
 
 ************UI/UX Notes*****************************************************************************
@@ -67,6 +76,10 @@ Two little blue lines on the scroll view that snap the units into place, and loa
 
 ************BackEnd Notes***************************************************************************
 
+Big question.. is initializing multiple instances of ViewModel to access the Repository and hence the
+database really the best way to do it? Would prefer to just have like one static all accessible View
+Model that the whole app can use.. But is that the right way for real too??
+
 Use MVVM and Room Database Extensively!
 
 > MySet is the home set of converters
@@ -98,6 +111,9 @@ To fix Spinner performance, need to use nested fragments.
 It's not really a bug.. It's initializing the fragment before you scroll to it for performance.
 
 ConverterTabFrag constructor trying to initialize the SpinnerScrollViewFragment from onCreate savedInstanceState!
+
+AsyncTask UI Thread bug for getTargetConverter()
+    > "Fixed" by creating an AsyncTask on the ConverterTabFragment..
 
 
 ***********Done*************************************************************************************
