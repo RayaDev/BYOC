@@ -1,22 +1,20 @@
 package com.rayadev.byoc.ui.main;
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -143,13 +141,36 @@ public class ConverterTabFragment extends Fragment {
     private void setUpTargetConverter() {
 
         //Creating multiple instances of this view model just to access the database seems not good..
-        ConverterViewModel model = new ViewModelProvider(this).get(ConverterViewModel.class);
-        List<Converter> mTargetConverter = model.getTargetConverter(getConverterName());
-        Converter converter = mTargetConverter.get(0);
-        Log.i("TAG", converter.toString());
+////        ConverterViewModel model = new ViewModelProvider(this).get(ConverterViewModel.class);
+//        List<Converter> mTargetConverter = model.getTargetConverter(getConverterName());
+
+        ConverterViewModel mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
+
+        new getTargetConverterAsyncTask(mConverterViewModel).execute(getConverterName());
+//        Converter converter = mTargetConverter.get(0);
+
 
     }
 
     //Need methods to set the data inside the converter_master_cardview
 
+    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, List<Converter>> {
+
+        private ConverterViewModel mConverterViewModel;
+
+        public getTargetConverterAsyncTask(ConverterViewModel converterViewModel){
+            this.mConverterViewModel = converterViewModel;
+        }
+        @Override
+        protected List<Converter> doInBackground(String... strings) {
+            List<Converter> converters = mConverterViewModel.getTargetConverter(strings[0]);
+            return converters;
+        }
+
+        @Override
+        protected void onPostExecute(List<Converter> converters) {
+            super.onPostExecute(converters);
+            Log.i("TAG", converters.get(0).toString()+"Success!");
+        }
+    }
 }
