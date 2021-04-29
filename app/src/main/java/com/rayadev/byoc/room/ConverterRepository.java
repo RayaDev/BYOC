@@ -46,11 +46,9 @@ public class ConverterRepository {
     }
 
     public List<Converter> getTargetConverter(String converterName) {
-        //Hopefully this works and doesn't slow down too much stuff. Doesn't need Async for quarry?
-        //Does mess it up...
+        //AsynTask occurs at Fragment level. Seems to be good. This needs to be LiveData.
         return mConverterDao.getTargetConverter(converterName);
     }
-
 
     //Every method from the ConverterDAO needs an Async innerclass to execute.
 
