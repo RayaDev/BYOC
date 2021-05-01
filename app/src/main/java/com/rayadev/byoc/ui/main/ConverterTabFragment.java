@@ -15,7 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rayadev.byoc.R;
@@ -30,6 +33,9 @@ public class ConverterTabFragment extends Fragment {
 
 
     private int spinnerID;
+    private TextView mUnitATitleTextView, mUnitBTitleTextView;
+    private EditText mUnitAInputEditText, mUnitBInputEditText;
+    private ImageButton mConverterInfoButton, mConverterSwapButton;
 
     public ConverterTabFragment() {
         this.spinnerID = R.layout.spinner_scrollview_distance;
@@ -60,6 +66,7 @@ public class ConverterTabFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_converter_tab, container, false);
 
+        linkViews(view);
         buildSpinner(view);
 
         return view;
@@ -73,6 +80,23 @@ public class ConverterTabFragment extends Fragment {
 
 
 //        setSpinnerScrollViewFragment(spinnerID);
+
+
+    }
+
+    private void linkViews(View view) {
+
+        //Link ConverterBox Views
+        View myLayout = view.findViewById( R.id.converter_cardlayout_include_converter_tab ); // root View id from include
+
+        mUnitATitleTextView = myLayout.findViewById(R.id.cardView_UnitATitle_TextView);
+        mUnitBTitleTextView = myLayout.findViewById(R.id.cardView_UnitBTitle_TextView);
+
+        mUnitAInputEditText = myLayout.findViewById(R.id.cardView_UnitAInput_EditText);
+        mUnitBInputEditText = myLayout.findViewById(R.id.cardView_UnitBInput_EditText);
+
+        mConverterInfoButton = myLayout.findViewById(R.id.cardView_InfoButton);
+        mConverterSwapButton = myLayout.findViewById(R.id.cardView_SwapButton);
 
 
     }

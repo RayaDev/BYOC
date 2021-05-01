@@ -82,24 +82,4 @@ public class ConverterRepository {
         }
     }
 
-    //Calls for a String because we query room for a converter with a matching String name.
-    public static class getTargetConverterAsyncTask extends AsyncTask<String, Void, Void> {
-        private ConverterDAO mAsyncTaskDao;
-        private List<Converter> mTargetConverter;
-
-        public getTargetConverterAsyncTask(ConverterDAO dao) {
-            mAsyncTaskDao = dao;
-        }
-
-        @Override
-        public Void doInBackground(String... params) {
-
-            mTargetConverter = mAsyncTaskDao.getTargetConverter(params[0]);
-            return null;
-        }
-
-
-
-    }
-
 }
