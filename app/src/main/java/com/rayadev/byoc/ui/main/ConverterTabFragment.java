@@ -101,6 +101,10 @@ public class ConverterTabFragment extends Fragment {
 
     }
 
+    private void setConverterBoxData() {
+
+    }
+
 
     private void buildSpinner(View view) {
 
@@ -176,6 +180,7 @@ public class ConverterTabFragment extends Fragment {
     private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, List<Converter>> {
 
         private ConverterViewModel mConverterViewModel;
+        private ConverterTabFragment mConverterTabFragment;
 
         public getTargetConverterAsyncTask(ConverterViewModel converterViewModel){
             this.mConverterViewModel = converterViewModel;
