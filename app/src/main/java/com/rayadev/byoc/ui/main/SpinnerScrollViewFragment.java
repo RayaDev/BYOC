@@ -74,6 +74,8 @@ public class SpinnerScrollViewFragment extends Fragment {
                 break;
 
             case R.layout.spinner_scrollview_area:
+                //Replace with Area unitIDs
+
                 break;
 
             default:
@@ -94,6 +96,8 @@ public class SpinnerScrollViewFragment extends Fragment {
 
         final ArrayList<TextView> mTextViewAList = new ArrayList<>();
         final ArrayList<TextView> mTextViewBList = new ArrayList<>();
+
+        //Ohh here's where the IDs need to be added for area.. And every other category..
 
         int[] distanceScrollViewA_ViewIDs = new int[]{R.id.DA1, R.id.DA2, R.id.DA3, R.id.DA4,
                 R.id.DA5, R.id.DA6, R.id.DA7, R.id.DA8};
