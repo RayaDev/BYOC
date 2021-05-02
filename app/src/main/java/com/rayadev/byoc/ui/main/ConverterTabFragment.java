@@ -24,6 +24,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.rayadev.byoc.MainActivity;
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.room.ConverterViewModel;
@@ -106,6 +107,8 @@ public class ConverterTabFragment extends Fragment {
     }
 
     private void setConverterBoxData() {
+
+        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
 
     }
 
