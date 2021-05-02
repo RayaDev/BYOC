@@ -106,11 +106,11 @@ public class ConverterTabFragment extends Fragment {
 
     }
 
-    private void setConverterBoxData() {
+    private void setConverterBoxData(String unitAText, String unitBText) {
 
         Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
-        mUnitATitleTextView.setText("Thread");
-        mUnitBTitleTextView.setText("Success");
+        mUnitATitleTextView.setText(unitAText);
+        mUnitBTitleTextView.setText(unitBText);
 
     }
 
@@ -136,6 +136,8 @@ public class ConverterTabFragment extends Fragment {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                     setSpinnerScrollViewFragment(R.layout.spinner_scrollview_distance);
+
+                    //This should be called after the user selects units off the spinner.
                     setUpTargetConverter();
 
                 }
@@ -187,7 +189,10 @@ public class ConverterTabFragment extends Fragment {
         Observer<List<Converter>> observer = new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
-                setConverterBoxData();
+                String unitATitle = converters.get(0).getConverterUnitA_Name();
+                String unitBTitle = converters.get(0).getConverterUnitB_Name();
+
+                setConverterBoxData(unitATitle, unitBTitle);
             }
         };
 

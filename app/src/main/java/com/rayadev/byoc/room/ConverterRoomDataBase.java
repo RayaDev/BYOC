@@ -89,6 +89,7 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
             //Or load all this from a seperate ConverterDataClass like in the old one.
 
 
+
             //Test database.. These String Resources for the name are super important.. Used to search the database. 
             Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
             mConverterArrayList.add(mConverter);
