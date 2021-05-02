@@ -3,6 +3,7 @@ package com.rayadev.byoc.room;
 
 import android.app.Application;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -80,6 +81,21 @@ public class ConverterRepository {
             mAsyncTaskDao.deleteConverter(params[0]);
             return null;
         }
+    }
+
+    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, Void> {
+
+        private ConverterViewModel mConverterViewModel;
+
+        public getTargetConverterAsyncTask(ConverterViewModel converterViewModel){
+            this.mConverterViewModel = converterViewModel;
+        }
+        @Override
+        protected Void doInBackground(String... strings) {
+            LiveData<List<Converter>> converters = mConverterViewModel.getTargetConverter(strings[0]);
+            return null;
+        }
+
     }
 
 }

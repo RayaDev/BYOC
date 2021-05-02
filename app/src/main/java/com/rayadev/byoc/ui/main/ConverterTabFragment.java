@@ -178,69 +178,60 @@ public class ConverterTabFragment extends Fragment {
         //Creating multiple instances of this view model just to access the database seems not good..
         //But that's not really whats happening!.. Right?
         ConverterViewModel mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
-
-//        new getTargetConverterAsyncTask(mConverterViewModel).execute(getConverterName());
-
-        GetTargetConverterThread converterThread = new GetTargetConverterThread(mConverterViewModel);
-        new Thread(converterThread).start();
-
-        //Just use a regular multithreading environment. Much easier than async task.
         mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
-                //This is where you would update the Converter UI with the data.
-                setConverterBoxData();
+               setConverterBoxData();
             }
         });
-
-
     }
 
-    //Need methods to set the data inside the converter_master_cardview
-    //Use LiveData for the List<Converter> with an observer. See HomeSetTab
-    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, LiveData<List<Converter>>> {
-
-        private ConverterViewModel mConverterViewModel;
-
-        public getTargetConverterAsyncTask(ConverterViewModel converterViewModel){
-            this.mConverterViewModel = converterViewModel;
-        }
-        @Override
-        protected LiveData<List<Converter>> doInBackground(String... strings) {
-            LiveData<List<Converter>> converters = mConverterViewModel.getTargetConverter(strings[0]);
-            return converters;
-        }
-
-        @Override
-        protected void onPostExecute(LiveData<List<Converter>> converters) {
-            super.onPostExecute(converters);
-            Log.i("TAG", converters.getValue()+"success");
-
-        }
-    }
-
-    private class GetTargetConverterThread implements Runnable {
-
-        private String converterName;
-        private ConverterViewModel mConverterViewModel;
-
-        private GetTargetConverterThread(ConverterViewModel converterViewModel) {
-            this.mConverterViewModel = converterViewModel;
-        }
-
-        public GetTargetConverterThread(String converterName, ConverterViewModel converterViewModel) {
-            this.converterName = converterName;
-        }
-
-        @Override
-        public void run() {
-            mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
-                @Override
-                public void onChanged(List<Converter> converters) {
-                    //This is where you would update the Converter UI with the data.
-                    setConverterBoxData();
-                }
-            });
-        }
-    }
+//    //Need methods to set the data inside the converter_master_cardview
+//    //Use LiveData for the List<Converter> with an observer. See HomeSetTab
+//    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, LiveData<List<Converter>>> {
+//
+//        private ConverterViewModel mConverterViewModel;
+//
+//        public getTargetConverterAsyncTask(ConverterViewModel converterViewModel){
+//            this.mConverterViewModel = converterViewModel;
+//        }
+//        @Override
+//        protected LiveData<List<Converter>> doInBackground(String... strings) {
+//            LiveData<List<Converter>> converters = mConverterViewModel.getTargetConverter(strings[0]);
+//            return converters;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(LiveData<List<Converter>> converters) {
+//            super.onPostExecute(converters);
+//            Log.i("TAG", converters.getValue()+"success");
+//
+//        }
+//    }
+//
+//    private class GetTargetConverterThread implements Runnable {
+//
+//        private String converterName;
+//        private ConverterViewModel mConverterViewModel;
+//
+//        private GetTargetConverterThread(ConverterViewModel converterViewModel) {
+//            this.mConverterViewModel = converterViewModel;
+//        }
+//
+//        public GetTargetConverterThread(String converterName, ConverterViewModel converterViewModel) {
+//            this.converterName = converterName;
+//        }
+//
+//        @Override
+//        public void run() {
+//            mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
+//                @Override
+//                public void onChanged(List<Converter> converters) {
+//                    //This is where you would update the Converter UI with the data.
+//                    setConverterBoxData();
+//                }
+//            });
+//        }
+//
+//    }
 }
