@@ -178,7 +178,8 @@ public class ConverterTabFragment extends Fragment {
 
 //        new getTargetConverterAsyncTask(mConverterViewModel).execute(getConverterName());
 
-
+        GetTargetConverterThread converterThread = new GetTargetConverterThread(mConverterViewModel);
+        new Thread(converterThread).start();
 
         //Just use a regular multithreading environment. Much easier than async task.
         mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
@@ -198,7 +199,6 @@ public class ConverterTabFragment extends Fragment {
 
         private ConverterViewModel mConverterViewModel;
 
-
         public getTargetConverterAsyncTask(ConverterViewModel converterViewModel){
             this.mConverterViewModel = converterViewModel;
         }
@@ -212,7 +212,32 @@ public class ConverterTabFragment extends Fragment {
         protected void onPostExecute(LiveData<List<Converter>> converters) {
             super.onPostExecute(converters);
             Log.i("TAG", converters.getValue()+"success");
-            //Update Converter UI here using LiveData and observer?
+
+        }
+    }
+
+    private class GetTargetConverterThread implements Runnable {
+
+        private String converterName;
+        private ConverterViewModel mConverterViewModel;
+
+        private GetTargetConverterThread(ConverterViewModel converterViewModel) {
+            this.mConverterViewModel = converterViewModel;
+        }
+
+        public GetTargetConverterThread(String converterName, ConverterViewModel converterViewModel) {
+            this.converterName = converterName;
+        }
+
+        @Override
+        public void run() {
+            mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
+                @Override
+                public void onChanged(List<Converter> converters) {
+                    //This is where you would update the Converter UI with the data.
+                    setConverterBoxData();
+                }
+            });
         }
     }
 }
