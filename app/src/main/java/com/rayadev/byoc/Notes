@@ -12,6 +12,8 @@ Step 8 Connect the data with the UI...
 > Async Task and getTargetConverter***
     > Finish updating the ConverterUI, and implement the functionality
     > Pre-populate the Room database.
+        > createFromAsset() takes a String argument. Looks like a JSON
+            > Need a database schema to match the file.
     > Test getting different converters out of the database.
 
 > Create converter logic for the Spinner.
