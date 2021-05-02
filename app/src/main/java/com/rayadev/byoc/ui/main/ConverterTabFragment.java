@@ -180,18 +180,49 @@ public class ConverterTabFragment extends Fragment {
         //Creating multiple instances of this view model just to access the database seems not good..
         //But that's not really whats happening!.. Right?
         ConverterViewModel mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
-        mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
+
+        LiveData<List<Converter>> converterData = mConverterViewModel.getTargetConverter(getConverterName());
+
+        //This observer seems to be getting triggered from the add button, and other fragments.
+        Observer<List<Converter>> observer = new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
-               setConverterBoxData();
-
+                setConverterBoxData();
             }
-        });
+        };
+
+        converterData.observe(getViewLifecycleOwner(), observer);
 
     }
 
+}
+
+
+
+
+
+
+
+
+
+
+
+//Other attemps at Threads and Async
+
 //    //Need methods to set the data inside the converter_master_cardview
 //    //Use LiveData for the List<Converter> with an observer. See HomeSetTab
+
+//
+//        mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
+//            @Override
+//            public void onChanged(List<Converter> converters) {
+//               setConverterBoxData();
+//
+//            }
+//        });
+
+
+
 //    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, LiveData<List<Converter>>> {
 //
 //        private ConverterViewModel mConverterViewModel;
@@ -238,4 +269,3 @@ public class ConverterTabFragment extends Fragment {
 //        }
 //
 //    }
-}
