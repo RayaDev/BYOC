@@ -109,6 +109,8 @@ public class ConverterTabFragment extends Fragment {
     private void setConverterBoxData() {
 
         Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
+        mUnitATitleTextView.setText("Thread");
+        mUnitBTitleTextView.setText("Success");
 
     }
 
