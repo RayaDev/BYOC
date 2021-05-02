@@ -45,7 +45,7 @@ public class ConverterRepository {
         new deleteConverterAsyncTask(mConverterDao).execute(converter);
     }
 
-    public List<Converter> getTargetConverter(String converterName) {
+    public LiveData<List<Converter>> getTargetConverter(String converterName) {
         //AsynTask occurs at Fragment level. Seems to be good. This needs to be LiveData.
         return mConverterDao.getTargetConverter(converterName);
     }

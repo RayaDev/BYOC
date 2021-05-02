@@ -43,7 +43,7 @@ public class ConverterViewModel extends AndroidViewModel {
     public void insertConverter(Converter converter) {mRepository.insertConverter(converter);}
 
     //This will be implemented by the Spinner. All Converters will already exist in the database.
-    public List<Converter> getTargetConverter(String converterName) {
+    public LiveData<List<Converter>> getTargetConverter(String converterName) {
         return mRepository.getTargetConverter(converterName);
     }
 

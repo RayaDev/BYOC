@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
@@ -25,6 +28,7 @@ import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.room.ConverterViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -171,13 +175,26 @@ public class ConverterTabFragment extends Fragment {
         //Creating multiple instances of this view model just to access the database seems not good..
         //But that's not really whats happening!.. Right?
         ConverterViewModel mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
-        new getTargetConverterAsyncTask(mConverterViewModel).execute(getConverterName());
+
+//        new getTargetConverterAsyncTask(mConverterViewModel).execute(getConverterName());
+
+
+
+        //Just use a regular multithreading environment. Much easier than async task.
+        mConverterViewModel.getTargetConverter(getConverterName()).observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
+            @Override
+            public void onChanged(List<Converter> converters) {
+                //This is where you would update the Converter UI with the data.
+                setConverterBoxData();
+            }
+        });
+
 
     }
 
     //Need methods to set the data inside the converter_master_cardview
-
-    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, List<Converter>> {
+    //Use LiveData for the List<Converter> with an observer. See HomeSetTab
+    private static class getTargetConverterAsyncTask extends AsyncTask<String, Void, LiveData<List<Converter>>> {
 
         private ConverterViewModel mConverterViewModel;
 
@@ -186,15 +203,15 @@ public class ConverterTabFragment extends Fragment {
             this.mConverterViewModel = converterViewModel;
         }
         @Override
-        protected List<Converter> doInBackground(String... strings) {
-            List<Converter> converters = mConverterViewModel.getTargetConverter(strings[0]);
+        protected LiveData<List<Converter>> doInBackground(String... strings) {
+            LiveData<List<Converter>> converters = mConverterViewModel.getTargetConverter(strings[0]);
             return converters;
         }
 
         @Override
-        protected void onPostExecute(List<Converter> converters) {
+        protected void onPostExecute(LiveData<List<Converter>> converters) {
             super.onPostExecute(converters);
-            Log.i("TAG", converters.get(0).toString()+"Success!");
+            Log.i("TAG", converters.getValue()+"success");
             //Update Converter UI here using LiveData and observer?
         }
     }
