@@ -184,8 +184,10 @@ public class ConverterTabFragment extends Fragment {
             @Override
             public void onChanged(List<Converter> converters) {
                setConverterBoxData();
+
             }
         });
+
     }
 
 //    //Need methods to set the data inside the converter_master_cardview
