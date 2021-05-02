@@ -11,18 +11,14 @@ Step 8 Connect the data with the UI...
 > Create converter logic for the Spinner.
     > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
 
-> Async Task and getConverterIssue
-    > Implement an Async task or Handler inside the fragment to fix the UI thread issue with the repository?
-        > Seems to work and fixed intial UI thread bug.
-    > Make List<Converter> into LiveData.. Will automatically update when the search is done.
-        > Try to get that List part out of it too.. But it helps for the methods and stuff so just leave it lol
-            > Need to make it so that the list clears itself at the start of every quarry.
-        > LiveData needs an observer
-            > provides an onChanged method that can update the Converter UI.
-
-
+> Async Task and getTargetConverter
+    > Finish updating the ConverterUI, and implement the functionality
+    > Test getting different converters out of the database.
 
 *Completed*
+    > Make List<Converter> into LiveData.. Will automatically update when the search is done.
+        > LiveData needs an observer
+            > provides an onChanged method that can update the Converter UI.
 > Add button working preliminarily
 > Create it so the spinner menu highlights the unit selection.
 > Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
