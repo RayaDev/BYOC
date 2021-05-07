@@ -14,7 +14,7 @@ import com.rayadev.byoc.R;
 import java.util.ArrayList;
 
 
-@Database(entities = {Converter.class}, version = 1, exportSchema = false)
+@Database(entities = {Converter.class}, version = 1, exportSchema = true)
 public abstract class ConverterRoomDataBase extends RoomDatabase {
 
     //Provide an abstract "getter" method for each @Dao
