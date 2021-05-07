@@ -36,6 +36,7 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
                             // if no Migration object.
                             // Migration is not part of this practical.
                             .fallbackToDestructiveMigration()
+                            .createFromAsset("test3.db")
                             .addCallback(sRoomDatabaseCallback) //Adds the call back the cleans and repopulates the database,
                             .build();
                 }
