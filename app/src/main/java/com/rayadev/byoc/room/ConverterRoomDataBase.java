@@ -35,9 +35,10 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
                             // Wipes and rebuilds instead of migrating
                             // if no Migration object.
                             // Migration is not part of this practical.
-                            .fallbackToDestructiveMigration()
+                            //This was the issue with the add Converter button.
+//                            .fallbackToDestructiveMigration()
                             .createFromAsset("test3.db")
-                            .addCallback(sRoomDatabaseCallback) //Adds the call back the cleans and repopulates the database,
+//                            .addCallback(sRoomDatabaseCallback) //Adds the call back the cleans and repopulates the database,
                             .build();
                 }
             }
