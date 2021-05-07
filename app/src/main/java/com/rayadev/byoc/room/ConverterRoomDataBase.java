@@ -14,7 +14,7 @@ import com.rayadev.byoc.R;
 import java.util.ArrayList;
 
 
-@Database(entities = {Converter.class}, version = 1, exportSchema = true)
+@Database(entities = {Converter.class}, version = 1, exportSchema = false)
 public abstract class ConverterRoomDataBase extends RoomDatabase {
 
     //Provide an abstract "getter" method for each @Dao
@@ -37,7 +37,7 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
                             // Migration is not part of this practical.
                             .fallbackToDestructiveMigration()
                             .createFromAsset("test3.db")
-                            .addCallback(sRoomDatabaseCallback) //Adds the call back the cleans and repopulates the database,
+//                            .addCallback(sRoomDatabaseCallback) //Adds the call back the cleans and repopulates the database,
                             .build();
                 }
             }
@@ -93,8 +93,8 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
 
 
             //Test database.. These String Resources for the name are super important.. Used to search the database. 
-            Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
-            mConverterArrayList.add(mConverter);
+//            Converter mConverter = new Converter("KM","Miles", R.drawable.ic_baseline_distance_icon, 1,1);
+//            mConverterArrayList.add(mConverter);
 
 
             if (mDao.getAnyConverter().length < 1) {   //If we have no words, then create the initial list of words
