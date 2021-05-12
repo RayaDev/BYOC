@@ -9,11 +9,8 @@ Finish first draft of UI/UX:
 ***Working Tasks
 Step 8 Connect the data with the UI...
 
-> Async Task and getTargetConverter***
     > Finish updating the ConverterUI, and implement the functionality
-    > Pre-populate the Room database.
-        > createFromAsset() takes a String argument. Looks like a JSON
-            > Need a database schema to match the file.
+
     > Test getting different converters out of the database.
 
 > Create converter logic for the Spinner.
@@ -21,9 +18,13 @@ Step 8 Connect the data with the UI...
 
 
 *Completed*
+
+> Pre-populate the Room database.
+    > createFromAsset() takes a String argument. Looks like a JSON
+        > Need a database schema to match the file.
     > Make List<Converter> into LiveData.. Will automatically update when the search is done.
         > LiveData needs an observer
-            > provides an onChanged method that can update the Converter UI.
+        > provides an onChanged method that can update the Converter UI.
 > Add button working preliminarily
 > Create it so the spinner menu highlights the unit selection.
 > Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
