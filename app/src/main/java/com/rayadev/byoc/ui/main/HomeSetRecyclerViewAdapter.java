@@ -32,7 +32,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     //Passes the data into the constructor the Adapter to use.
     public HomeSetRecyclerViewAdapter(Context context) {
         mLayoutInflater = LayoutInflater.from(context);
-        mClickListener = (ConverterClickListener) context;
+//        mClickListener = (ConverterClickListener) context;
     }
 
     @NonNull
@@ -40,7 +40,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     public ConverterBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View mItemView = mLayoutInflater.inflate(R.layout.converter_box, parent, false);
-//        setClickListener(mClickListener);
+        setClickListener(mClickListener);
         return new ConverterBoxViewHolder(mItemView);
     }
 
@@ -108,7 +108,12 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
     // allows clicks events to be caught
     void setClickListener(ConverterClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
+        this.mClickListener = new ConverterClickListener() {
+            @Override
+            public void onItemClick(View view) {
+
+            }
+        };
     }
 
     // parent activity will implement this method to respond to click events
