@@ -8,10 +8,9 @@ Finish first draft of UI/UX:
 
 ***Working Tasks
 Step 8 Connect the data with the UI...
-
-    > Finish updating the ConverterUI, and implement the functionality
-
-    > Test getting different converters out of the database.
+    > Create functionality for Converter when it's selected from HomeSet
+        > Add conversion ratios to database
+        > Update UI for HomeSet that hides Converter UI until card is clicked.
 
 > Create converter logic for the Spinner.
     > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
