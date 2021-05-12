@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
@@ -27,7 +28,7 @@ Can drag and drop converter boxes (CB)'s into each other to create a new set. Li
 
 
  */
-public class HomeSetTabFragment extends Fragment {
+public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewAdapter.ConverterClickListener {
 
     private RecyclerView mRecyclerView;
     private HomeSetRecyclerViewAdapter mAdapter;
@@ -98,4 +99,8 @@ public class HomeSetTabFragment extends Fragment {
 
     }
 
+    @Override
+    public void onItemClick(View view) {
+        Toast.makeText(view.getContext(), "CCS", Toast.LENGTH_SHORT).show();
+    }
 }
