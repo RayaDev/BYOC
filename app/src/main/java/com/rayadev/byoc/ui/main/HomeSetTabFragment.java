@@ -89,7 +89,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class); //Call ViewModel constructor directly
 
         //To display the current contents of the database, you add an observer that observes the LiveData in the ViewModel.
-        //getAllWords passes the data to the MainActivity for display.
         mConverterViewModel.getAllConverters().observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
@@ -100,9 +99,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     }
 
+    //Sets the Converter data into the fragment Converter UI.
     @Override
-    public void onItemClick(View view) {
-        Toast.makeText(view.getContext(), "CCS", Toast.LENGTH_SHORT).show();
+    public void onItemClick(String unitAName, String unitBName) {
+        Toast.makeText(getContext(), unitAName + " " + unitBName, Toast.LENGTH_SHORT).show();
         Log.i("TAG", "HomeSetTabFragClick");
     }
 }
