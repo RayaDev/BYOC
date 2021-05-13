@@ -1,5 +1,6 @@
 package com.rayadev.byoc.ui.main;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,11 +27,13 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
     private ArrayList<Converter> mConverterArrayList; //Holds the Converter data to be populated into the RecyclerView
     private LayoutInflater mLayoutInflater;
-    private ItemClickListener mClickListener;
+    private ConverterClickListener mClickListener;
 
     //Passes the data into the constructor the Adapter to use.
-    public HomeSetRecyclerViewAdapter(Context context) {
+    public HomeSetRecyclerViewAdapter(Context context, ConverterClickListener converterClickListener) {
         mLayoutInflater = LayoutInflater.from(context);
+        this.mClickListener = converterClickListener;
+//        mClickListener = (ConverterClickListener) context;
     }
 
     @NonNull
@@ -38,6 +41,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     public ConverterBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View mItemView = mLayoutInflater.inflate(R.layout.converter_box, parent, false);
+//        setClickListener(mClickListener);
         return new ConverterBoxViewHolder(mItemView);
     }
 
@@ -71,7 +75,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     }
 
     //Constructs the actually View from the Converter object in the ArrayList<Converter>
-    public class ConverterBoxViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ConverterBoxViewHolder extends RecyclerView.ViewHolder{
 
         private final TextView mConverterUnitA_Name;
         private final TextView mConverterUnitB_Name;
@@ -89,26 +93,27 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterUnitB_Name = itemView.findViewById(R.id.converter_box_distance_unit_placeholder_2);
             mConverterImageView = itemView.findViewById(R.id.converter_box_image_view);
 
-            mConverterImageView.setOnClickListener(this);
+            mConverterImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mClickListener.onItemClick(v);
+                }
+            });
 
         }
 
         //Method to needed to trigger the start of passing the converter data into the main activity.
-        @Override
-        public void onClick(View v) {
-            Toast.makeText(v.getContext(), "CB IV Clicked", Toast.LENGTH_SHORT).show();
 
-        }
 
     }
 
     // allows clicks events to be caught
-    void setClickListener(ItemClickListener itemClickListener) {
-        this.mClickListener = itemClickListener;
+    void setClickListener(ConverterClickListener itemClickListener) {
+
     }
 
     // parent activity will implement this method to respond to click events
-    public interface ItemClickListener {
-        void onItemClick(View view, int position);
+    public interface ConverterClickListener {
+        void onItemClick(View view);
     }
 }

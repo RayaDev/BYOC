@@ -8,9 +8,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
@@ -27,7 +29,7 @@ Can drag and drop converter boxes (CB)'s into each other to create a new set. Li
 
 
  */
-public class HomeSetTabFragment extends Fragment {
+public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewAdapter.ConverterClickListener {
 
     private RecyclerView mRecyclerView;
     private HomeSetRecyclerViewAdapter mAdapter;
@@ -68,7 +70,7 @@ public class HomeSetTabFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.home_set_tab_recycler_view);
 
         // Create an adapter and supply the data to be displayed.
-        mAdapter = new HomeSetRecyclerViewAdapter(view.getContext());
+        mAdapter = new HomeSetRecyclerViewAdapter(view.getContext(), this);
 
         setUpConverterViewModel(mAdapter);
 
@@ -98,4 +100,9 @@ public class HomeSetTabFragment extends Fragment {
 
     }
 
+    @Override
+    public void onItemClick(View view) {
+        Toast.makeText(view.getContext(), "CCS", Toast.LENGTH_SHORT).show();
+        Log.i("TAG", "HomeSetTabFragClick");
+    }
 }
