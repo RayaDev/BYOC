@@ -29,6 +29,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     private LayoutInflater mLayoutInflater;
     private ConverterClickListener mClickListener;
 
+
     //Passes the data into the constructor the Adapter to use.
     public HomeSetRecyclerViewAdapter(Context context, ConverterClickListener converterClickListener) {
         mLayoutInflater = LayoutInflater.from(context);
@@ -52,9 +53,16 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
         if(mConverterArrayList != null) {
             Converter mConverter = mConverterArrayList.get(position);
+
+           //Set the views for the holder.
             holder.mConverterUnitA_Name.setText(mConverter.getConverterUnitA_Name());
             holder.mConverterUnitB_Name.setText(mConverter.getConverterUnitB_Name());
-//            holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
+            //holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
+
+            //Pass the data from converter down to the holder.
+            holder.unitAName = mConverter.getConverterUnitA_Name();
+            holder.unitBName = mConverter.getConverterUnitB_Name();
+
         }
         else {
             Log.i("TAG", "ConverterArrayList error");
@@ -81,10 +89,15 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
         private final TextView mConverterUnitB_Name;
         private final ImageView mConverterImageView;
 
+
+
         //Actually pass this data to onClick so that it can be passed to the HomeSetFrag
 //        private int mConverterBoxImageID;
 //        private int mConverterRatioAB;
 //        private int mConverterRatioBA;
+        //Converter Data stuff
+        private String unitAName;
+        private String unitBName;
 
 
 
@@ -94,9 +107,6 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterUnitB_Name = itemView.findViewById(R.id.converter_box_distance_unit_placeholder_2);
             mConverterImageView = itemView.findViewById(R.id.converter_box_image_view);
 
-
-            String unitAName = mConverterUnitA_Name.getText().toString();
-            String unitBName = mConverterUnitB_Name.getText().toString();
             //Implements the interface onto the ViewHolder
             mConverterImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -107,13 +117,9 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
         }
 
-        //Method to needed to trigger the start of passing the converter data into the main activity.
-
-
     }
 
-
-    // parent activity will implement this method to respond to click events
+    // parent fragment will implement this method to respond to click events
     public interface ConverterClickListener {
         //Passes all the Converter info to the fragment
         void onItemClick(String converterUnitA_Name, String converterUnitB_Name);
