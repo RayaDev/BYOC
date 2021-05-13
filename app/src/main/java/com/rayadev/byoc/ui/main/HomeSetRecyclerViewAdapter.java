@@ -33,7 +33,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     public HomeSetRecyclerViewAdapter(Context context, ConverterClickListener converterClickListener) {
         mLayoutInflater = LayoutInflater.from(context);
         this.mClickListener = converterClickListener;
-//        mClickListener = (ConverterClickListener) context;
+
     }
 
     @NonNull
@@ -81,10 +81,11 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
         private final TextView mConverterUnitB_Name;
         private final ImageView mConverterImageView;
 
-        //this data does'nt need to be passed into this ViewHolder. Not where dealing with this happens.
+        //Actually pass this data to onClick so that it can be passed to the HomeSetFrag
 //        private int mConverterBoxImageID;
 //        private int mConverterRatioAB;
 //        private int mConverterRatioBA;
+
 
 
         public ConverterBoxViewHolder(View itemView) {
@@ -93,10 +94,14 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterUnitB_Name = itemView.findViewById(R.id.converter_box_distance_unit_placeholder_2);
             mConverterImageView = itemView.findViewById(R.id.converter_box_image_view);
 
+
+            String unitAName = mConverterUnitA_Name.getText().toString();
+            String unitBName = mConverterUnitB_Name.getText().toString();
+            //Implements the interface onto the ViewHolder
             mConverterImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mClickListener.onItemClick(v);
+                    mClickListener.onItemClick(unitAName, unitBName);
                 }
             });
 
@@ -107,13 +112,10 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
     }
 
-    // allows clicks events to be caught
-    void setClickListener(ConverterClickListener itemClickListener) {
-
-    }
 
     // parent activity will implement this method to respond to click events
     public interface ConverterClickListener {
-        void onItemClick(View view);
+        //Passes all the Converter info to the fragment
+        void onItemClick(String converterUnitA_Name, String converterUnitB_Name);
     }
 }

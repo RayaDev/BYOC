@@ -31,7 +31,7 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
 
                     // Create database here
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            ConverterRoomDataBase.class, "word_database")
+                            ConverterRoomDataBase.class, "converter_database")
                             // Wipes and rebuilds instead of migrating
                             // if no Migration object.
                             // Migration is not part of this practical.
