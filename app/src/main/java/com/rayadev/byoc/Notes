@@ -7,6 +7,9 @@ Update Connection With Being to get consent for viewing an Ad
 Finish first draft of UI/UX:
 
 ***Working Tasks
+
+Db bug is with not null settings on sql schema side.
+
 Step 8 Connect the data with the UI...
     > Create functionality for Converter when it's selected from HomeSet
         > Add conversion ratios to database
