@@ -101,8 +101,12 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     //Sets the Converter data into the fragment Converter UI.
     @Override
-    public void onItemClick(String unitAName, String unitBName) {
-        Toast.makeText(getContext(), unitAName + " " + unitBName, Toast.LENGTH_SHORT).show();
+    public void onItemClick(String unitAName, String unitBName, double unitAValue, double unitBValue) {
+
+        String unitString = unitAName+": "+ unitAValue +" " + unitBName + ": " + unitBValue ;
+
+
+        Toast.makeText(getContext(), unitString, Toast.LENGTH_SHORT).show();
         Log.i("TAG", "HomeSetTabFragClick");
     }
 }

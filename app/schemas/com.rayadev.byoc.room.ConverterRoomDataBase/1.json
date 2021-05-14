@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d4bc1e967ecc23b96f4482330ba67a1a",
+    "identityHash": "9cdd183f439feff2aaa7c64e2bcb1fc2",
     "entities": [
       {
         "tableName": "converter_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`converterID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mConverterUnitA_Name` TEXT, `mConverterUnitB_Name` TEXT, `mConverterBoxImageID` INTEGER NOT NULL, `converter_name` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`converterID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mConverterUnitA_Name` TEXT, `mConverterUnitB_Name` TEXT, `mConverterUnitA_Value` REAL NOT NULL, `mConverterUnitB_Value` REAL NOT NULL, `mConverterBoxImageID` INTEGER NOT NULL, `converter_name` TEXT)",
         "fields": [
           {
             "fieldPath": "converterID",
@@ -25,6 +25,18 @@
             "columnName": "mConverterUnitB_Name",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "mConverterUnitA_Value",
+            "columnName": "mConverterUnitA_Value",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterUnitB_Value",
+            "columnName": "mConverterUnitB_Value",
+            "affinity": "REAL",
+            "notNull": true
           },
           {
             "fieldPath": "mConverterBoxImageID",
@@ -52,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd4bc1e967ecc23b96f4482330ba67a1a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9cdd183f439feff2aaa7c64e2bcb1fc2')"
     ]
   }
 }

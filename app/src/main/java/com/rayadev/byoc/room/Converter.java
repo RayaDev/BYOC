@@ -17,27 +17,27 @@ public class Converter {
 
     private String mConverterUnitA_Name;
     private String mConverterUnitB_Name;
+    private double mConverterUnitA_Value;
+    private double mConverterUnitB_Value;
+
     private int mConverterBoxImageID;
+
 
     @ColumnInfo(name = "converter_name")
     private String mConverterName;
-//    private int mConverterRatioAB;
-//    private int mConverterRatioBA;
-
 
     public Converter() {
 
     }
 
-    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterRatioAB,
-                     double mConverterRatioBA) {
+    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterUnitA_Value, double mConverterUnitB_Value) {
 
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;
         this.mConverterBoxImageID = mConverterBoxImageID;
         this.mConverterName = mConverterUnitA_Name + mConverterUnitB_Name; //This will be the unique key to search for converters with.
-//        this.mConverterRatioAB = mConverterRatioAB;
-//        this.mConverterRatioBA = mConverterRatioBA;
+        this.mConverterUnitA_Value = mConverterUnitA_Value;
+        this.mConverterUnitB_Value = mConverterUnitB_Value;
 
     }
 
@@ -82,11 +82,19 @@ public class Converter {
     }
 
 
-//    public int getConverterRatioAB() {
-//        return mConverterRatioAB;
-//    }
-//
-//    public int getConverterRatioBA() {
-//        return mConverterRatioBA;
-//    }
+    public double getConverterUnitA_Value() {
+        return mConverterUnitA_Value;
+    }
+
+    public void setConverterUnitA_Value(double converterUnitA_Value) {
+        mConverterUnitA_Value = converterUnitA_Value;
+    }
+
+    public double getConverterUnitB_Value() {
+        return mConverterUnitB_Value;
+    }
+
+    public void setConverterUnitB_Value(double converterUnitB_Value) {
+        mConverterUnitB_Value = converterUnitB_Value;
+    }
 }
