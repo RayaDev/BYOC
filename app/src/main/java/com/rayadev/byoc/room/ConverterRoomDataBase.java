@@ -37,7 +37,7 @@ public abstract class ConverterRoomDataBase extends RoomDatabase {
                             // Migration is not part of this practical.
                             //This was the issue with the add Converter button.
 //                            .fallbackToDestructiveMigration()
-                            .createFromAsset("break_test.db")
+                            .createFromAsset("converter_sql.db")
 //                            .addCallback(sRoomDatabaseCallback) //Adds the call back the cleans and repopulates the database,
                             .build();
                 }
