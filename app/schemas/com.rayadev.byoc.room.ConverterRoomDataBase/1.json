@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "9cdd183f439feff2aaa7c64e2bcb1fc2",
+    "entities": [
+      {
+        "tableName": "converter_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`converterID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mConverterUnitA_Name` TEXT, `mConverterUnitB_Name` TEXT, `mConverterUnitA_Value` REAL NOT NULL, `mConverterUnitB_Value` REAL NOT NULL, `mConverterBoxImageID` INTEGER NOT NULL, `converter_name` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "converterID",
+            "columnName": "converterID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterUnitA_Name",
+            "columnName": "mConverterUnitA_Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterUnitB_Name",
+            "columnName": "mConverterUnitB_Name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterUnitA_Value",
+            "columnName": "mConverterUnitA_Value",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterUnitB_Value",
+            "columnName": "mConverterUnitB_Value",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterBoxImageID",
+            "columnName": "mConverterBoxImageID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mConverterName",
+            "columnName": "converter_name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "converterID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9cdd183f439feff2aaa7c64e2bcb1fc2')"
+    ]
+  }
+}
