@@ -15,20 +15,24 @@ public class Converter {
     @PrimaryKey(autoGenerate = true)
     private int converterID;
 
+    @NonNull
     private String mConverterUnitA_Name;
+
+    @NonNull
     private String mConverterUnitB_Name;
+
+    @NonNull
     private double mConverterUnitA_Value;
+
+    @NonNull
     private double mConverterUnitB_Value;
 
+    @NonNull
     private int mConverterBoxImageID;
 
-
-    @ColumnInfo(name = "converter_name")
+    @ColumnInfo(name = "converter_name")  @NonNull
     private String mConverterName;
 
-    public Converter() {
-
-    }
 
     public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterUnitA_Value, double mConverterUnitB_Value) {
 
@@ -97,4 +101,6 @@ public class Converter {
     public void setConverterUnitB_Value(double converterUnitB_Value) {
         mConverterUnitB_Value = converterUnitB_Value;
     }
+
+
 }
