@@ -62,6 +62,8 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             //Pass the data from converter down to the holder.
             holder.unitAName = mConverter.getConverterUnitA_Name();
             holder.unitBName = mConverter.getConverterUnitB_Name();
+            holder.unitAValue = mConverter.getConverterUnitA_Value();
+            holder.unitBValue = mConverter.getConverterUnitB_Value();
 
         }
         else {
@@ -88,16 +90,14 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
         private final TextView mConverterUnitA_Name;
         private final TextView mConverterUnitB_Name;
         private final ImageView mConverterImageView;
+        //private int mConverterBoxImageID;
 
 
-
-        //Actually pass this data to onClick so that it can be passed to the HomeSetFrag
-//        private int mConverterBoxImageID;
-//        private int mConverterRatioAB;
-//        private int mConverterRatioBA;
         //Converter Data stuff
         private String unitAName;
         private String unitBName;
+        private double unitAValue;
+        private double unitBValue;
 
 
 
@@ -111,7 +111,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mClickListener.onItemClick(unitAName, unitBName);
+                    mClickListener.onItemClick(unitAName, unitBName, unitAValue, unitBValue);
                 }
             });
 
@@ -122,6 +122,6 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     // parent fragment will implement this method to respond to click events
     public interface ConverterClickListener {
         //Passes all the Converter info to the fragment
-        void onItemClick(String converterUnitA_Name, String converterUnitB_Name);
+        void onItemClick(String converterUnitA_Name, String converterUnitB_Name, double converterUnitA_Value, double convertUnitB_Value);
     }
 }
