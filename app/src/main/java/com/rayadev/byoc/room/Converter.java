@@ -21,16 +21,13 @@ public class Converter {
     @NonNull
     private String mConverterUnitB_Name;
 
-    @NonNull
     private double mConverterUnitA_Value;
 
-    @NonNull
     private double mConverterUnitB_Value;
 
-    @NonNull
     private int mConverterBoxImageID;
 
-    @ColumnInfo(name = "converter_name")  @NonNull
+    @ColumnInfo(name = "converter_name") @NonNull
     private String mConverterName;
 
 
