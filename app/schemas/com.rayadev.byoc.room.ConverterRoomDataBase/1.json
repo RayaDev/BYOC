@@ -18,13 +18,13 @@
             "fieldPath": "mConverterUnitA_Name",
             "columnName": "mConverterUnitA_Name",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "mConverterUnitB_Name",
             "columnName": "mConverterUnitB_Name",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "mConverterUnitA_Value",
@@ -48,7 +48,7 @@
             "fieldPath": "mConverterName",
             "columnName": "converter_name",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
