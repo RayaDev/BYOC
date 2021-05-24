@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "46d8367f18c6e5e621ee507d9f29a055",
+    "identityHash": "57e3fc8aaf880ddcdcf5678d90fb86c8",
     "entities": [
       {
         "tableName": "converter_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`converterID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mConverterUnitA_Name` TEXT NOT NULL, `mConverterUnitB_Name` TEXT NOT NULL, `mConverterUnitA_Value` REAL NOT NULL, `mConverterUnitB_Value` REAL NOT NULL, `mConverterBoxImageID` INTEGER NOT NULL, `converter_name` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`converterID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mConverterUnitA_Name` TEXT NOT NULL, `mConverterUnitB_Name` TEXT NOT NULL, `mConverterCategory` TEXT NOT NULL, `mConverterUnitA_Value` REAL NOT NULL, `mConverterUnitB_Value` REAL NOT NULL, `converter_name` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "converterID",
@@ -27,6 +27,12 @@
             "notNull": true
           },
           {
+            "fieldPath": "mConverterCategory",
+            "columnName": "mConverterCategory",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
             "fieldPath": "mConverterUnitA_Value",
             "columnName": "mConverterUnitA_Value",
             "affinity": "REAL",
@@ -36,12 +42,6 @@
             "fieldPath": "mConverterUnitB_Value",
             "columnName": "mConverterUnitB_Value",
             "affinity": "REAL",
-            "notNull": true
-          },
-          {
-            "fieldPath": "mConverterBoxImageID",
-            "columnName": "mConverterBoxImageID",
-            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -64,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '46d8367f18c6e5e621ee507d9f29a055')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '57e3fc8aaf880ddcdcf5678d90fb86c8')"
     ]
   }
 }

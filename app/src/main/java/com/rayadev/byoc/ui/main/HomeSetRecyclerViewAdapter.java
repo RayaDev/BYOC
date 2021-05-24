@@ -57,14 +57,32 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             holder.unitBName = mConverter.getConverterUnitB_Name();
             holder.unitAValue = mConverter.getConverterUnitA_Value();
             holder.unitBValue = mConverter.getConverterUnitB_Value();
+            holder.unitCategory = mConverter.getConverterCategory();
 
-            if (position%2 == 0) {
-                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_weight);
+//            if (position%2 == 0) {
+//                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_weight);
+//
+//            }
+//            else {
+//                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_distance);
+//            }
 
-            }
-            else {
+            if(holder.unitCategory.equals("distance")){
                 holder.mConverterImageView.setImageResource(R.drawable.converter_icon_distance);
             }
+
+            else if(holder.unitCategory.equals("area")) {
+                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_area);
+            }
+
+            else if(holder.unitCategory.equals("time")) {
+                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_time);
+            }
+
+            else if(holder.unitCategory.equals("weight")) {
+                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_weight);
+            }
+
 
         }
         else {
@@ -97,6 +115,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
         //Converter Data stuff
         private String unitAName;
         private String unitBName;
+        private String unitCategory;
         private double unitAValue;
         private double unitBValue;
 

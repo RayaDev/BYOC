@@ -28,18 +28,16 @@ public class Converter {
 
     private double mConverterUnitB_Value;
 
-    private int mConverterBoxImageID;
-
     @ColumnInfo(name = "converter_name") @NonNull
     private String mConverterName;
 
 
-    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterUnitA_Value, double mConverterUnitB_Value, String mConverterCategory) {
+    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, double mConverterUnitA_Value, double mConverterUnitB_Value, String mConverterCategory) {
 
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;
         this.mConverterCategory = mConverterCategory;
-        this.mConverterBoxImageID = mConverterBoxImageID;
+
         this.mConverterName = mConverterUnitA_Name + mConverterUnitB_Name; //This will be the unique key to search for converters with.
         this.mConverterUnitA_Value = mConverterUnitA_Value;
         this.mConverterUnitB_Value = mConverterUnitB_Value;
@@ -62,13 +60,6 @@ public class Converter {
         mConverterUnitB_Name = converterUnitB_Name;
     }
 
-    public int getConverterBoxImageID() {
-        return mConverterBoxImageID;
-    }
-
-    public void setConverterBoxImageID(int converterBoxImageID) {
-        mConverterBoxImageID = converterBoxImageID;
-    }
 
     public String getConverterName() {
         return mConverterName;

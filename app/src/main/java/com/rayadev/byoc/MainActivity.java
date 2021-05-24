@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mAddHomeSetConverterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Converter converter = new Converter("M","FT", R.drawable.converter_icon_distance, 1,1);
+                Converter converter = new Converter("M","FT",1,1, "distance");
                 mConverterViewModel.insertConverter(converter);
 
                 Toast.makeText(MainActivity.this, "Add clicked", Toast.LENGTH_SHORT).show();
