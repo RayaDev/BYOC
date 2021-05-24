@@ -8,12 +8,7 @@ Finish first draft of UI/UX:
 
 ***Working Tasks
 
-Db bug is with not null settings on sql schema side.
-
-Step 8 Connect the data with the UI...
-    > Create functionality for Converter when it's selected from HomeSet
-        > Add conversion ratios to database
-        > Update UI for HomeSet that hides Converter UI until card is clicked.
+Implement conversion function in HomeSet
 
 > Create converter logic for the Spinner.
     > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
@@ -35,6 +30,9 @@ Step 8 Connect the data with the UI...
 
 
 ************UI/UX Notes*****************************************************************************
+
+Update UI for HomeSet that hides Converter UI until card is clicked.
+
 Remove Set List function and tab... Besides the point really. Any potential employer who sees the app will
 understand what kind of knowledge it demonstrate.
 
