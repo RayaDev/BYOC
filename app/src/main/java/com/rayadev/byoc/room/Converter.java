@@ -21,6 +21,9 @@ public class Converter {
     @NonNull
     private String mConverterUnitB_Name;
 
+    @NonNull
+    private String mConverterCategory;
+
     private double mConverterUnitA_Value;
 
     private double mConverterUnitB_Value;
@@ -31,10 +34,11 @@ public class Converter {
     private String mConverterName;
 
 
-    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterUnitA_Value, double mConverterUnitB_Value) {
+    public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, int mConverterBoxImageID, double mConverterUnitA_Value, double mConverterUnitB_Value, String mConverterCategory) {
 
         this.mConverterUnitA_Name = mConverterUnitA_Name;
         this.mConverterUnitB_Name = mConverterUnitB_Name;
+        this.mConverterCategory = mConverterCategory;
         this.mConverterBoxImageID = mConverterBoxImageID;
         this.mConverterName = mConverterUnitA_Name + mConverterUnitB_Name; //This will be the unique key to search for converters with.
         this.mConverterUnitA_Value = mConverterUnitA_Value;
@@ -100,4 +104,12 @@ public class Converter {
     }
 
 
+    @NonNull
+    public String getConverterCategory() {
+        return mConverterCategory;
+    }
+
+    public void setConverterCategory(@NonNull String converterCategory) {
+        mConverterCategory = converterCategory;
+    }
 }
