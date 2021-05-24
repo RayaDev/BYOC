@@ -1,27 +1,20 @@
 package com.rayadev.byoc.ui.main;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rayadev.byoc.MainActivity;
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecyclerViewAdapter.ConverterBoxViewHolder> {
 
@@ -66,11 +59,11 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             holder.unitBValue = mConverter.getConverterUnitB_Value();
 
             if (position%2 == 0) {
-                holder.mConverterImageView.setImageResource(R.drawable.ic_baseline_weight);
+                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_weight);
 
             }
             else {
-                holder.mConverterImageView.setImageResource(R.drawable.ic_baseline_distance_icon);
+                holder.mConverterImageView.setImageResource(R.drawable.converter_icon_distance);
             }
 
         }
