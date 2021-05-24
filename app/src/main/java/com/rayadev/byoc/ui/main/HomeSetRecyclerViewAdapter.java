@@ -65,6 +65,14 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             holder.unitAValue = mConverter.getConverterUnitA_Value();
             holder.unitBValue = mConverter.getConverterUnitB_Value();
 
+            if (position%2 == 0) {
+                holder.mConverterImageView.setImageResource(R.drawable.ic_baseline_weight);
+
+            }
+            else {
+                holder.mConverterImageView.setImageResource(R.drawable.ic_baseline_distance_icon);
+            }
+
         }
         else {
             Log.i("TAG", "ConverterArrayList error");
