@@ -12,6 +12,10 @@ Implement conversion function in HomeSet
 
 > Create converter logic for the Spinner.
     > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
+    > Create it so the spinner menu highlights the unit selection.
+    > Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
+    > The Spinner is currently its own Fragment.. That does'nt seem to be needed.
+    > Apparently that might be the best way to do this.. Kind of makes sense. But
 
 
 *Completed*
@@ -23,18 +27,15 @@ Implement conversion function in HomeSet
         > LiveData needs an observer
         > provides an onChanged method that can update the Converter UI.
 > Add button working preliminarily
-> Create it so the spinner menu highlights the unit selection.
-> Fragments implementing other fragment stuff.. I dunno I guess we'll figure it out lol
-> The Spinner is currently its own Fragment.. That does'nt seem to be needed.
-> Apparently that might be the best way to do this.. Kind of makes sense. But
+
+> Remove Set List function and tab... Besides the point really. Any potential employer who sees the app will
+understand what kind of knowledge it demonstrate.
 
 
 ************UI/UX Notes*****************************************************************************
 
 Update UI for HomeSet that hides Converter UI until card is clicked.
-
-Remove Set List function and tab... Besides the point really. Any potential employer who sees the app will
-understand what kind of knowledge it demonstrate.
+Long click for delete converter card.
 
 Use Firebase?
 

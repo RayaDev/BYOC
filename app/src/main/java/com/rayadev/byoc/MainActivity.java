@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the title for each tab.
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_1));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_2));
-        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_3)); //Just comment this out to remove setlist
+//        tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_text_3)); //Just comment this out to remove setlist
 
         // Set the tabs to fill the entire layout.
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
@@ -133,16 +133,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("TAG", String.valueOf(tab.getPosition()));
 
                 //Controls the visibility of the bottom UI
-                if( tab.getPosition() == 2) {
-                    mBottomUI.setVisibility(View.INVISIBLE);
-
-                }
-
-                else {
-                    mBottomUI.setVisibility(View.VISIBLE);
-//                    mConverterCardView.setVisibility(View.VISIBLE);
-
-                }
+//                if( tab.getPosition() == 2) {
+//                    mBottomUI.setVisibility(View.INVISIBLE);
+//
+//                }
+//
+//                else {
+//                    mBottomUI.setVisibility(View.VISIBLE);
+////                    mConverterCardView.setVisibility(View.VISIBLE);
+//
+//                }
 
             }
 
