@@ -8,10 +8,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -133,6 +137,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         Log.i("TAG", "HomeSetTabFragClick");
 
         setConverterBoxData(unitAName, unitBName);
+        setConverterBoxLogic(unitAValue, unitBValue);
 
     }
 
@@ -143,4 +148,80 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mUnitBTitleTextView.setText(unitBText);
 
     }
+
+    private void setConverterBoxLogic(double unitAValue, double unitBValue) {
+
+        //Unit A
+        mUnitAInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    Log.i("TAG1","Enter A pressed");
+                    runConversionAB(unitAValue, unitBValue);
+
+                }
+                return false;
+            }
+        });
+
+        mUnitAInputEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUnitAInputEditText.getText().clear();
+            }
+        });
+
+        mUnitAInputEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mUnitBInputEditText.setText(mUnitAInputEditText.getText());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        //Unit B
+        mUnitBInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
+                    Log.i("TAG1","Enter B pressed");
+
+                }
+                return false;
+            }
+        });
+
+        mUnitBInputEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUnitBInputEditText.getText().clear();
+            }
+        });
+
+    }
+
+    private double runConversionAB(double unitAValue, double unitBValue) {
+
+        String test = 1.0+"";
+        mUnitBInputEditText.setText(test);
+        return 1.0;
+    }
+
+    private double runConversionBA(double unitAValue, double unitBValue){
+
+        String test = 2.0+"";
+        mUnitBInputEditText.setText(test);
+        return 2.0;
+    }
+
 }

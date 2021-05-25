@@ -35,7 +35,10 @@ understand what kind of knowledge it demonstrate.
 ************UI/UX Notes*****************************************************************************
 
 Update UI for HomeSet that hides Converter UI until card is clicked.
-Long click for delete converter card.
+Long click for delete converter card.. Displays a little x to delete.
+Long click for move card position**
+
+Remove swap button, center info button on converter card view
 
 Use Firebase?
 

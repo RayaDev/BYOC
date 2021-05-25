@@ -110,6 +110,7 @@ public class ConverterTabFragment extends Fragment {
 
     private void setConverterBoxData(String unitAText, String unitBText) {
 
+        //Does this actually happen on a seperate thread?
 //        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
         mUnitATitleTextView.setText(unitAText);
         mUnitBTitleTextView.setText(unitBText);
