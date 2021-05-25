@@ -12,6 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rayadev.byoc.R;
@@ -34,6 +37,11 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
     private RecyclerView mRecyclerView;
     private HomeSetRecyclerViewAdapter mAdapter;
     private ConverterViewModel mConverterViewModel;
+
+    //Views for the Converter UI
+    private TextView mUnitATitleTextView, mUnitBTitleTextView;
+    private EditText mUnitAInputEditText, mUnitBInputEditText;
+    private ImageButton mConverterInfoButton, mConverterSwapButton;
 
 
     public HomeSetTabFragment() {
@@ -59,8 +67,23 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         View view  = inflater.inflate(R.layout.fragment_home_set_tab, container, false);
         setUpHomeSetRecyclerView(view);
+        linkViews(view);
 
         return view;
+    }
+
+    private void linkViews(View view) {
+        //Link ConverterBox Views
+        View myLayout = view.findViewById( R.id.converter_cardlayout_include_home_tab ); // root View id from include
+
+        mUnitATitleTextView = myLayout.findViewById(R.id.cardView_UnitATitle_TextView);
+        mUnitBTitleTextView = myLayout.findViewById(R.id.cardView_UnitBTitle_TextView);
+
+        mUnitAInputEditText = myLayout.findViewById(R.id.cardView_UnitAInput_EditText);
+        mUnitBInputEditText = myLayout.findViewById(R.id.cardView_UnitBInput_EditText);
+
+        mConverterInfoButton = myLayout.findViewById(R.id.cardView_InfoButton);
+        mConverterSwapButton = myLayout.findViewById(R.id.cardView_SwapButton);
     }
 
 
@@ -108,5 +131,16 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         Toast.makeText(getContext(), unitString, Toast.LENGTH_SHORT).show();
         Log.i("TAG", "HomeSetTabFragClick");
+
+        setConverterBoxData(unitAName, unitBName);
+
+    }
+
+    private void setConverterBoxData(String unitAText, String unitBText) {
+
+//        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
+        mUnitATitleTextView.setText(unitAText);
+        mUnitBTitleTextView.setText(unitBText);
+
     }
 }

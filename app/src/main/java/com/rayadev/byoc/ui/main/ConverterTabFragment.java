@@ -38,6 +38,8 @@ public class ConverterTabFragment extends Fragment {
 
 
     private int spinnerID;
+
+    //Views for the converter UI
     private TextView mUnitATitleTextView, mUnitBTitleTextView;
     private EditText mUnitAInputEditText, mUnitBInputEditText;
     private ImageButton mConverterInfoButton, mConverterSwapButton;
@@ -108,7 +110,7 @@ public class ConverterTabFragment extends Fragment {
 
     private void setConverterBoxData(String unitAText, String unitBText) {
 
-        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
         mUnitATitleTextView.setText(unitAText);
         mUnitBTitleTextView.setText(unitBText);
 
@@ -174,7 +176,7 @@ public class ConverterTabFragment extends Fragment {
 
     //Will come from the SpinnerInterface
     private String getConverterName(){
-        return "KMMiles";
+        return "MS";
     }
 
     private void setUpTargetConverter() {
