@@ -25,6 +25,7 @@ import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.room.ConverterViewModel;
 
+import java.nio.channels.ScatteringByteChannel;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -157,11 +158,11 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                     Log.i("TAG1", "Enter A pressed");
-                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
-
-                    double result = runConversionAB(unitAInput, unitBValue);
-                    String resultText = result + "";
-                    mUnitBInputEditText.setText(resultText);
+//                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
+//
+//                    double result = runConversionAB(unitAInput, unitBValue);
+//                    String resultText = result + "";
+//                    mUnitBInputEditText.setText(resultText);
 
                 }
                 return false;
@@ -172,6 +173,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onClick(View v) {
                 mUnitAInputEditText.getText().clear();
+//                mUnitBInputEditText.getText().clear();
             }
         });
 
@@ -183,7 +185,17 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mUnitBInputEditText.setText(mUnitAInputEditText.getText());
+
+                try {
+                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
+                    double result = runConversionAB(unitAInput, unitBValue);
+                    String resultText = result + "";
+                    mUnitBInputEditText.setText(resultText);
+                }
+                catch (Exception e){
+
+                }
+
             }
 
             @Override
