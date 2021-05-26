@@ -69,7 +69,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view  = inflater.inflate(R.layout.fragment_home_set_tab, container, false);
+        View view = inflater.inflate(R.layout.fragment_home_set_tab, container, false);
         setUpHomeSetRecyclerView(view);
         linkViews(view);
 
@@ -78,7 +78,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void linkViews(View view) {
         //Link ConverterBox Views
-        View myLayout = view.findViewById( R.id.converter_cardlayout_include_home_tab ); // root View id from include
+        View myLayout = view.findViewById(R.id.converter_cardlayout_include_home_tab); // root View id from include
 
         mUnitATitleTextView = myLayout.findViewById(R.id.cardView_UnitATitle_TextView);
         mUnitBTitleTextView = myLayout.findViewById(R.id.cardView_UnitBTitle_TextView);
@@ -119,8 +119,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mConverterViewModel.getAllConverters().observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
-              adapter.setConverterArrayList((ArrayList<Converter>)converters);
-              //Clear it does need this.. or else it won't update the HomeSet.
+                adapter.setConverterArrayList((ArrayList<Converter>) converters);
+                //Clear it does need this.. or else it won't update the HomeSet.
             }
         });
 
@@ -130,7 +130,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
     @Override
     public void onItemClick(String unitAName, String unitBName, double unitAValue, double unitBValue) {
 
-        String unitString = unitAName+": "+ unitAValue +" " + unitBName + ": " + unitBValue ;
+        String unitString = unitAName + ": " + unitAValue + " " + unitBName + ": " + unitBValue;
 
 
         Toast.makeText(getContext(), unitString, Toast.LENGTH_SHORT).show();
@@ -156,8 +156,12 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    Log.i("TAG1","Enter A pressed");
-                    runConversionAB(unitAValue, unitBValue);
+                    Log.i("TAG1", "Enter A pressed");
+                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
+
+                    double result = runConversionAB(unitAInput, unitBValue);
+                    String resultText = result + "";
+                    mUnitBInputEditText.setText(resultText);
 
                 }
                 return false;
@@ -194,7 +198,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    Log.i("TAG1","Enter B pressed");
+                    Log.i("TAG1", "Enter B pressed");
 
                 }
                 return false;
@@ -212,16 +216,17 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private double runConversionAB(double unitAValue, double unitBValue) {
 
-        String test = 1.0+"";
-        mUnitBInputEditText.setText(test);
-        return 1.0;
+//        String test = 1.0+"";
+//        mUnitBInputEditText.setText(test);
+        double result = unitAValue * unitBValue;
+        return result;
     }
 
-    private double runConversionBA(double unitAValue, double unitBValue){
+    private double runConversionBA(double unitAValue, double unitBValue) {
 
-        String test = 2.0+"";
-        mUnitBInputEditText.setText(test);
-        return 2.0;
+
+        double result = unitBValue * unitAValue;
+        return result;
     }
 
 }
