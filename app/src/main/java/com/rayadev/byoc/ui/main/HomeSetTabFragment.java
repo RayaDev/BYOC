@@ -43,6 +43,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
     private RecyclerView mRecyclerView;
     private HomeSetRecyclerViewAdapter mAdapter;
     private ConverterViewModel mConverterViewModel;
+    private View mConverterUI;
 
     //Views for the Converter UI
     private TextView mUnitATitleTextView, mUnitBTitleTextView;
@@ -81,18 +82,18 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void linkViews(View view) {
         //Link ConverterBox Views
-        View myLayout = view.findViewById(R.id.converter_cardlayout_include_home_tab); // root View id from include
+        mConverterUI = view.findViewById(R.id.converter_cardlayout_include_home_tab); // root View id from include
 
-        mUnitATitleTextView = myLayout.findViewById(R.id.cardView_UnitATitle_TextView);
-        mUnitBTitleTextView = myLayout.findViewById(R.id.cardView_UnitBTitle_TextView);
+        mUnitATitleTextView = mConverterUI.findViewById(R.id.cardView_UnitATitle_TextView);
+        mUnitBTitleTextView = mConverterUI.findViewById(R.id.cardView_UnitBTitle_TextView);
 
-        mUnitAInputEditText = myLayout.findViewById(R.id.cardView_UnitAInput_EditText);
-        mUnitBInputEditText = myLayout.findViewById(R.id.cardView_UnitBInput_EditText);
+        mUnitAInputEditText = mConverterUI.findViewById(R.id.cardView_UnitAInput_EditText);
+        mUnitBInputEditText = mConverterUI.findViewById(R.id.cardView_UnitBInput_EditText);
 
-        mConverterInfoButton = myLayout.findViewById(R.id.cardView_InfoButton);
-        mConverterSwapButton = myLayout.findViewById(R.id.cardView_SwapButton);
+        mConverterInfoButton = mConverterUI.findViewById(R.id.cardView_InfoButton);
+        mConverterSwapButton = mConverterUI.findViewById(R.id.cardView_SwapButton);
 
-        myLayout.setVisibility(View.GONE);
+        mConverterUI.setVisibility(View.GONE);
     }
 
 
@@ -141,16 +142,19 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         Toast.makeText(getContext(), unitString, Toast.LENGTH_SHORT).show();
         Log.i("TAG", "HomeSetTabFragClick");
 
-        setConverterBoxData(unitAName, unitBName);
+        setConverterBoxTitles (unitAName, unitBName);
         setConverterBoxLogic(unitAValue, unitBValue);
 
     }
 
-    private void setConverterBoxData(String unitAText, String unitBText) {
+    private void setConverterBoxTitles (String unitAText, String unitBText) {
 
 //        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
         mUnitATitleTextView.setText(unitAText);
         mUnitBTitleTextView.setText(unitBText);
+
+        mConverterUI.setVisibility(View.VISIBLE);
+
 
     }
 
