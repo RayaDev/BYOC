@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.card.MaterialCardView;
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.room.ConverterViewModel;
@@ -71,6 +72,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_home_set_tab, container, false);
+
         setUpHomeSetRecyclerView(view);
         linkViews(view);
 
@@ -89,6 +91,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         mConverterInfoButton = myLayout.findViewById(R.id.cardView_InfoButton);
         mConverterSwapButton = myLayout.findViewById(R.id.cardView_SwapButton);
+
+        myLayout.setVisibility(View.GONE);
     }
 
 
