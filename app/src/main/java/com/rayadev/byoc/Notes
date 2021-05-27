@@ -9,6 +9,8 @@ Finish first draft of UI/UX:
 ***Working Tasks
 
 Implement conversion function in HomeSet
+    > Back button and Done button hide keyboard
+
 
 > Create converter logic for the Spinner.
     > Link SpinnerScrollViewFragment >> ConverterTabFragment >> Add Button on MainActivity
