@@ -10,9 +10,10 @@ Finish first draft of UI/UX:
 
 Implement conversion function in HomeSet
     > Back button and Done button hide keyboard
-        > Works for first click. Once keyboard is show, the backbutton just minimzie keyboard, not close entire converter UI
+        > Works for first click. Once keyboard is show, the back button just minimize keyboard, not close entire converter UI
         How to fix?
     > Keyboard automatically shows when converter icon is clicked.
+    > Add button to Converter Workershop
 
 
 > Create converter logic for the Spinner.
@@ -25,16 +26,6 @@ Implement conversion function in HomeSet
 
 *Completed*
 
-> Pre-populate the Room database.
-    > createFromAsset() takes a String argument. Looks like a JSON
-        > Need a database schema to match the file.
-    > Make List<Converter> into LiveData.. Will automatically update when the search is done.
-        > LiveData needs an observer
-        > provides an onChanged method that can update the Converter UI.
-> Add button working preliminarily
-
-> Remove Set List function and tab... Besides the point really. Any potential employer who sees the app will
-understand what kind of knowledge it demonstrate.
 
 
 ************UI/UX Notes*****************************************************************************
@@ -134,6 +125,17 @@ AsyncTask UI Thread bug for getTargetConverter()
 
 
 ***********Done*************************************************************************************
+
+> Pre-populate the Room database.
+    > createFromAsset() takes a String argument. Looks like a JSON
+        > Need a database schema to match the file.
+    > Make List<Converter> into LiveData.. Will automatically update when the search is done.
+        > LiveData needs an observer
+        > provides an onChanged method that can update the Converter UI.
+> Add button working preliminarily
+
+> Remove Set List function and tab... Besides the point really. Any potential employer who sees the app will
+understand what kind of knowledge it demonstrate.
 
 3/21
 *Completed*
