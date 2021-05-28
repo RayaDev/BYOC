@@ -2,6 +2,7 @@ package com.rayadev.byoc.ui.main;
 
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -142,8 +143,23 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         Toast.makeText(getContext(), unitString, Toast.LENGTH_SHORT).show();
         Log.i("TAG", "HomeSetTabFragClick");
 
+
+        //Custom back button function.
+        OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                mConverterUI.setVisibility(View.GONE);
+
+            }
+        };
+
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, backPressedCallback);
+        //Keyboard
+
         setConverterBoxTitles (unitAName, unitBName);
         setConverterBoxLogic(unitAValue, unitBValue);
+
+
 
     }
 

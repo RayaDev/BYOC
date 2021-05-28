@@ -10,6 +10,8 @@ Finish first draft of UI/UX:
 
 Implement conversion function in HomeSet
     > Back button and Done button hide keyboard
+        > Works for first click. Once keyboard is show, the backbutton just minimzie keyboard, not close entire converter UI
+        How to fix?
     > Keyboard automatically shows when converter icon is clicked.
 
 
