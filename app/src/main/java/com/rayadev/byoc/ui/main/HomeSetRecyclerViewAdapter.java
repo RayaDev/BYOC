@@ -131,7 +131,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mClickListener.onItemClick(unitAName, unitBName, unitAValue, unitBValue);
+                    mClickListener.onConverterIconClick(unitAName, unitBName, unitAValue, unitBValue);
                 }
             });
 
@@ -142,6 +142,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     // parent fragment will implement this method to respond to click events
     public interface ConverterClickListener {
         //Passes all the Converter info to the fragment
-        void onItemClick(String converterUnitA_Name, String converterUnitB_Name, double converterUnitA_Value, double convertUnitB_Value);
+
+        void onConverterIconClick(String converterUnitA_Name, String converterUnitB_Name, double converterUnitA_Value, double convertUnitB_Value);
     }
 }

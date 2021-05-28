@@ -10,6 +10,7 @@ Finish first draft of UI/UX:
 
 Implement conversion function in HomeSet
     > Back button and Done button hide keyboard
+    > Keyboard automatically shows when converter icon is clicked.
 
 
 > Create converter logic for the Spinner.
