@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Example of how I like to organize methods
     private void initializeUI() {
 
         linkViews();
@@ -51,11 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void keyBoardManager() {
+    private void linkViews() {
+        mCustomConverterButton = findViewById(R.id.build_button);
+        mAddHomeSetConverterButton = findViewById(R.id.add_button);
+        mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
+//        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
+        mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
 
-        //Keeps the keyboard from auto-popping up after onCreate()
-        getWindow().setSoftInputMode(WindowManager.
-                LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
 
     private void setOnClicks() {
@@ -78,15 +81,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void linkViews() {
-        mCustomConverterButton = findViewById(R.id.build_button);
-        mAddHomeSetConverterButton = findViewById(R.id.add_button);
-        mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
-//        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
-        mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
+    private void keyBoardManager() {
 
+        //Keeps the keyboard from auto-popping up after onCreate()
+        getWindow().setSoftInputMode(WindowManager.
+                LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
     }
-
 
     private void setUpToolbar() {
 
@@ -94,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
-
 
     private TabLayout setUpTabLayout() {
 

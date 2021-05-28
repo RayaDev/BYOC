@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Build Your Own Converter</string>
     <string name="tab_text_1">Converter</string>
-    <string name="tab_text_2">Home Set</string>
+    <string name="tab_text_2">Favorites</string>
     <string name="tab_text_3">Set List</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -9,17 +9,6 @@
     <string name="home_set_fragment_test">Home Set Fragment</string>
     <string name="set_list_fragment_test">Set List Fragment</string>
 
-
-    <string name="converterSet_1_DefaultTitle">Converter Set One</string>
-    <string name="converterSet_2_DefaultTitle">Converter Set Two</string>
-    <string name="converterSet_3_DefaultTitle">Converter Set Three</string>
-    <string name="converterSet_4_DefaultTitle">Converter Set Four</string>
-    <string name="converterSet_5_DefaultTitle">Converter Set Five</string>
-    <string name="converterSet_6_DefaultTitle">Converter Set Six</string>
-    <string name="converterSet_7_DefaultTitle">Converter Set Seven</string>
-    <string name="converterSet_8_DefaultTitle">Converter Set Eight</string>
-    <string name="converterSet_9_DefaultTitle">Converter Set Nine</string>
-    <string name="converterSet_10_DefaultTitle">Converter Set Ten</string>
 
     <!-- Unit Categories -->
     <string name="unit_category_distance">Distance</string>
