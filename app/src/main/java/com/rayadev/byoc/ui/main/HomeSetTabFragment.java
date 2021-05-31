@@ -1,5 +1,6 @@
 package com.rayadev.byoc.ui.main;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -36,8 +38,6 @@ A list of converters (stored in CB's) the user has saved. Each one is a little s
 
 Can drag and drop converter boxes (CB)'s into each other to create a new set. Like an Android folder
     > When you click the converter folder, it opens up a new activity with all the converters in that sub set.
-
-
  */
 public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewAdapter.ConverterClickListener {
 
@@ -144,6 +144,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         Log.i("TAG", "HomeSetTabFragClick");
 
 
+        setConverterBoxTitles (unitAName, unitBName);
+        setConverterBoxLogic(unitAValue, unitBValue);
+        openKeyboard();
+
         //Custom back button function.
         OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
             @Override
@@ -155,11 +159,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         requireActivity().getOnBackPressedDispatcher().addCallback(this, backPressedCallback);
         //Keyboard
-
-        setConverterBoxTitles (unitAName, unitBName);
-        setConverterBoxLogic(unitAValue, unitBValue);
-
-
 
     }
 
@@ -247,6 +246,14 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                 mUnitBInputEditText.getText().clear();
             }
         });
+
+    }
+
+    private void openKeyboard() {
+
+        mUnitAInputEditText.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(mUnitAInputEditText, InputMethodManager.SHOW_IMPLICIT);
 
     }
 
