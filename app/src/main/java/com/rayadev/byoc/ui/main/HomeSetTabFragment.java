@@ -166,26 +166,18 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mUnitATitleTextView.setText(unitAText);
         mUnitBTitleTextView.setText(unitBText);
 
-        mConverterUI.setVisibility(View.VISIBLE);
-
-
     }
 
     private void setConverterBoxLogic(double unitAValue, double unitBValue) {
 
         //Unit A
         mUnitAInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+           //Handles Done button function if needed.
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
                     Log.i("TAG1", "Enter A pressed");
-//                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
-//
-//                    double result = runConversionAB(unitAInput, unitBValue);
-//                    String resultText = result + "";
-//                    mUnitBInputEditText.setText(resultText);
-
-//                    mConverterUI.setVisibility(View.GONE);
 
                 }
                 return false;
@@ -196,7 +188,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onClick(View v) {
                 mUnitAInputEditText.getText().clear();
-//                mUnitBInputEditText.getText().clear();
+
+                if(mUnitBInputEditText.getText() != null) {
+                    mUnitBInputEditText.getText().clear();
+                }
             }
         });
 
@@ -244,6 +239,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onClick(View v) {
                 mUnitBInputEditText.getText().clear();
+
+                if(mUnitAInputEditText.getText() != null) {
+                    mUnitAInputEditText.getText().clear();
+                }
             }
         });
 
@@ -259,17 +258,19 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         //When keyboard is closed, Hides the converter UI.
         KeyboardUtils.addKeyboardToggleListener(getActivity(), new KeyboardUtils.SoftKeyboardToggleListener()
         {
+
             @Override
             public void onToggleSoftKeyboard(boolean isVisible)
             {
+
                 Log.i("KTAG", "keyboard visible: "+isVisible);
-                if(!isVisible) {
-                    mConverterUI.setVisibility(View.GONE);
+                if(isVisible) {
+                    mConverterUI.setVisibility(View.VISIBLE);
                 }
 
                 else {
-                    mConverterUI.setVisibility(View.VISIBLE);
-                    mUnitAInputEditText.requestFocus();
+                    mConverterUI.setVisibility(View.GONE);
+
 
                 }
             }
