@@ -151,6 +151,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void handleOnBackPressed() {
                 mConverterUI.setVisibility(View.GONE);
+                clearUserInput();
 
             }
         };
@@ -187,11 +188,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mUnitAInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUnitAInputEditText.getText().clear();
-
-                if(mUnitBInputEditText.getText() != null) {
-                    mUnitBInputEditText.getText().clear();
-                }
+                clearUserInput();
             }
         });
 
@@ -223,7 +220,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         });
 
 
-        //Unit B
+        //Unit B..Needs same functionality as Unit A. Typing and convertering.
         mUnitBInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -235,14 +232,38 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             }
         });
 
+//        mUnitBInputEditText.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//
+//                try {
+//                    double unitBInput = Double.parseDouble(String.valueOf(mUnitBInputEditText.getText()));
+//                    double result = runConversionBA(unitBInput, unitAValue);
+//                    String resultText = result + "";
+//                    mUnitAInputEditText.setText(resultText);
+//                }
+//                catch (Exception e){
+//
+//                }
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable s) {
+//
+//            }
+//        });
+
+
         mUnitBInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mUnitBInputEditText.getText().clear();
-
-                if(mUnitAInputEditText.getText() != null) {
-                    mUnitAInputEditText.getText().clear();
-                }
+                clearUserInput();
             }
         });
 
@@ -270,7 +291,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 else {
                     mConverterUI.setVisibility(View.GONE);
-
+                    clearUserInput();
 
                 }
             }
@@ -286,11 +307,23 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         return result;
     }
 
-    private double runConversionBA(double unitAValue, double unitBValue) {
+    private double runConversionBA(double unitBValue, double unitAValue) {
 
-
+        //Needs a different conversion ratio.
         double result = unitBValue * unitAValue;
         return result;
+    }
+
+    private void clearUserInput() {
+
+        if(mUnitAInputEditText.getText() != null) {
+            mUnitAInputEditText.getText().clear();
+        }
+
+        if(mUnitBInputEditText.getText() != null) {
+            mUnitBInputEditText.getText().clear();
+        }
+
     }
 
 }
