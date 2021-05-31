@@ -9,10 +9,9 @@ Finish first draft of UI/UX:
 ***Working Tasks
 
 Implement conversion function in HomeSet
-    > Back button and Done button hide keyboard
-        > Works for first click. Once keyboard is show, the back button just minimize keyboard, not close entire converter UI
-        How to fix?
-    > Keyboard automatically shows when converter icon is clicked.
+    > Fix textwatcher loop bug
+    > Conversion ratios not setting properly when click diffrent converter icons
+
     > Add button to Converter Workershop
 
 
@@ -24,6 +23,10 @@ Implement conversion function in HomeSet
     > Apparently that might be the best way to do this.. Kind of makes sense. But
 
 *Completed*
+    > Back button and Done button hide keyboard
+        > Works for first click. Once keyboard is show, the back button just minimize keyboard, not close entire converter UI
+        How to fix?
+    > Keyboard automatically shows when converter icon is clicked.
 
 ************UI/UX Notes*****************************************************************************
 
