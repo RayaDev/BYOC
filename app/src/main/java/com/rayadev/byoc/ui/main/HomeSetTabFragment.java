@@ -256,6 +256,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mUnitAInputEditText, InputMethodManager.SHOW_IMPLICIT);
 
+        //When keyboard is closed, Hides the converter UI.
         KeyboardUtils.addKeyboardToggleListener(getActivity(), new KeyboardUtils.SoftKeyboardToggleListener()
         {
             @Override
