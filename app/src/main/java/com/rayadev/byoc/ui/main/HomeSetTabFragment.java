@@ -44,6 +44,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
     private ConverterViewModel mConverterViewModel;
     private View mConverterUI;
 
+
     //Views for the Converter UI
     private TextView mUnitATitleTextView, mUnitBTitleTextView;
     private EditText mUnitAInputEditText, mUnitBInputEditText;
@@ -181,6 +182,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
+
                     double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
                     double result = runConversionAB(unitAInput, unitBValue);
                     String resultText = result + "";
@@ -207,7 +209,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = "666";
-                mUnitBInputEditText.setText(text);
+                mUnitAInputEditText.setText(text);
 
             }
 
@@ -225,7 +227,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 clearUserInput();
                 mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
-//                mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
+                mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
             }
         });
 
