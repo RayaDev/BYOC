@@ -95,7 +95,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mConverterUI.setVisibility(View.GONE);
     }
 
-
     private void setUpHomeSetRecyclerView(View view) {
 
         // Get a handle to the RecyclerView.
@@ -188,6 +187,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mUnitAInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Clear the addTextChangedListener for the other editText here to prevent loops
+
                 clearUserInput();
             }
         });
@@ -232,6 +233,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             }
         });
 
+
+        //The inputs are looping back into each other..  for onTextChanged..
 //        mUnitBInputEditText.addTextChangedListener(new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -244,7 +247,9 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 //                try {
 //                    double unitBInput = Double.parseDouble(String.valueOf(mUnitBInputEditText.getText()));
 //                    double result = runConversionBA(unitBInput, unitAValue);
-//                    String resultText = result + "";
+////                    String resultText = result + "";
+//
+//                    String resultText = 666 + "";
 //                    mUnitAInputEditText.setText(resultText);
 //                }
 //                catch (Exception e){
@@ -263,6 +268,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         mUnitBInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //Clear the addTextChangedListener for the other editText here to prevent loops
                 clearUserInput();
             }
         });
