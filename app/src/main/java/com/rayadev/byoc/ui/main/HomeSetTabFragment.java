@@ -269,6 +269,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 else {
                     mConverterUI.setVisibility(View.VISIBLE);
+                    mUnitAInputEditText.requestFocus();
+
                 }
             }
         });
