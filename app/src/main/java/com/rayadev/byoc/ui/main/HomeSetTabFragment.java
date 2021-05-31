@@ -206,6 +206,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String text = "666";
+                mUnitBInputEditText.setText(text);
 
             }
 
@@ -216,81 +218,26 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         };
 
         //Unit A
-        mUnitAInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-
-           //Handles Done button function if needed.
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    Log.i("TAG1", "Enter A pressed");
-
-                }
-                return false;
-            }
-        });
-
         mUnitAInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Clear the addTextChangedListener for the other editText here to prevent loops
 
                 clearUserInput();
+                mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
+//                mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
             }
         });
 
-        mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
-
-
-        //Unit B..Needs same functionality as Unit A. Typing and convertering.
-        mUnitBInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if ((event != null && (event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) || (actionId == EditorInfo.IME_ACTION_DONE)) {
-                    Log.i("TAG1", "Enter B pressed");
-
-                }
-                return false;
-            }
-        });
-
-
-        //The inputs are looping back into each other..  for onTextChanged..
-//        mUnitBInputEditText.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence s, int start, int before, int count) {
-//
-//                try {
-//                    double unitBInput = Double.parseDouble(String.valueOf(mUnitBInputEditText.getText()));
-//                    double result = runConversionBA(unitBInput, unitAValue);
-////                    String resultText = result + "";
-//
-//                    String resultText = 666 + "";
-//                    mUnitAInputEditText.setText(resultText);
-//                }
-//                catch (Exception e){
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable s) {
-//
-//            }
-//        });
-
-
+        //Unit B
         mUnitBInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Clear the addTextChangedListener for the other editText here to prevent loops
                 clearUserInput();
+//                mUnitBInputEditText.addTextChangedListener(mUnitBEditTextWatcher);
+//                mUnitAInputEditText.removeTextChangedListener(mUnitAEditTextWatcher);
             }
         });
 
