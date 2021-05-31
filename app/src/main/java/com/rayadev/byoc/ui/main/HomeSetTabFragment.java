@@ -24,12 +24,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.card.MaterialCardView;
 import com.rayadev.byoc.R;
 import com.rayadev.byoc.room.Converter;
 import com.rayadev.byoc.room.ConverterViewModel;
 
-import java.nio.channels.ScatteringByteChannel;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,7 +144,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         setConverterBoxTitles (unitAName, unitBName);
         setConverterBoxLogic(unitAValue, unitBValue);
-        openKeyboard();
+        keyboardManager();
 
         //Custom back button function.
         OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
@@ -186,6 +184,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 //                    double result = runConversionAB(unitAInput, unitBValue);
 //                    String resultText = result + "";
 //                    mUnitBInputEditText.setText(resultText);
+
+//                    mConverterUI.setVisibility(View.GONE);
 
                 }
                 return false;
@@ -249,11 +249,28 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     }
 
-    private void openKeyboard() {
+    private void keyboardManager() {
 
+       //Keyboard opens when Converter Icon is clicked
         mUnitAInputEditText.requestFocus();
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mUnitAInputEditText, InputMethodManager.SHOW_IMPLICIT);
+
+        KeyboardUtils.addKeyboardToggleListener(getActivity(), new KeyboardUtils.SoftKeyboardToggleListener()
+        {
+            @Override
+            public void onToggleSoftKeyboard(boolean isVisible)
+            {
+                Log.i("KTAG", "keyboard visible: "+isVisible);
+                if(!isVisible) {
+                    mConverterUI.setVisibility(View.GONE);
+                }
+
+                else {
+                    mConverterUI.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
     }
 
