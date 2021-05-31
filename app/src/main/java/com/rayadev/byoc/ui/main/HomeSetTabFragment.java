@@ -170,6 +170,51 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void setConverterBoxLogic(double unitAValue, double unitBValue) {
 
+        //Text watchers for the editText
+
+        TextWatcher mUnitAEditTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                try {
+                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
+                    double result = runConversionAB(unitAInput, unitBValue);
+                    String resultText = result + "";
+                    mUnitBInputEditText.setText(resultText);
+                }
+                catch (Exception e){
+
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+        TextWatcher mUnitBEditTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
         //Unit A
         mUnitAInputEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 
@@ -193,32 +238,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             }
         });
 
-        mUnitAInputEditText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                try {
-                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
-                    double result = runConversionAB(unitAInput, unitBValue);
-                    String resultText = result + "";
-                    mUnitBInputEditText.setText(resultText);
-                }
-                catch (Exception e){
-
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
 
 
         //Unit B..Needs same functionality as Unit A. Typing and convertering.
