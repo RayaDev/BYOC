@@ -173,6 +173,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         //Text watchers for the editText
 
+        //Catch 22 with TextListener loop problem. Bugs out into infinite loops.
+
         TextWatcher mUnitAEditTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -203,12 +205,14 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         TextWatcher mUnitBEditTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+//                mUnitAInputEditText.removeTextChangedListener(mUnitAEditTextWatcher);
 
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = "666";
+
                 mUnitAInputEditText.setText(text);
 
             }
