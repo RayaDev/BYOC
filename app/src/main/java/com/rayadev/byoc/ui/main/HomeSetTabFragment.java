@@ -223,6 +223,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             }
         };
 
+        //This fixes the input issue. Keeping these outside the onClick.
+        mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
+//      mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
+
         //Unit A
         mUnitAInputEditText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -230,8 +234,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                 //Clear the addTextChangedListener for the other editText here to prevent loops
 
                 clearUserInput();
-                mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
-                mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
+//                mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
+//                mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
             }
         });
 
