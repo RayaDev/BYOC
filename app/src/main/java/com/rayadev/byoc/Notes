@@ -10,9 +10,8 @@ Finish first draft of UI/UX:
 
 Implement conversion function in HomeSet
     > Fix textwatcher loop bug
-    > Conversion ratios not setting properly when click diffrent converter icons
-
-    > Add button to Converter Workershop
+    > Conversion ratios not setting properly when click different converter icon
+    > Add button to Converter Workshop
 
 
 > Create converter logic for the Spinner.
