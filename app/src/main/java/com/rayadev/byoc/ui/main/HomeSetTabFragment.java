@@ -224,6 +224,9 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         };
 
         //This fixes the input issue. Keeping these outside the onClick.
+
+        //onFocusChange might be a better solution?
+
         mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
 //      mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
 
