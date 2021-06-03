@@ -184,7 +184,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-                editTextSelectedId[0] = 1;
 
             }
 
@@ -222,6 +221,12 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 editTextASelected[0] = true;
 
+                if(editTextBSelected[0]) {
+                    mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                    editTextBSelected[0] = false;
+
+                }
+
                 Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
                 mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
 
@@ -237,6 +242,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
             if(editTextASelected[0]) {
                 mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                editTextASelected[0] = false;
             }
 
 
