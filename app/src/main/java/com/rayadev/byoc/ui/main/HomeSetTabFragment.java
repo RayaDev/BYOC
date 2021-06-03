@@ -190,10 +190,17 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+                    if(editTextASelected[0]) {
+
                     double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
                     double result = runConversionAB(unitAInput, unitBValue);
                     String resultText = result + "";
-                    mUnitBInputEditText.setText(resultText);
+                    mUnitBInputEditText.setText(resultText);}
+
+                    else if(editTextBSelected[0]) {
+                        String result = "Winner";
+                        mUnitAInputEditText.setText(result);
+                    }
 
 
             }
