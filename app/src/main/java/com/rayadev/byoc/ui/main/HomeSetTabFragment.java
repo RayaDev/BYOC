@@ -175,24 +175,27 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         //Catch 22 with TextListener loop problem. Bugs out into infinite loops.
 
-        TextWatcher mUnitAEditTextWatcher = new TextWatcher() {
+        final int[] editTextSelectedId = new int[1];
+
+        final boolean[] editTextASelected = new boolean[1];
+        final boolean[] editTextBSelected = new boolean[1];
+
+        TextWatcher mUnitEditTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                editTextSelectedId[0] = 1;
 
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                try {
 
                     double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
                     double result = runConversionAB(unitAInput, unitBValue);
                     String resultText = result + "";
                     mUnitBInputEditText.setText(resultText);
-                }
-                catch (Exception e){
 
-                }
 
             }
 
@@ -202,57 +205,47 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             }
         };
 
-        TextWatcher mUnitBEditTextWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-//                mUnitAInputEditText.removeTextChangedListener(mUnitAEditTextWatcher);
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String text = "666";
-
-                mUnitAInputEditText.setText(text);
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        };
 
         //This fixes the input issue. Keeping these outside the onClick.
 
         //onFocusChange might be a better solution?
 
-        mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
+
 //      mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
 
-        //Unit A
-        mUnitAInputEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Clear the addTextChangedListener for the other editText here to prevent loops
 
-                clearUserInput();
-//                mUnitAInputEditText.addTextChangedListener(mUnitAEditTextWatcher);
-//                mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
+
+    mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
+            if(hasFocus) {
+
+                editTextASelected[0] = true;
+
+                Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
+                mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+
             }
-        });
+        }
+    });
 
-        //Unit B
-        mUnitBInputEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        @Override
+        public void onFocusChange(View v, boolean hasFocus) {
 
-                //Clear the addTextChangedListener for the other editText here to prevent loops
-                clearUserInput();
-//                mUnitBInputEditText.addTextChangedListener(mUnitBEditTextWatcher);
-//                mUnitAInputEditText.removeTextChangedListener(mUnitAEditTextWatcher);
+            editTextBSelected[0] = true;
+
+            if(editTextASelected[0]) {
+                mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
             }
-        });
+
+
+            Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
+            mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+
+        }
+    });
+
 
     }
 
