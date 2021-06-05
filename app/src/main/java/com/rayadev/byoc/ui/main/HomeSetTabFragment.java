@@ -174,6 +174,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         //Text watchers for the editText
 
       //Loop problem solved.. But now there's a performance issue.
+        //Performance seems to be fine actually.
 
         final int[] editTextSelectedId = new int[1];
 
@@ -185,6 +186,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
 
+
             }
 
             @Override
@@ -192,7 +194,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 if (editTextASelected[0]) {
 
-                    //Just need null checks for Double.parse
+                    //Just need string checks for Double.parse needed. Plenty of cases where it bugs.
+                    //E's and what not.
 
                     String editTextAInputString = String.valueOf(mUnitAInputEditText.getText());
                     if(!editTextAInputString.equals("")) {
