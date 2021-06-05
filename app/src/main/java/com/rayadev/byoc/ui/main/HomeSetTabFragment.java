@@ -198,8 +198,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                     mUnitBInputEditText.setText(resultText);}
 
                     else if(editTextBSelected[0]) {
-                        String result = "Winner";
-                        mUnitAInputEditText.setText(result);
+                        double unitBInput = Double.parseDouble(String.valueOf(mUnitBInputEditText.getText()));
+                        double result = runConversionBA(unitBInput, unitAValue);
+                        String resultText = result + "";
+                        mUnitAInputEditText.setText(resultText);
                     }
 
 
@@ -239,23 +241,27 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
             }
         }
+
     });
 
     mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
         @Override
         public void onFocusChange(View v, boolean hasFocus) {
 
-            editTextBSelected[0] = true;
+            if (hasFocus) {
 
-            if(editTextASelected[0]) {
-                mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
-                editTextASelected[0] = false;
+                editTextBSelected[0] = true;
+
+                if (editTextASelected[0]) {
+                    mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                    editTextASelected[0] = false;
+                }
+
+
+                Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
+                mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+
             }
-
-
-            Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
-            mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
-
         }
     });
 
