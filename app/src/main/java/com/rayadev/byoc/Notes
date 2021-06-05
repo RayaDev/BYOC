@@ -9,8 +9,8 @@ Finish first draft of UI/UX:
 ***Working Tasks
 
 Implement conversion function in HomeSet
-    > Fix textwatcher loop bug
-    > Conversion ratios not setting properly when click different converter icon
+    > Loop bug fixed
+    > Performance issue amd string formatting issue.
     > Add button to Converter Workshop
 
 
