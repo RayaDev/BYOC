@@ -142,7 +142,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         Log.i("TAG", "HomeSetTabFragClick");
 
 
-        setConverterBoxTitles (unitAName, unitBName);
+        setConverterBoxTitles(unitAName, unitBName);
         setConverterBoxLogic(unitAValue, unitBValue);
         keyboardManager();
 
@@ -161,7 +161,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     }
 
-    private void setConverterBoxTitles (String unitAText, String unitBText) {
+    private void setConverterBoxTitles(String unitAText, String unitBText) {
 
 //        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
         mUnitATitleTextView.setText(unitAText);
@@ -173,7 +173,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         //Text watchers for the editText
 
-        //Catch 22 with TextListener loop problem. Bugs out into infinite loops.
+      //Loop problem solved.. But now there's a performance issue.
 
         final int[] editTextSelectedId = new int[1];
 
@@ -190,19 +190,36 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                    if(editTextASelected[0]) {
+                if (editTextASelected[0]) {
 
-                    double unitAInput = Double.parseDouble(String.valueOf(mUnitAInputEditText.getText()));
-                    double result = runConversionAB(unitAInput, unitBValue);
-                    String resultText = result + "";
-                    mUnitBInputEditText.setText(resultText);}
+                    //Just need null checks for Double.parse
 
-                    else if(editTextBSelected[0]) {
+                    String editTextAInputString = String.valueOf(mUnitAInputEditText.getText());
+                    if(!editTextAInputString.equals("")) {
+                        double unitAInput = Double.parseDouble(editTextAInputString);
+                        double result = runConversionAB(unitAInput, unitBValue);
+                        String resultText = result + "";
+                        mUnitBInputEditText.setText(resultText);
+                    }
+                    else{
+                        mUnitBInputEditText.setText("");
+                    }
+
+                }
+
+                else if (editTextBSelected[0]) {
+
+                    String editTextBInputString = String.valueOf(mUnitBInputEditText.getText());
+                    if(!editTextBInputString.equals("")) {
                         double unitBInput = Double.parseDouble(String.valueOf(mUnitBInputEditText.getText()));
                         double result = runConversionBA(unitBInput, unitAValue);
                         String resultText = result + "";
                         mUnitAInputEditText.setText(resultText);
                     }
+                    else {
+                        mUnitAInputEditText.setText("");
+                    }
+                }
 
 
             }
@@ -215,80 +232,71 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
 
         //This fixes the input issue. Keeping these outside the onClick.
-
-        //onFocusChange might be a better solution?
-
-
-//      mUnitBInputEditText.removeTextChangedListener(mUnitBEditTextWatcher);
+        //The bug is almost fixed!!
 
 
+        mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
 
-    mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
-            if(hasFocus) {
+                    editTextASelected[0] = true;
 
-                editTextASelected[0] = true;
+                    if (editTextBSelected[0]) {
+                        mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                        editTextBSelected[0] = false;
 
-                if(editTextBSelected[0]) {
-                    mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
-                    editTextBSelected[0] = false;
+                    }
+
+                    Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
+                    mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
 
                 }
-
-                Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
-                mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
-
             }
-        }
 
-    });
+        });
 
-    mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-        @Override
-        public void onFocusChange(View v, boolean hasFocus) {
+        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
 
-            if (hasFocus) {
+                if (hasFocus) {
 
-                editTextBSelected[0] = true;
+                    editTextBSelected[0] = true;
 
-                if (editTextASelected[0]) {
-                    mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
-                    editTextASelected[0] = false;
+                    if (editTextASelected[0]) {
+                        mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                        editTextASelected[0] = false;
+                    }
+
+
+                    Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
+                    mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+
                 }
-
-
-                Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
-                mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
-
             }
-        }
-    });
+        });
 
 
     }
 
     private void keyboardManager() {
 
-       //Keyboard opens when Converter Icon is clicked
+        //Keyboard opens when Converter Icon is clicked
         mUnitAInputEditText.requestFocus();
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mUnitAInputEditText, InputMethodManager.SHOW_IMPLICIT);
 
         //When keyboard is closed, Hides the converter UI.
-        KeyboardUtils.addKeyboardToggleListener(getActivity(), new KeyboardUtils.SoftKeyboardToggleListener()
-        {
+        KeyboardUtils.addKeyboardToggleListener(getActivity(), new KeyboardUtils.SoftKeyboardToggleListener() {
 
             @Override
-            public void onToggleSoftKeyboard(boolean isVisible)
-            {
+            public void onToggleSoftKeyboard(boolean isVisible) {
 
-                Log.i("KTAG", "keyboard visible: "+isVisible);
-                if(isVisible) {
+                Log.i("KTAG", "keyboard visible: " + isVisible);
+                if (isVisible) {
                     mConverterUI.setVisibility(View.VISIBLE);
-                }
-
-                else {
+                } else {
                     mConverterUI.setVisibility(View.GONE);
                     clearUserInput();
 
@@ -315,11 +323,11 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void clearUserInput() {
 
-        if(mUnitAInputEditText.getText() != null) {
+        if (mUnitAInputEditText.getText() != null) {
             mUnitAInputEditText.getText().clear();
         }
 
-        if(mUnitBInputEditText.getText() != null) {
+        if (mUnitBInputEditText.getText() != null) {
             mUnitBInputEditText.getText().clear();
         }
 
