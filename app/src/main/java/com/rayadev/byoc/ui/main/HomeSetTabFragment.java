@@ -173,8 +173,11 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
         //Text watchers for the editText
 
-      //Loop problem solved.. But now there's a performance issue.
-        //Performance seems to be fine actually.
+        //Loop problem solved.. But now there's a performance issue.
+        //Performance issues
+
+        //Add on Click clear input.
+
 
         final int[] editTextSelectedId = new int[1];
 
@@ -238,12 +241,15 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         //The bug is almost fixed!!
 
 
+
+
         mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
 
                     editTextASelected[0] = true;
+
 
                     if (editTextBSelected[0]) {
                         mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
@@ -253,6 +259,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                     Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
                     mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+                    clearUserInput();
 
                 }
             }
@@ -267,6 +274,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                     editTextBSelected[0] = true;
 
+
                     if (editTextASelected[0]) {
                         mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
                         editTextASelected[0] = false;
@@ -275,6 +283,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                     Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
                     mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+                    clearUserInput();
 
                 }
             }

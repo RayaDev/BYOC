@@ -10,7 +10,9 @@ Finish first draft of UI/UX:
 
 Implement conversion function in HomeSet
     > Loop bug fixed
-    > Performance issue amd string formatting issue.
+    > Performance issue and string formatting issue.
+        > Crashing randomly when switching converter.
+        > Probably need to do unit testing.
     > Add button to Converter Workshop
 
 
