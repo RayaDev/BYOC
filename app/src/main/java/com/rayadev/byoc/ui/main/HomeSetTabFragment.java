@@ -241,7 +241,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                         mUnitAInputEditText.setText(resultText);
                     }
                     else {
-//                        mUnitAInputEditText.setText("");
+                        mUnitAInputEditText.setText("");
 //                        mUnitAInputEditText.clearComposingText();
 
                     }
@@ -280,7 +280,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
 
                     if (editTextBSelected[0]) {
-//                        mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                        mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
                         editTextBSelected[0] = false;
 
                     }
@@ -304,7 +304,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
 
                     if (editTextASelected[0]) {
-//                        mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                        mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
                         editTextASelected[0] = false;
                     }
 
