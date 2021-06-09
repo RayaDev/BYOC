@@ -197,6 +197,9 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 if (editTextASelected[0]) {
 
+                    mUnitBInputEditText.removeTextChangedListener(this);
+                    mUnitBInputEditText.clearComposingText();
+
                     //Just need string checks for Double.parse needed. Plenty of cases where it bugs.
                     //E's and what not.
 
@@ -208,12 +211,17 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                         mUnitBInputEditText.setText(resultText);
                     }
                     else{
-                        mUnitBInputEditText.setText("");
+//                        mUnitBInputEditText.setText(""); //This line is cuasing the loop
+//                        mUnitBInputEditText.clearComposingText();
+
                     }
 
                 }
 
                 else if (editTextBSelected[0]) {
+
+                    mUnitAInputEditText.removeTextChangedListener(this);
+                    mUnitAInputEditText.clearComposingText();
 
                     String editTextBInputString = String.valueOf(mUnitBInputEditText.getText());
                     if(!editTextBInputString.equals("")) {
@@ -223,7 +231,9 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                         mUnitAInputEditText.setText(resultText);
                     }
                     else {
-                        mUnitAInputEditText.setText("");
+//                        mUnitAInputEditText.setText("");
+//                        mUnitAInputEditText.clearComposingText();
+
                     }
                 }
 
@@ -240,6 +250,12 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         //This fixes the input issue. Keeping these outside the onClick.
         //The bug is almost fixed!!
 
+        /*Adding and removing text Watchers is whats causing the performance issue
+       So both EditTexts need to be using a single text watcher.
+       Or just set the TextWatcher's permanently.
+
+
+         */
 
 
 
