@@ -254,6 +254,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
        So both EditTexts need to be using a single text watcher.
        Or just set the TextWatcher's permanently.
 
+       The bug is more when you switch between converters than anything else.
+
 
          */
 
