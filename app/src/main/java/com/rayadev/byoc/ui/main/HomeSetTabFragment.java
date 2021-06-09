@@ -191,16 +191,16 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             //Here! Check to see which edit text has focus..
             //Based on that you can
 
-            if(editTextASelected[0]) {
-//                mUnitAInputEditText.addTextChangedListener(this);
-                mUnitBInputEditText.removeTextChangedListener(this);
-            }
-
-            else if(editTextBSelected[0]) {
-//                mUnitBInputEditText.addTextChangedListener(this);
-                mUnitAInputEditText.removeTextChangedListener(this);
-
-                }
+//            if(editTextASelected[0]) {
+////                mUnitAInputEditText.addTextChangedListener(this);
+//                mUnitBInputEditText.removeTextChangedListener(this);
+//            }
+//
+//            else if(editTextBSelected[0]) {
+////                mUnitBInputEditText.addTextChangedListener(this);
+//                mUnitAInputEditText.removeTextChangedListener(this);
+//
+//                }
 
             }
 
@@ -208,7 +208,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
                 if (editTextASelected[0]) {
-
 
                     //Just need string checks for Double.parse needed. Plenty of cases where it bugs.
                     //E's and what not.
@@ -230,8 +229,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 else if (editTextBSelected[0]) {
 
-                    mUnitAInputEditText.removeTextChangedListener(this);
-                    mUnitAInputEditText.clearComposingText();
 
                     String editTextBInputString = String.valueOf(mUnitBInputEditText.getText());
                     if(!editTextBInputString.equals("")) {
@@ -242,7 +239,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                     }
                     else {
                         mUnitAInputEditText.setText("");
-//                        mUnitAInputEditText.clearComposingText();
+
 
                     }
                 }
@@ -276,18 +273,17 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
 
+                    mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+
                     editTextASelected[0] = true;
+                    editTextBSelected[0] = false;
 
 
-                    if (editTextBSelected[0]) {
-                        mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
-                        editTextBSelected[0] = false;
-
-                    }
+                    clearUserInput();
 
                     Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
                     mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
-                    clearUserInput();
+
 
                 }
             }
@@ -300,18 +296,16 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 if (hasFocus) {
 
+                    mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+
                     editTextBSelected[0] = true;
+                    editTextASelected[0] = false;
 
-
-                    if (editTextASelected[0]) {
-                        mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
-                        editTextASelected[0] = false;
-                    }
-
-
-                    Toast.makeText(getContext(), "Edit Text B", Toast.LENGTH_SHORT).show();
-                    mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
                     clearUserInput();
+
+                    Toast.makeText(getContext(), "EditText B", Toast.LENGTH_SHORT).show();
+                    mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
+
 
                 }
             }
