@@ -188,7 +188,19 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            //Here! Check to see which edit text has focus..
+            //Based on that you can
 
+            if(editTextASelected[0]) {
+//                mUnitAInputEditText.addTextChangedListener(this);
+                mUnitBInputEditText.removeTextChangedListener(this);
+            }
+
+            else if(editTextBSelected[0]) {
+//                mUnitBInputEditText.addTextChangedListener(this);
+                mUnitAInputEditText.removeTextChangedListener(this);
+
+                }
 
             }
 
@@ -197,8 +209,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
                 if (editTextASelected[0]) {
 
-                    mUnitBInputEditText.removeTextChangedListener(this);
-                    mUnitBInputEditText.clearComposingText();
 
                     //Just need string checks for Double.parse needed. Plenty of cases where it bugs.
                     //E's and what not.
@@ -211,8 +221,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                         mUnitBInputEditText.setText(resultText);
                     }
                     else{
-//                        mUnitBInputEditText.setText(""); //This line is cuasing the loop
-//                        mUnitBInputEditText.clearComposingText();
+                        mUnitBInputEditText.setText(""); //This line is cuasing the loop
+
 
                     }
 
@@ -270,7 +280,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
 
                     if (editTextBSelected[0]) {
-                        mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+//                        mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
                         editTextBSelected[0] = false;
 
                     }
@@ -294,7 +304,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
 
                     if (editTextASelected[0]) {
-                        mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+//                        mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
                         editTextASelected[0] = false;
                     }
 
