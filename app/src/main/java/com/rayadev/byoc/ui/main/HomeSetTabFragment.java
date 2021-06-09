@@ -261,6 +261,10 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
        So both EditTexts need to be using a single text watcher.
        Or just set the TextWatcher's permanently.
 
+       Change visibility of textViews and Edittexts programatically
+       Keep the edit Texts with the watchers, but just impose a regular textview on top.
+       To "Disable" the EditText and prevent the loop.
+
        The bug is more when you switch between converters than anything else.
 
 
