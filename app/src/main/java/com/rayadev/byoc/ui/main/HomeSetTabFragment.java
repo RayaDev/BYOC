@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.Keep;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -171,6 +172,11 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void setConverterBoxLogic(double unitAValue, double unitBValue) {
 
+
+
+
+
+        /* First attempt with textWatchers.
         //Text watchers for the editText
 
         //Loop problem solved.. But now there's a performance issue.
@@ -257,7 +263,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         //This fixes the input issue. Keeping these outside the onClick.
         //The bug is almost fixed!!
 
-        /*Adding and removing text Watchers is whats causing the performance issue
+        Adding and removing text Watchers is whats causing the performance issue
        So both EditTexts need to be using a single text watcher.
        Or just set the TextWatcher's permanently.
 
@@ -268,7 +274,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
        The bug is more when you switch between converters than anything else.
 
 
-         */
+
 
 
 
@@ -315,7 +321,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             }
         });
 
-
+*/
     }
 
     private void keyboardManager() {
@@ -368,6 +374,26 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         if (mUnitBInputEditText.getText() != null) {
             mUnitBInputEditText.getText().clear();
         }
+
+    }
+
+    //Maybe putting this into its own thread would help too.
+    //When I click to fast.. The UI thread is busy processing other things before it can remove
+    //The TextWatchers. Then I input some stuff and it loops?
+    private class MyTextWatcherClass {
+
+        private EditText viewA, viewB;
+
+        MyTextWatcherClass(EditText viewA, EditText viewB) {
+
+            this.viewA = viewA;
+            this.viewB = viewB;
+
+        }
+
+
+
+
 
     }
 
