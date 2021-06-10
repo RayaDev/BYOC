@@ -172,156 +172,29 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void setConverterBoxLogic(double unitAValue, double unitBValue) {
 
-
-
-
-
-        /* First attempt with textWatchers.
-        //Text watchers for the editText
-
-        //Loop problem solved.. But now there's a performance issue.
-        //Performance issues
-
-        //Add on Click clear input.
-
-
-        final int[] editTextSelectedId = new int[1];
-
-        final boolean[] editTextASelected = new boolean[1];
-        final boolean[] editTextBSelected = new boolean[1];
-
-        TextWatcher mUnitEditTextWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            //Here! Check to see which edit text has focus..
-            //Based on that you can
-
-//            if(editTextASelected[0]) {
-////                mUnitAInputEditText.addTextChangedListener(this);
-//                mUnitBInputEditText.removeTextChangedListener(this);
-//            }
-//
-//            else if(editTextBSelected[0]) {
-////                mUnitBInputEditText.addTextChangedListener(this);
-//                mUnitAInputEditText.removeTextChangedListener(this);
-//
-//                }
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if (editTextASelected[0]) {
-
-                    //Just need string checks for Double.parse needed. Plenty of cases where it bugs.
-                    //E's and what not.
-
-                    String editTextAInputString = String.valueOf(mUnitAInputEditText.getText());
-                    if(!editTextAInputString.equals("")) {
-                        double unitAInput = Double.parseDouble(editTextAInputString);
-                        double result = runConversionAB(unitAInput, unitBValue);
-                        String resultText = result + "";
-                        mUnitBInputEditText.setText(resultText);
-                    }
-                    else{
-                        mUnitBInputEditText.setText(""); //This line is cuasing the loop
-
-
-                    }
-
-                }
-
-                else if (editTextBSelected[0]) {
-
-
-                    String editTextBInputString = String.valueOf(mUnitBInputEditText.getText());
-                    if(!editTextBInputString.equals("")) {
-                        double unitBInput = Double.parseDouble(String.valueOf(mUnitBInputEditText.getText()));
-                        double result = runConversionBA(unitBInput, unitAValue);
-                        String resultText = result + "";
-                        mUnitAInputEditText.setText(resultText);
-                    }
-                    else {
-                        mUnitAInputEditText.setText("");
-
-
-                    }
-                }
-
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        };
-
-
-        //This fixes the input issue. Keeping these outside the onClick.
-        //The bug is almost fixed!!
-
-        Adding and removing text Watchers is whats causing the performance issue
-       So both EditTexts need to be using a single text watcher.
-       Or just set the TextWatcher's permanently.
-
-       Change visibility of textViews and Edittexts programatically
-       Keep the edit Texts with the watchers, but just impose a regular textview on top.
-       To "Disable" the EditText and prevent the loop.
-
-       The bug is more when you switch between converters than anything else.
-
-
-
-
-
+        final MyTextWatcherUtils[] myTextWatcherUtils = {null};
 
         mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
+                if(hasFocus) {
 
-                    mUnitBInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
+                    myTextWatcherUtils[0] = null; //Clears the variable and starts fresh.
+                    myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
+                    myTextWatcherUtils[0].removeTextWatcher();
+                    myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+                }
 
-                    editTextASelected[0] = true;
-                    editTextBSelected[0] = false;
-
-
-                    clearUserInput();
-
-                    Toast.makeText(getContext(), "Edit Text A", Toast.LENGTH_SHORT).show();
-                    mUnitAInputEditText.addTextChangedListener(mUnitEditTextWatcher);
-
+                else {
+                    myTextWatcherUtils[0].removeTextWatcher();
 
                 }
-            }
-
-        });
-
-        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-
-                if (hasFocus) {
-
-                    mUnitAInputEditText.removeTextChangedListener(mUnitEditTextWatcher);
-
-                    editTextBSelected[0] = true;
-                    editTextASelected[0] = false;
-
-                    clearUserInput();
-
-                    Toast.makeText(getContext(), "EditText B", Toast.LENGTH_SHORT).show();
-                    mUnitBInputEditText.addTextChangedListener(mUnitEditTextWatcher);
 
 
-                }
             }
         });
 
-*/
+
     }
 
     private void keyboardManager() {
@@ -350,20 +223,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     }
 
-    private double runConversionAB(double unitAValue, double unitBValue) {
 
-//        String test = 1.0+"";
-//        mUnitBInputEditText.setText(test);
-        double result = unitAValue * unitBValue;
-        return result;
-    }
-
-    private double runConversionBA(double unitBValue, double unitAValue) {
-
-        //Needs a different conversion ratio.
-        double result = unitBValue * unitAValue;
-        return result;
-    }
 
     private void clearUserInput() {
 
@@ -377,24 +237,5 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     }
 
-    //Maybe putting this into its own thread would help too.
-    //When I click to fast.. The UI thread is busy processing other things before it can remove
-    //The TextWatchers. Then I input some stuff and it loops?
-    private class MyTextWatcherClass {
-
-        private EditText viewA, viewB;
-
-        MyTextWatcherClass(EditText viewA, EditText viewB) {
-
-            this.viewA = viewA;
-            this.viewB = viewB;
-
-        }
-
-
-
-
-
-    }
 
 }
