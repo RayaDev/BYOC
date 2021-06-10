@@ -14,7 +14,6 @@
             android:windowSoftInputMode="adjustResize">
 
         </activity>
-        <activity android:name=".ui.main.SetListActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
