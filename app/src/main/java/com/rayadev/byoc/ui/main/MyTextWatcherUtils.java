@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 class MyTextWatcherUtils {
 
-    private EditText viewA, viewB, userInputEditText1;
+    private EditText viewA, viewB;
     private double unitAValue, unitBValue;
     private int userSelection;
 
@@ -25,7 +25,6 @@ class MyTextWatcherUtils {
 
     public void setUnitEditTextWatcher(EditText userInputEditText) {
 
-        this.userInputEditText1 = userInputEditText;
 
         mTextWatcher = new TextWatcher() {
             @Override
@@ -55,11 +54,11 @@ class MyTextWatcherUtils {
             }
         };
 
-        userInputEditText1.addTextChangedListener(mTextWatcher);
+        userInputEditText.addTextChangedListener(mTextWatcher);
     }
 
-    public void removeTextWatcher() {
-        userInputEditText1.removeTextChangedListener(mTextWatcher);
+    public void removeTextWatcher(EditText userInputEditText) {
+        userInputEditText.removeTextChangedListener(mTextWatcher);
     }
 
     private void runConversionAB() {

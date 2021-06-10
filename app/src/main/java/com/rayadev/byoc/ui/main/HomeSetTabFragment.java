@@ -172,25 +172,39 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
 
     private void setConverterBoxLogic(double unitAValue, double unitBValue) {
 
-        final MyTextWatcherUtils[] myTextWatcherUtils = {null};
+        final MyTextWatcherUtils[] myTextWatcherUtils = new MyTextWatcherUtils[2];
+
+        myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
+        myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
 
         mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
-
-                    myTextWatcherUtils[0] = null; //Clears the variable and starts fresh.
-                    myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
-                    myTextWatcherUtils[0].removeTextWatcher();
+                    clearUserInput();
                     myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
                 }
 
-                else {
-                    myTextWatcherUtils[0].removeTextWatcher();
+                else if(!hasFocus){
 
+                    myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
                 }
 
 
+            }
+        });
+
+        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) {
+                    clearUserInput();
+                    myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+                }
+
+                else if(!hasFocus) {
+                    myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
+                }
             }
         });
 
