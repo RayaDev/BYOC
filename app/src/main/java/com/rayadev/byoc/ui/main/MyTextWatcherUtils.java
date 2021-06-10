@@ -73,7 +73,6 @@ class MyTextWatcherUtils {
         else{
             viewB.setText(""); //This line is cuasing the loop
 
-
         }
 
     }
@@ -83,7 +82,9 @@ class MyTextWatcherUtils {
         String editTextBInputString = String.valueOf(viewB.getText());
         if(!editTextBInputString.equals("")) {
             double unitBInput = Double.parseDouble(editTextBInputString);
-            double result = unitBInput * unitAValue;
+
+            double ratio = unitAValue / unitBValue;
+            double result = unitBInput * ratio;
             String resultText = result + "";
             viewA.setText(resultText);
         }
