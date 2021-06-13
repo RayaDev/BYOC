@@ -37,7 +37,7 @@ public class ConverterViewModel extends AndroidViewModel {
     //Wrapper for the "getter" method that gets all the words.
     public LiveData<List<Converter>> getAllConverters() { return mAllConverters; }
 
-    //Deletes a single Converters from the database
+    //Deletes a single Converters from the database, Use converterID***
     public void deleteConverters(Converter converter) {mRepository.deleteConverter(converter);}
 
     public void insertConverter(Converter converter) {mRepository.insertConverter(converter);}

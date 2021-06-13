@@ -42,6 +42,7 @@ public class ConverterRepository {
         new insertAsyncTask(mConverterDao).execute(converter);
     }
 
+    //This delete function needs to use the converterID
     public void deleteConverter(Converter converter)  {
         new deleteConverterAsyncTask(mConverterDao).execute(converter);
     }
