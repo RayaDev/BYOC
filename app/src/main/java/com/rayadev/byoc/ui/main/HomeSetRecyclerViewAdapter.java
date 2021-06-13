@@ -2,6 +2,7 @@ package com.rayadev.byoc.ui.main;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     private ArrayList<Converter> mConverterArrayList; //Holds the Converter data to be populated into the RecyclerView
     private LayoutInflater mLayoutInflater;
     private ConverterClickListener mClickListener;
+    private View mItemView;
 
 
     //Passes the data into the constructor the Adapter to use.
@@ -34,7 +36,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
     @Override
     public ConverterBoxViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View mItemView = mLayoutInflater.inflate(R.layout.converter_box, parent, false);
+        mItemView = mLayoutInflater.inflate(R.layout.converter_box, parent, false);
 //        setClickListener(mClickListener);
         return new ConverterBoxViewHolder(mItemView);
     }
@@ -53,6 +55,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             //holder.mConverterImageView.setImageResource(mConverter.getConverterBoxImageID());
 
             //Pass the data from converter down to the holder.
+            holder.converterID = mConverter.getConverterID();
             holder.unitAName = mConverter.getConverterUnitA_Name();
             holder.unitBName = mConverter.getConverterUnitB_Name();
             holder.unitAValue = mConverter.getConverterUnitA_Value();
@@ -113,6 +116,7 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
 
 
         //Converter Data stuff
+        private int converterID;
         private String unitAName;
         private String unitBName;
         private String unitCategory;
@@ -128,10 +132,20 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
             mConverterImageView = itemView.findViewById(R.id.converter_box_image_view);
 
             //Implements the interface onto the ViewHolder
-            mConverterImageView.setOnClickListener(new View.OnClickListener() {
+            mItemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     mClickListener.onConverterIconClick(unitAName, unitBName, unitAValue, unitBValue);
+                }
+            });
+
+            mItemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                    mClickListener.onConverterLongClick(converterID);
+                    return false;
                 }
             });
 
@@ -144,5 +158,6 @@ public class HomeSetRecyclerViewAdapter extends RecyclerView.Adapter<HomeSetRecy
         //Passes all the Converter info to the fragment
 
         void onConverterIconClick(String converterUnitA_Name, String converterUnitB_Name, double converterUnitA_Value, double convertUnitB_Value);
+        void onConverterLongClick(int converterID); //Need to get Converter ID to pass to the delete operation.
     }
 }
