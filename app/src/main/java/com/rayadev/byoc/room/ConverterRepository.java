@@ -48,8 +48,12 @@ public class ConverterRepository {
     }
 
     public LiveData<List<Converter>> getTargetConverter(String converterName) {
-        //AsynTask occurs at Fragment level. Seems to be good. This needs to be LiveData.
+        //AsyncTask occurs at Fragment level. Seems to be good. This needs to be LiveData.
         return mConverterDao.getTargetConverter(converterName);
+    }
+
+    public Converter getConverterByID(int converterID) {
+        return mConverterDao.getConverterByID(converterID);
     }
 
     //Every method from the ConverterDAO needs an Async innerclass to execute.

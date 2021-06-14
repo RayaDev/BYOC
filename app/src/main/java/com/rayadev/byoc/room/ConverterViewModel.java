@@ -47,4 +47,8 @@ public class ConverterViewModel extends AndroidViewModel {
         return mRepository.getTargetConverter(converterName);
     }
 
+    public Converter getConverterByID(int converterID) {
+        return mRepository.getConverterByID(converterID);
+    }
+
 }

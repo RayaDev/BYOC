@@ -34,10 +34,12 @@ interface ConverterDAO {
     @Query("SELECT * from converter_table WHERE converter_name =:converterName")
     LiveData<List<Converter>> getTargetConverter(String converterName); //Should be get a distinct entity, but ArrayList just in case.
 
-
     @Query("SELECT * from converter_table ORDER BY converter_name ASC") //Ordering word/entities makes testing easier.
     LiveData<List<Converter>> getAllConverters();
 
     @Query("SELECT * from converter_table LIMIT 1")
     Converter[] getAnyConverter(); //Checks to see if that database has be initialized or not by getting a random word.
+
+    @Query("SELECT * from converter_table WHERE converterID = :converterID")
+    Converter getConverterByID(int converterID);
 }
