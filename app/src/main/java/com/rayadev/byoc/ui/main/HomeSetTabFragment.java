@@ -176,8 +176,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                 // The dialog is automatically dismissed when a dialog button is clicked.
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Converter converter = mConverterViewModel.getConverterByID(converterID);
-                        mConverterViewModel.deleteConverters(converter);
+                        mConverterViewModel.deleteConverterByID(converterID);
 
                     }
                 })

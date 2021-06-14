@@ -7,6 +7,7 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
+import java.io.InputStream;
 import java.util.List;
 
 //Layer of abstraction. Passes data from either the RoomDatabase, or a network source.
@@ -52,8 +53,9 @@ public class ConverterRepository {
         return mConverterDao.getTargetConverter(converterName);
     }
 
-    public Converter getConverterByID(int converterID) {
-        return mConverterDao.getConverterByID(converterID);
+    public void deleteConverterByID(int converterID) {
+        new deleteConverterByID(mConverterDao).execute(converterID);
+
     }
 
     //Every method from the ConverterDAO needs an Async innerclass to execute.
@@ -101,6 +103,22 @@ public class ConverterRepository {
             return null;
         }
 
+    }
+
+    private static class deleteConverterByID extends AsyncTask<Integer, Void, Void> {
+
+        private ConverterDAO AsyncTaskDao;
+
+        public deleteConverterByID(ConverterDAO converterDAO) {
+            this.AsyncTaskDao = converterDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Integer... integers) {
+            Converter converter = AsyncTaskDao.getConverterByID(integers[0]);
+            AsyncTaskDao.deleteConverter(converter);
+            return null;
+        }
     }
 
 }
