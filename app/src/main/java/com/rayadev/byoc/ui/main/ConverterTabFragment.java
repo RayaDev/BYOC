@@ -49,7 +49,7 @@ public class ConverterTabFragment extends Fragment {
     private ImageButton mConverterInfoButton, mConverterSwapButton;
 
     //Bottom UI
-    private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
+    private ImageView mBuildConverterButton, mAddConverterButton;
     private LinearLayout mBottomUI;
 
     public ConverterTabFragment() {
@@ -82,6 +82,7 @@ public class ConverterTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_converter_tab, container, false);
 
         linkViews(view);
+        setBottomUIOnClicks();
         buildSpinner(view);
 
         return view;
@@ -101,31 +102,47 @@ public class ConverterTabFragment extends Fragment {
 
     private void linkViews(View view) {
 
-        //Link ConverterBox Views
-        View myLayout = view.findViewById( R.id.converter_cardlayout_include_converter_tab ); // root View id from include
-
-        mUnitATitleTextView = myLayout.findViewById(R.id.cardView_UnitATitle_TextView);
-        mUnitBTitleTextView = myLayout.findViewById(R.id.cardView_UnitBTitle_TextView);
-
-        mUnitAInputEditText = myLayout.findViewById(R.id.cardView_UnitAInput_EditText);
-        mUnitBInputEditText = myLayout.findViewById(R.id.cardView_UnitBInput_EditText);
-
-        mConverterInfoButton = myLayout.findViewById(R.id.cardView_InfoButton);
-        mConverterSwapButton = myLayout.findViewById(R.id.cardView_SwapButton);
-
+        //SetUp View Model
         mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
 
+        //Set Up Bottom UI
+        mBuildConverterButton = view.findViewById(R.id.build_converter_button);
+        mAddConverterButton = view.findViewById(R.id.add_converter_button);
+
+        //Link ConverterBox Views
+        View converterUILayout = view.findViewById( R.id.converter_cardlayout_include_converter_tab ); // root View id from include
+
+        mUnitATitleTextView = converterUILayout.findViewById(R.id.cardView_UnitATitle_TextView);
+        mUnitBTitleTextView = converterUILayout.findViewById(R.id.cardView_UnitBTitle_TextView);
+
+        mUnitAInputEditText = converterUILayout.findViewById(R.id.cardView_UnitAInput_EditText);
+        mUnitBInputEditText = converterUILayout.findViewById(R.id.cardView_UnitBInput_EditText);
+
+        mConverterInfoButton = converterUILayout.findViewById(R.id.cardView_InfoButton);
+        mConverterSwapButton = converterUILayout.findViewById(R.id.cardView_SwapButton);
 
     }
 
-    private void setConverterBoxData(String unitAText, String unitBText) {
+    private void setBottomUIOnClicks() {
+        mBuildConverterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CustomConverterActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        //Does this actually happen on a seperate thread?
-//        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
-        mUnitATitleTextView.setText(unitAText);
-        mUnitBTitleTextView.setText(unitBText);
+        mAddConverterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Converter converter = new Converter("M","FT",1,1, "distance");
+                mConverterViewModel.insertConverter(converter);
 
+                Toast.makeText(getContext(), "Add clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 
 
     private void buildSpinner(View view) {
@@ -190,6 +207,15 @@ public class ConverterTabFragment extends Fragment {
         return "MS";
     }
 
+    private void setConverterBoxData(String unitAText, String unitBText) {
+
+        //Does this actually happen on a seperate thread?
+//        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
+        mUnitATitleTextView.setText(unitAText);
+        mUnitBTitleTextView.setText(unitBText);
+
+    }
+
     private void setUpTargetConverter() {
 
         //Creating multiple instances of this view model just to access the database seems not good..
@@ -215,26 +241,6 @@ public class ConverterTabFragment extends Fragment {
     }
 
 
-//Bottom UI Stuff
-    private void setOnClicks() {
-        mCustomConverterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CustomConverterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mAddHomeSetConverterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Converter converter = new Converter("M","FT",1,1, "distance");
-                mConverterViewModel.insertConverter(converter);
-
-                Toast.makeText(getContext(), "Add clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 }
 
