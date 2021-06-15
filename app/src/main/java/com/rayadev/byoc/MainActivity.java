@@ -131,17 +131,17 @@ public class MainActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(tab.getPosition()); //Important for clicking over to new tabs.
                 Log.i("TAG", String.valueOf(tab.getPosition()));
 
-                //Controls the visibility of the bottom UI
-//                if( tab.getPosition() == 2) {
-//                    mBottomUI.setVisibility(View.INVISIBLE);
-//
-//                }
-//
-//                else {
-//                    mBottomUI.setVisibility(View.VISIBLE);
-////                    mConverterCardView.setVisibility(View.VISIBLE);
-//
-//                }
+                switch (tab.getPosition()) {
+                    case 0:
+                        mBottomUI.setVisibility(View.VISIBLE);
+                        break;
+                    case 1:
+                        mBottomUI.setVisibility(View.GONE);
+                        break;
+
+                }
+
+
 
             }
 
