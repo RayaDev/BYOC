@@ -1,6 +1,7 @@
 package com.rayadev.byoc.ui.main;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -20,6 +21,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,11 +41,16 @@ public class ConverterTabFragment extends Fragment {
 
 
     private int spinnerID;
+    private ConverterViewModel mConverterViewModel;
 
     //Views for the converter UI
     private TextView mUnitATitleTextView, mUnitBTitleTextView;
     private EditText mUnitAInputEditText, mUnitBInputEditText;
     private ImageButton mConverterInfoButton, mConverterSwapButton;
+
+    //Bottom UI
+    private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
+    private LinearLayout mBottomUI;
 
     public ConverterTabFragment() {
         this.spinnerID = R.layout.spinner_scrollview_distance;
@@ -104,6 +112,8 @@ public class ConverterTabFragment extends Fragment {
 
         mConverterInfoButton = myLayout.findViewById(R.id.cardView_InfoButton);
         mConverterSwapButton = myLayout.findViewById(R.id.cardView_SwapButton);
+
+        mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
 
 
     }
@@ -202,6 +212,28 @@ public class ConverterTabFragment extends Fragment {
 
         converterData.observe(getViewLifecycleOwner(), observer);
 
+    }
+
+
+//Bottom UI Stuff
+    private void setOnClicks() {
+        mCustomConverterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CustomConverterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mAddHomeSetConverterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Converter converter = new Converter("M","FT",1,1, "distance");
+                mConverterViewModel.insertConverter(converter);
+
+                Toast.makeText(getContext(), "Add clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

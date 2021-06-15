@@ -25,8 +25,6 @@ import com.rayadev.byoc.ui.main.PageAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView mCustomConverterButton, mAddHomeSetConverterButton;
-    private LinearLayout mBottomUI;
     private CardView mConverterCardView;
     public ConverterViewModel mConverterViewModel;
 
@@ -43,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
     //Example of how I like to organize methods
     private void initializeUI() {
 
-        linkViews();
-        setOnClicks();
         keyBoardManager();
         setUpToolbar();
         TabLayout tabLayout = setUpTabLayout();
@@ -52,34 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void linkViews() {
-        mCustomConverterButton = findViewById(R.id.build_button);
-        mAddHomeSetConverterButton = findViewById(R.id.add_button);
-        mBottomUI = findViewById(R.id.mainActivity_BottomUI_LinearLayout);
-//        mConverterCardView = findViewById(R.id.converter_cardlayout_include);
-        mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
 
-    }
 
-    private void setOnClicks() {
-        mCustomConverterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CustomConverterActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mAddHomeSetConverterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Converter converter = new Converter("M","FT",1,1, "distance");
-                mConverterViewModel.insertConverter(converter);
-
-                Toast.makeText(MainActivity.this, "Add clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     private void keyBoardManager() {
 
@@ -130,17 +100,6 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition()); //Important for clicking over to new tabs.
                 Log.i("TAG", String.valueOf(tab.getPosition()));
-
-                switch (tab.getPosition()) {
-                    case 0:
-                        mBottomUI.setVisibility(View.VISIBLE);
-                        break;
-                    case 1:
-                        mBottomUI.setVisibility(View.GONE);
-                        break;
-
-                }
-
 
 
             }
