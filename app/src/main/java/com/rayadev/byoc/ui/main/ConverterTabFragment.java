@@ -192,10 +192,11 @@ public class ConverterTabFragment extends Fragment {
         Observer<List<Converter>> observer = new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
-                String unitATitle = converters.get(0).getConverterUnitA_Name();
-                String unitBTitle = converters.get(0).getConverterUnitB_Name();
-
-                setConverterBoxData(unitATitle, unitBTitle);
+                //This code just sets up a converter for an example
+//                String unitATitle = converters.get(0).getConverterUnitA_Name();
+//                String unitBTitle = converters.get(0).getConverterUnitB_Name();
+//
+//                setConverterBoxData(unitATitle, unitBTitle);
             }
         };
 
