@@ -28,7 +28,8 @@ import java.util.stream.Collectors;
 public class SpinnerScrollViewFragment extends Fragment {
 
     private int layoutID;
-
+    private String converterUnitAName = "";
+    private String converterUnitBName = "";
 //    public SpinnerScrollViewFragment() {
 //        // Required empty public constructor
 //    }
@@ -139,6 +140,8 @@ public class SpinnerScrollViewFragment extends Fragment {
 //                    checkID(textView.getId());
 //                    sendOverConverter();
 
+                    converterUnitAName = textView.getText().toString();
+
                     Log.i("TAGS",textView.getText().toString());
 
                     sendConverterName();
@@ -164,7 +167,10 @@ public class SpinnerScrollViewFragment extends Fragment {
 //                    checkID(textView.getId());
 //                    sendOverConverter();
 
+                    converterUnitBName = textView.getText().toString();
+
                     Log.i("TAGS",textView.getText().toString());
+                    sendConverterName();
 
 
                 }
@@ -175,7 +181,15 @@ public class SpinnerScrollViewFragment extends Fragment {
     }
 
     private void sendConverterName() {
-        //Sends the converter name back over to the ConverterTabFragment
+
+        if(!converterUnitAName.equals("") && !converterUnitBName.equals("")) {
+            String converterName = converterUnitAName + converterUnitBName;
+            Log.i("TAGS", converterName);
+            converterUnitAName ="";
+            converterUnitBName="";
+        }
     }
+
+
 
 }
