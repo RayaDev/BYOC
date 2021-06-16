@@ -87,16 +87,13 @@ public class ConverterTabFragment extends Fragment {
 
         return view;
 
-
     }
 
     // Any view setup should occur here.  E.g., view lookups and attaching view listeners.
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-
 //        setSpinnerScrollViewFragment(spinnerID);
-
 
     }
 
@@ -143,8 +140,6 @@ public class ConverterTabFragment extends Fragment {
         });
     }
 
-
-
     private void buildSpinner(View view) {
 
         String[] units = {getString(R.string.spinner_distance_title), getString(R.string.spinner_area_title), getString(R.string.spinner_time_title), getString(R.string.spinner_volume_title), getString(R.string.spinner_weight_title)};
@@ -177,8 +172,6 @@ public class ConverterTabFragment extends Fragment {
                     toast.show();
                     setSpinnerScrollViewFragment(R.layout.spinner_scrollview_area);
                 }
-
-
             }
 
             @Override

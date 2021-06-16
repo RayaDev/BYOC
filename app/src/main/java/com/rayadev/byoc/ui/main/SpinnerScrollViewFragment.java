@@ -61,15 +61,14 @@ public class SpinnerScrollViewFragment extends Fragment {
 
         //Get the set of unit View IDs based on the layout being used.
         //Declare all of this in an arrays resource file.
-        ArrayList<Integer> unitAIDs = new ArrayList<>();
-        ArrayList<Integer> unitBIDs = new ArrayList<>();
+
 
         switch (layoutID) {
             case R.layout.spinner_scrollview_distance:
                 int[] arrayA = getResources().getIntArray(R.array.distance_scrollview_unitA_ID);
                 int[] arrayB = getResources().getIntArray(R.array.distance_scrollview_unitB_ID);
-                unitAIDs= (ArrayList<Integer>) Arrays.stream(arrayA).boxed().collect(Collectors.toList());
-                unitBIDs= (ArrayList<Integer>) Arrays.stream(arrayB).boxed().collect(Collectors.toList());
+
+                linkSpinnerViews(view, arrayA, arrayB);
 
                 break;
 
@@ -79,20 +78,18 @@ public class SpinnerScrollViewFragment extends Fragment {
                 break;
 
             default:
-                arrayA = getResources().getIntArray(R.array.distance_scrollview_unitA_ID);
-                arrayB = getResources().getIntArray(R.array.distance_scrollview_unitB_ID);
-                unitAIDs= (ArrayList<Integer>) Arrays.stream(arrayA).boxed().collect(Collectors.toList());
-                unitBIDs= (ArrayList<Integer>) Arrays.stream(arrayB).boxed().collect(Collectors.toList());
+
                 break;
+
+
 
         }
 
         //Link Views in spinner and enable UI
-        linkSpinnerViews(view, unitAIDs, unitBIDs);
 
     }
 
-    private void linkSpinnerViews(View view, ArrayList<Integer> unitAIDs, ArrayList<Integer> unitBIDs) {
+    private void linkSpinnerViews(View view, int[]unitAIDs, int[]unitBIDs) {
 
         final ArrayList<TextView> mTextViewAList = new ArrayList<>();
         final ArrayList<TextView> mTextViewBList = new ArrayList<>();
@@ -142,6 +139,8 @@ public class SpinnerScrollViewFragment extends Fragment {
 //                    checkID(textView.getId());
 //                    sendOverConverter();
 
+                    Log.i("TAGS",textView.getText().toString());
+
                     sendConverterName();
 
 
@@ -164,6 +163,8 @@ public class SpinnerScrollViewFragment extends Fragment {
 //                    setConverterUnitB_ID(textView.getId());
 //                    checkID(textView.getId());
 //                    sendOverConverter();
+
+                    Log.i("TAGS",textView.getText().toString());
 
 
                 }

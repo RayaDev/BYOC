@@ -9,6 +9,8 @@
     <string name="home_set_fragment_test">Home Set Fragment</string>
     <string name="set_list_fragment_test">Set List Fragment</string>
 
+    <string name="action_1">Convert</string>
+
 
     <!-- Unit Categories -->
     <string name="unit_category_distance">Distance</string>
@@ -19,6 +21,13 @@
     <string name="unit_category_speed">Speed</string>
     <string name="unit_category_area">Area</string>
 
+    <!--Spinner Titles -->
+    <string name="spinner_distance_title">Distance</string>
+    <string name="spinner_area_title">Area</string>
+    <string name="spinner_time_title">Time</string>
+    <string name="spinner_volume_title">Volume</string>
+    <string name="spinner_weight_title">Weight</string>
+
     <!-- Distance Preset Units -->
     <string name="distance_kilometer">Kilometer</string>
     <string name="distance_meter">Meter</string>
@@ -28,11 +37,5 @@
     <string name="distance_yard">Yard</string>
     <string name="distance_foot">Foot</string>
     <string name="distance_inch">Inch</string>
-    <string name="action_1">Convert</string>
-    <string name="spinner_distance_title">Distance</string>
-    <string name="spinner_area_title">Area</string>
-    <string name="spinner_time_title">Time</string>
-    <string name="spinner_volume_title">Volume</string>
-    <string name="spinner_weight_title">Weight</string>
 
 </resources>
