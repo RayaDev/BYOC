@@ -184,7 +184,19 @@ public class ConverterTabFragment extends Fragment {
 
     //Replaces the ScrollViews for unit selection based on the spinner menu choice.
     private void setSpinnerScrollViewFragment(int layoutID) {
-        SpinnerScrollViewFragment mFragment = new SpinnerScrollViewFragment(layoutID);
+        SpinnerScrollViewFragment mFragment = new SpinnerScrollViewFragment(layoutID, new SpinnerScrollViewFragment.UserConverterSelection() {
+            @Override
+            public void sendConverterName(String converterName) {
+                Toast.makeText(getContext(), converterName, Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void setConverterBoxName(String converterUnitAName, String converterUnitBName) {
+                        mUnitATitleTextView.setText(converterUnitAName);
+                        mUnitBTitleTextView.setText(converterUnitBName);
+            }
+        });
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
         // Replace the contents of the container with the new fragment
@@ -232,8 +244,6 @@ public class ConverterTabFragment extends Fragment {
         converterData.observe(getViewLifecycleOwner(), observer);
 
     }
-
-
 
 }
 

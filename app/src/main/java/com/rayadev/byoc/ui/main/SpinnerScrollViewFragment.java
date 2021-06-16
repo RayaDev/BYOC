@@ -28,13 +28,19 @@ import java.util.stream.Collectors;
 public class SpinnerScrollViewFragment extends Fragment {
 
     private int layoutID;
+    private UserConverterSelection mUserConverterSelection;
     private String converterUnitAName = "";
     private String converterUnitBName = "";
+
+
+
 //    public SpinnerScrollViewFragment() {
 //        // Required empty public constructor
 //    }
 
-    public SpinnerScrollViewFragment(int layoutID) {
+    public SpinnerScrollViewFragment(int layoutID, UserConverterSelection userConverterSelection) {
+
+        this.mUserConverterSelection = userConverterSelection;
         this.layoutID = layoutID;
 
     }
@@ -184,10 +190,20 @@ public class SpinnerScrollViewFragment extends Fragment {
 
         if(!converterUnitAName.equals("") && !converterUnitBName.equals("")) {
             String converterName = converterUnitAName + converterUnitBName;
+
+            mUserConverterSelection.sendConverterName(converterName);
+            mUserConverterSelection.setConverterBoxName(converterUnitAName, converterUnitBName);
+
             Log.i("TAGS", converterName);
             converterUnitAName ="";
             converterUnitBName="";
         }
+    }
+
+    public interface UserConverterSelection {
+
+        void sendConverterName(String converterName);
+        void setConverterBoxName(String converterUnitAName, String converterUnitBName);
     }
 
 
