@@ -212,7 +212,7 @@ public class ConverterTabFragment extends Fragment {
     //Will come from the SpinnerInterface
 
 
-    private void setConverterBoxData(String unitAText, String unitBText) {
+    private void setConverterBoxTitles(String unitAText, String unitBText) {
 
         //Does this actually happen on a seperate thread?
 //        Toast.makeText(getContext(), "Thread Success", Toast.LENGTH_SHORT).show();
@@ -229,19 +229,79 @@ public class ConverterTabFragment extends Fragment {
 
         LiveData<List<Converter>> converterData = mConverterViewModel.getTargetConverter(converterName);
 
+
         //This observer seems to be getting triggered from the add button, and other fragments.
         Observer<List<Converter>> observer = new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
                 //This code just sets up a converter for an example
-                String unitATitle = converters.get(0).getConverterUnitA_Name();
-                String unitBTitle = converters.get(0).getConverterUnitB_Name();
+              Converter converter = converters.get(0);
 
-                setConverterBoxData(unitATitle, unitBTitle);
+                String unitATitle = converter.getConverterUnitA_Name();
+                String unitBTitle = converter.getConverterUnitB_Name();
+
+                setConverterBoxTitles(unitATitle, unitBTitle);
+                setConverterBoxLogic(converter.getConverterUnitA_Value(), converter.getConverterUnitB_Value());
+
             }
         };
 
         converterData.observe(getViewLifecycleOwner(), observer);
+
+
+
+
+    }
+
+    private void setConverterBoxLogic(double unitAValue, double unitBValue) {
+
+        final MyTextWatcherUtils[] myTextWatcherUtils = new MyTextWatcherUtils[2];
+
+        myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
+        myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
+
+        mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) {
+                    clearUserInput();
+                    myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+                }
+
+                else if(!hasFocus){
+
+                    myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
+                }
+
+
+            }
+        });
+
+        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) {
+                    clearUserInput();
+                    myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+                }
+
+                else if(!hasFocus) {
+                    myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
+                }
+            }
+        });
+
+    }
+
+    private void clearUserInput() {
+
+        if (mUnitAInputEditText.getText() != null) {
+            mUnitAInputEditText.getText().clear();
+        }
+
+        if (mUnitBInputEditText.getText() != null) {
+            mUnitBInputEditText.getText().clear();
+        }
 
     }
 
