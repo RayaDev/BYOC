@@ -163,7 +163,7 @@ public class ConverterTabFragment extends Fragment {
                     setSpinnerScrollViewFragment(R.layout.spinner_scrollview_distance);
 
                     //This should be called after the user selects units off the spinner.
-                    setUpTargetConverter();
+//                    setUpTargetConverter();
 
                 }
 
@@ -189,12 +189,14 @@ public class ConverterTabFragment extends Fragment {
             public void sendConverterName(String converterName) {
                 Toast.makeText(getContext(), converterName, Toast.LENGTH_SHORT).show();
 
+                setUpTargetConverter(converterName);
+
             }
 
             @Override
             public void setConverterBoxName(String converterUnitAName, String converterUnitBName) {
-                        mUnitATitleTextView.setText(converterUnitAName);
-                        mUnitBTitleTextView.setText(converterUnitBName);
+//                        mUnitATitleTextView.setText(converterUnitAName);
+//                        mUnitBTitleTextView.setText(converterUnitBName);
             }
         });
 
@@ -208,9 +210,7 @@ public class ConverterTabFragment extends Fragment {
     }
 
     //Will come from the SpinnerInterface
-    private String getConverterName(){
-        return "MS";
-    }
+
 
     private void setConverterBoxData(String unitAText, String unitBText) {
 
@@ -221,23 +221,23 @@ public class ConverterTabFragment extends Fragment {
 
     }
 
-    private void setUpTargetConverter() {
+    private void setUpTargetConverter(String converterName) {
 
         //Creating multiple instances of this view model just to access the database seems not good..
         //But that's not really whats happening!.. Right?
         ConverterViewModel mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class);
 
-        LiveData<List<Converter>> converterData = mConverterViewModel.getTargetConverter(getConverterName());
+        LiveData<List<Converter>> converterData = mConverterViewModel.getTargetConverter(converterName);
 
         //This observer seems to be getting triggered from the add button, and other fragments.
         Observer<List<Converter>> observer = new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
                 //This code just sets up a converter for an example
-//                String unitATitle = converters.get(0).getConverterUnitA_Name();
-//                String unitBTitle = converters.get(0).getConverterUnitB_Name();
-//
-//                setConverterBoxData(unitATitle, unitBTitle);
+                String unitATitle = converters.get(0).getConverterUnitA_Name();
+                String unitBTitle = converters.get(0).getConverterUnitB_Name();
+
+                setConverterBoxData(unitATitle, unitBTitle);
             }
         };
 
