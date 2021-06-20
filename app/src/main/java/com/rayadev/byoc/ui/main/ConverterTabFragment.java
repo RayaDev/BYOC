@@ -236,6 +236,7 @@ public class ConverterTabFragment extends Fragment {
             public void onChanged(List<Converter> converters) {
                 //This code just sets up a converter for an example
               Converter converter = converters.get(0);
+              Log.i("TAG1", "converter observer triggered");
 
                 String unitATitle = converter.getConverterUnitA_Name();
                 String unitBTitle = converter.getConverterUnitB_Name();
