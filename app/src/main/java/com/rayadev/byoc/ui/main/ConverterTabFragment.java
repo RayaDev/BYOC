@@ -294,6 +294,8 @@ public class ConverterTabFragment extends Fragment {
                 }
 
                 else {
+
+                    //TextWatcher not being remove here for some reason.
                     myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
                     Log.i("FTAG", "BET TWR");
                 }
