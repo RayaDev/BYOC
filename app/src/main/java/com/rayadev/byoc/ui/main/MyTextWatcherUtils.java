@@ -71,7 +71,7 @@ class MyTextWatcherUtils {
             viewB.setText(resultText);
         }
         else{
-            viewB.setText(""); //This line is cuasing the loop
+//            viewB.setText(""); //This line is cuasing the loop
 
         }
 
@@ -89,7 +89,7 @@ class MyTextWatcherUtils {
             viewA.setText(resultText);
         }
         else{
-            viewA.setText(""); //This line is cuasing the loop
+//            viewA.setText(""); //This line is cuasing the loop
 
 
         }

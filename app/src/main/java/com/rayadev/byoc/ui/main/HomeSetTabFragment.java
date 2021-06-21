@@ -208,12 +208,14 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
                     clearUserInput();
+//                    Log.i("FTAG", "AET HF");
                     myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
                 }
 
                 else if(!hasFocus){
 
                     myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
+//                    Log.i("FTAG", "AET TWR");
                 }
 
 
@@ -226,10 +228,12 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
                 if(hasFocus) {
                     clearUserInput();
                     myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+//                    Log.i("FTAG", "BET HF");
                 }
 
                 else if(!hasFocus) {
                     myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
+//                    Log.i("FTAG", "BET TWR");
                 }
             }
         });

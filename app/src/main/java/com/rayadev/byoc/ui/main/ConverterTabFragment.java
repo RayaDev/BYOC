@@ -249,10 +249,8 @@ public class ConverterTabFragment extends Fragment {
 
         converterData.observe(getViewLifecycleOwner(), observer);
 
-
-
-
     }
+
 
     private void setConverterBoxLogic(double unitAValue, double unitBValue) {
 
@@ -261,17 +259,23 @@ public class ConverterTabFragment extends Fragment {
         myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
         myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
 
+
         mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
                     clearUserInput();
+
+                    Log.i("FTAG", "AET HF");
                     myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+
+
                 }
 
-                else if(!hasFocus){
+                else {
 
                     myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
+                    Log.i("FTAG", "AET TWR");
                 }
 
 
@@ -283,11 +287,15 @@ public class ConverterTabFragment extends Fragment {
             public void onFocusChange(View v, boolean hasFocus) {
                 if(hasFocus) {
                     clearUserInput();
+
+                    Log.i("FTAG", "BET HF");
                     myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+
                 }
 
-                else if(!hasFocus) {
+                else {
                     myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
+                    Log.i("FTAG", "BET TWR");
                 }
             }
         });
