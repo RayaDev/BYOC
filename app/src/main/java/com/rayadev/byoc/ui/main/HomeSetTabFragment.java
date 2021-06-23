@@ -211,7 +211,6 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
         myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
 
-        keyboardManager();
 
         mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
