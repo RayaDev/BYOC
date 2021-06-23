@@ -8,12 +8,10 @@ Finish first draft of UI/UX:
 
 ***Working Tasks
 
-Implement conversion function in HomeSet
-    > Loop bug fixed
-    > Performance issue and string formatting issue.
-        > Crashing randomly when switching converter.
-        > Probably need to do unit testing.
-    > Add button to Converter Workshop
+Performance issue
+ConverterTab UI
+    > Loop fixed, but conversion rate not changing after new units selected
+    > unitA is not being focused by default.
 
 
 > Create converter logic for the Spinner.

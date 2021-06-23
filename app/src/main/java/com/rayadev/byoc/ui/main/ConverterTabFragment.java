@@ -15,8 +15,10 @@ import androidx.lifecycle.ViewModelStoreOwner;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -259,8 +261,6 @@ public class ConverterTabFragment extends Fragment {
         myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
         myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
 
-        mUnitAInputEditText.setFocusedByDefault(true);
-        mUnitAInputEditText.requestFocus();
 
         mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -304,6 +304,8 @@ public class ConverterTabFragment extends Fragment {
             }
         });
 
+        keyboardManager();
+
     }
 
     private void clearUserInput() {
@@ -316,6 +318,13 @@ public class ConverterTabFragment extends Fragment {
             mUnitBInputEditText.getText().clear();
         }
 
+    }
+
+    private void keyboardManager() {
+        mUnitAInputEditText.setFocusedByDefault(true);
+
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(mUnitAInputEditText, InputMethodManager.SHOW_IMPLICIT);
     }
 
 }
