@@ -38,10 +38,15 @@ class MyTextWatcherUtils {
 
                 switch(userSelection) {
                     case 1:
-                        runConversionAB();
+                        if(viewA.isFocused()) {
+                            runConversionAB();
+                        }
+
                         break;
                     case 2:
-                        runConversionBA();
+                        if(viewB.isFocused()) {
+                            runConversionBA();
+                        }
                         break;
                 }
 

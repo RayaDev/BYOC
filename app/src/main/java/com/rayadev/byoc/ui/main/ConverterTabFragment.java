@@ -259,6 +259,8 @@ public class ConverterTabFragment extends Fragment {
         myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
         myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
 
+        mUnitAInputEditText.setFocusedByDefault(true);
+        mUnitAInputEditText.requestFocus();
 
         mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
