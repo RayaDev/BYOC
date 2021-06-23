@@ -123,6 +123,8 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         // When the activity is destroyed, the ViewModel still exists. It is not subject to LifeCycle methods.
         mConverterViewModel = new ViewModelProvider(this).get(ConverterViewModel.class); //Call ViewModel constructor directly
 
+        //Going to need a Favorites Table for this one..
+
         //To display the current contents of the database, you add an observer that observes the LiveData in the ViewModel.
         mConverterViewModel.getAllConverters().observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
             @Override
