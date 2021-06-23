@@ -261,50 +261,73 @@ public class ConverterTabFragment extends Fragment {
         myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
         myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
 
+        mUnitAInputEditText.clearFocus();
+        mUnitBInputEditText.clearFocus();
 
-        mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        clearUserInput();
+
+        myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+        myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+
+        keyboardManager();
+
+        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    clearUserInput();
-
-                    Log.i("FTAG", "AET HF");
-                    myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
-
-
-                }
-
-                else {
-
-                    myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
-                    Log.i("FTAG", "AET TWR");
-                }
-
-
+                clearUserInput();
             }
         });
 
         mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    clearUserInput();
-
-                    Log.i("FTAG", "BET HF");
-                    myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
-
-                }
-
-                else {
-
-                    //TextWatcher not being remove here for some reason.
-                    myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
-                    Log.i("FTAG", "BET TWR");
-                }
+                clearUserInput();
             }
         });
 
-        keyboardManager();
+//        mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(hasFocus) {
+//                    clearUserInput();
+//
+//                    Log.i("FTAG", "AET HF");
+//                    myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+//
+//
+//                }
+//
+//                else {
+//
+//                    myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
+//                    Log.i("FTAG", "AET TWR");
+//                }
+//
+//
+//            }
+//        });
+//
+//        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(hasFocus) {
+//                    clearUserInput();
+//
+//                    Log.i("FTAG", "BET HF");
+//                    myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+//
+//                }
+//
+//                else {
+//
+//                    //TextWatcher not being remove here for some reason.
+//                    myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
+//                    Log.i("FTAG", "BET TWR");
+//                }
+//            }
+//        });
+
+
 
     }
 
@@ -321,7 +344,8 @@ public class ConverterTabFragment extends Fragment {
     }
 
     private void keyboardManager() {
-        mUnitAInputEditText.setFocusedByDefault(true);
+
+        mUnitAInputEditText.requestFocus();
 
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(mUnitAInputEditText, InputMethodManager.SHOW_IMPLICIT);

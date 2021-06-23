@@ -11,6 +11,8 @@ Finish first draft of UI/UX:
 Performance issue
 ConverterTab UI
     > Loop fixed, but conversion rate not changing after new units selected
+        > Focus hasn't changed yet.. so the textWatcher aren't triggered, which allows for the unit
+            conversion to run.
     > unitA is not being focused by default.
 
 
