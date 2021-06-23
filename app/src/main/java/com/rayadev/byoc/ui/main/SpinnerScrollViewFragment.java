@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 public class SpinnerScrollViewFragment extends Fragment {
 
-    private int layoutID;
+    private final int layoutID;
     private UserConverterSelection mUserConverterSelection;
     private String converterUnitAName = "";
     private String converterUnitBName = "";
@@ -65,34 +65,26 @@ public class SpinnerScrollViewFragment extends Fragment {
 
     private void createScrollViewLogic(View view) {
 
-
         //Get the set of unit View IDs based on the layout being used.
         //Declare all of this in an arrays resource file.
 
 
-        switch (layoutID) {
-            case R.layout.spinner_scrollview_distance:
-                int[] arrayA = getResources().getIntArray(R.array.distance_scrollview_unitA_ID);
-                int[] arrayB = getResources().getIntArray(R.array.distance_scrollview_unitB_ID);
+        if(layoutID == R.layout.spinner_scrollview_distance) {
 
-                linkSpinnerViews(view, arrayA, arrayB);
+            int[] distanceScrollViewA_ViewIDs = new int[]{R.id.DA1, R.id.DA2, R.id.DA3, R.id.DA4,
+                    R.id.DA5, R.id.DA6, R.id.DA7, R.id.DA8};
 
-                break;
+            int[] distanceScrollViewB_ViewIDs = new int[]{R.id.DB1, R.id.DB2, R.id.DB3, R.id.DB4,
+                    R.id.DB5, R.id.DB6, R.id.DB7, R.id.DB8};
 
-            case R.layout.spinner_scrollview_area:
-                //Replace with Area unitIDs
-
-                break;
-
-            default:
-
-                break;
-
-
+            linkSpinnerViews(view, distanceScrollViewA_ViewIDs, distanceScrollViewB_ViewIDs);
 
         }
 
-        //Link Views in spinner and enable UI
+//        if(layoutID == R.layout.spinner_scrollview_area) {
+//            int areaScrollViewA_ViewIDs = int int[] {R.id.D}
+//        }
+
 
     }
 
@@ -101,20 +93,11 @@ public class SpinnerScrollViewFragment extends Fragment {
         final ArrayList<TextView> mTextViewAList = new ArrayList<>();
         final ArrayList<TextView> mTextViewBList = new ArrayList<>();
 
-        //Ohh here's where the IDs need to be added for area.. And every other category..
-
-        int[] distanceScrollViewA_ViewIDs = new int[]{R.id.DA1, R.id.DA2, R.id.DA3, R.id.DA4,
-                R.id.DA5, R.id.DA6, R.id.DA7, R.id.DA8};
-
-        int[] distanceScrollViewB_ViewIDs = new int[]{R.id.DB1, R.id.DB2, R.id.DB3, R.id.DB4,
-                R.id.DB5, R.id.DB6, R.id.DB7, R.id.DB8};
-
         int i = 0;
-        while(i < distanceScrollViewA_ViewIDs.length) {
-//           TextView unitATextView = view.findViewById(unitAIDs.get(i));
-//           TextView unitBTextView = view.findViewById(unitBIDs.get(i));
-            TextView unitATextView = view.findViewById(distanceScrollViewA_ViewIDs[i]);
-            TextView unitBTextView = view.findViewById(distanceScrollViewB_ViewIDs[i]);
+        while(i < unitAIDs.length) {
+           TextView unitATextView = view.findViewById(unitAIDs[i]);
+           TextView unitBTextView = view.findViewById(unitBIDs[i]);
+
            mTextViewAList.add(unitATextView);
            mTextViewBList.add(unitBTextView);
            i++;
