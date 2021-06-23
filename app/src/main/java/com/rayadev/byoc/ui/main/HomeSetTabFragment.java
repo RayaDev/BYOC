@@ -203,40 +203,66 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         myTextWatcherUtils[0] = new MyTextWatcherUtils(1, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
         myTextWatcherUtils[1] = new MyTextWatcherUtils(2, unitAValue, unitBValue, mUnitAInputEditText, mUnitBInputEditText);
 
-        mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mUnitAInputEditText.clearFocus();
+        mUnitBInputEditText.clearFocus();
+
+        clearUserInput();
+
+        myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+        myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+
+        keyboardManager();
+
+        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    clearUserInput();
-//                    Log.i("FTAG", "AET HF");
-                    myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
-                }
-
-                else if(!hasFocus){
-
-                    myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
-//                    Log.i("FTAG", "AET TWR");
-                }
-
-
+                clearUserInput();
             }
         });
 
         mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(hasFocus) {
-                    clearUserInput();
-                    myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
-//                    Log.i("FTAG", "BET HF");
-                }
-
-                else if(!hasFocus) {
-                    myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
-//                    Log.i("FTAG", "BET TWR");
-                }
+                clearUserInput();
             }
         });
+
+
+
+//        mUnitAInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(hasFocus) {
+//                    clearUserInput();
+////                    Log.i("FTAG", "AET HF");
+//                    myTextWatcherUtils[0].setUnitEditTextWatcher(mUnitAInputEditText);
+//                }
+//
+//                else if(!hasFocus){
+//
+//                    myTextWatcherUtils[0].removeTextWatcher(mUnitAInputEditText);
+////                    Log.i("FTAG", "AET TWR");
+//                }
+//
+//
+//            }
+//        });
+//
+//        mUnitBInputEditText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(hasFocus) {
+//                    clearUserInput();
+//                    myTextWatcherUtils[1].setUnitEditTextWatcher(mUnitBInputEditText);
+////                    Log.i("FTAG", "BET HF");
+//                }
+//
+//                else if(!hasFocus) {
+//                    myTextWatcherUtils[1].removeTextWatcher(mUnitBInputEditText);
+////                    Log.i("FTAG", "BET TWR");
+//                }
+//            }
+//        });
 
 
     }
