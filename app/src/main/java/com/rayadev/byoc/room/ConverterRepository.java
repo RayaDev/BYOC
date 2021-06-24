@@ -15,12 +15,15 @@ public class ConverterRepository {
 
     private ConverterDAO mConverterDao;
     private LiveData<List<Converter>> mAllConverters;
+    private LiveData<List<Converter>> mFavoriteConverters;
 
     //Add a constructor that gets a handle to the database and initializes the member variables.
     public ConverterRepository (Application application) {
         ConverterRoomDataBase db = ConverterRoomDataBase.getDatabase(application);
         mConverterDao = db.mConverterDAO();
+
         mAllConverters = mConverterDao.getAllConverters();
+        mFavoriteConverters = mConverterDao.getConverterFavorites(1); //1 is boolean for true
     }
 
 
@@ -34,9 +37,17 @@ public class ConverterRepository {
     Add a wrapper for all methods in the ConverterDAO
     */
 
-    //getter doesn't need AsyncWrapper just returning a List
+    //LiveData doesn't need AsyncTasks.
     public LiveData<List<Converter>> getAllConverters() {
         return mAllConverters;
+    }
+
+    public LiveData<List<Converter>> getTargetConverter(String converterName) {
+        return mConverterDao.getTargetConverter(converterName);
+    }
+
+    public LiveData<List<Converter>> getFavoriteConverters() {
+        return mFavoriteConverters;
     }
 
     public void insertConverter (Converter converter) {
@@ -48,10 +59,6 @@ public class ConverterRepository {
         new deleteConverterAsyncTask(mConverterDao).execute(converter);
     }
 
-    public LiveData<List<Converter>> getTargetConverter(String converterName) {
-        //AsyncTask occurs at Fragment level. Seems to be good. This needs to be LiveData.
-        return mConverterDao.getTargetConverter(converterName);
-    }
 
     public void deleteConverterByID(int converterID) {
         new deleteConverterByID(mConverterDao).execute(converterID);

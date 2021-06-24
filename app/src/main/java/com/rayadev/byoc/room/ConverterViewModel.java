@@ -18,11 +18,14 @@ public class ConverterViewModel extends AndroidViewModel {
     //Add a private LiveData member variable to cache the list of converters.
     private LiveData<List<Converter>> mAllConverters;
 
+    private LiveData<List<Converter>> mFavoriteConverters;
+
 
     public ConverterViewModel(@NonNull Application application) {
         super(application);
         mRepository = new ConverterRepository(application);
         mAllConverters = mRepository.getAllConverters();
+        mFavoriteConverters = mRepository.getFavoriteConverters();
     }
 
     // The ViewModel implements all methods that will be available to the Main Activity.
@@ -34,18 +37,21 @@ public class ConverterViewModel extends AndroidViewModel {
             > Which is informed by the selections on the Spinner.
      */
 
-    //Wrapper for the "getter" method that gets all the words.
+    //
     public LiveData<List<Converter>> getAllConverters() { return mAllConverters; }
-
-    //Deletes a single Converters from the database, Use converterID***
-    public void deleteConverters(Converter converter) {mRepository.deleteConverter(converter);}
-
-    public void insertConverter(Converter converter) {mRepository.insertConverter(converter);}
 
     //This will be implemented by the Spinner. All Converters will already exist in the database.
     public LiveData<List<Converter>> getTargetConverter(String converterName) {
         return mRepository.getTargetConverter(converterName);
     }
+
+    public LiveData<List<Converter>> getFavoriteConverters() {return mFavoriteConverters;}
+
+
+    public void insertConverter(Converter converter) {mRepository.insertConverter(converter);}
+
+    //Delete all converters
+    public void deleteConverters(Converter converter) {mRepository.deleteConverter(converter);}
 
    public void deleteConverterByID(int converterID) {
        mRepository.deleteConverterByID(converterID);
