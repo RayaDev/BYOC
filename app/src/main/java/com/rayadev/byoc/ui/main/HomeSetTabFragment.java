@@ -126,7 +126,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
         //Going to need a Favorites Table for this one..
 
         //To display the current contents of the database, you add an observer that observes the LiveData in the ViewModel.
-        mConverterViewModel.getAllConverters().observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
+        mConverterViewModel.getFavoriteConverters().observe(getViewLifecycleOwner(), new Observer<List<Converter>>() {
             @Override
             public void onChanged(List<Converter> converters) {
                 adapter.setConverterArrayList((ArrayList<Converter>) converters);
