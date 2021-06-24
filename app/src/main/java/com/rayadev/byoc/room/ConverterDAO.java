@@ -27,6 +27,7 @@ interface ConverterDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertConverter(Converter converter);
 
+
     //Delete a single converter from the database
     @Delete
     void deleteConverter(Converter converter);
