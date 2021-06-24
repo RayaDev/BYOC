@@ -31,6 +31,9 @@ public class Converter {
     @ColumnInfo(name = "converter_name") @NonNull
     private String mConverterName;
 
+    @ColumnInfo(name = "converter_favorite")
+    private int mConverterFavorite;
+
 
     public Converter(String mConverterUnitA_Name, String mConverterUnitB_Name, double mConverterUnitA_Value, double mConverterUnitB_Value, String mConverterCategory) {
 
@@ -102,5 +105,13 @@ public class Converter {
 
     public void setConverterCategory(@NonNull String converterCategory) {
         mConverterCategory = converterCategory;
+    }
+
+    public int getConverterFavorite() {
+        return mConverterFavorite;
+    }
+
+    public void setConverterFavorite(int converterFavorite) {
+        mConverterFavorite = converterFavorite;
     }
 }

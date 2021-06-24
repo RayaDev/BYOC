@@ -43,4 +43,8 @@ interface ConverterDAO {
 
     @Query("SELECT * from converter_table WHERE converterID = :converterID")
     Converter getConverterByID(int converterID);
+
+    @Query("SELECT * from converter_table WHERE converter_favorite =:converterFavorite")
+    LiveData<List<Converter>> getConverterFavorites(int converterFavorite);
+
 }
