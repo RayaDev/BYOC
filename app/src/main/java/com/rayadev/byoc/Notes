@@ -11,6 +11,7 @@ Need to add favorites table to SQL for HomeSetTabFrag
     > Not favorites table, favorites column with a 1 or null for a favorite DONE
     > Link add button to favorites table.
     > Have add button take data from spinner fragment
+    > Update Delete and Add button.
     > Finish distance data. Atleast for km.. to make testing easier.
 
 Implement currency**
