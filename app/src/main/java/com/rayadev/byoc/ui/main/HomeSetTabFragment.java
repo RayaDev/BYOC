@@ -167,7 +167,7 @@ public class HomeSetTabFragment extends Fragment implements HomeSetRecyclerViewA
     }
 
     @Override
-    public void onConverterLongClick(int converterID) {
+    public void onConverterLongClick(int converterID) { //This should really just use the String name of the converter
 
 
         new AlertDialog.Builder(getContext())

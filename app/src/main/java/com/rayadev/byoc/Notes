@@ -5,8 +5,13 @@ Keep up with this project enough during work so that you don't loose Android ski
 Update Connection With Being to get consent for viewing an Ad
 
 
-Fill out and add more converter data to SpinnerFragment.
-Lots of SQL work to be done.
+1. Fill out and add more converter data to SpinnerFragment.
+Lots of SQL work to be done. Implement favorites.
+
+Just need multiple tables for each unit type, and a favorites table.
+That will make everything much neater and easier to manage.
+Actually no because then each table need its own DAO.
+
 Need to add favorites table to SQL for HomeSetTabFrag
     > Not favorites table, favorites column with a 1 or null for a favorite DONE
     > Link add button to favorites table.
